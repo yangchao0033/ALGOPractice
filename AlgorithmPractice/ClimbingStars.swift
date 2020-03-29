@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class CombineStars {
+class ClimbingStars {
     // 解法一：斐波那契通项公示 O(logn)
     // swiftlint:disable identifier_name
     func climStars(_ n: Int) -> Int {
