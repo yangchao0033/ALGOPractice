@@ -13,6 +13,7 @@
 		1707AB09242A6FB700337E8C /* ClimbingStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707AB08242A6FB700337E8C /* ClimbingStars.swift */; };
 		175C9646242CE2450042B677 /* HasCycle2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C9645242CE2450042B677 /* HasCycle2.swift */; };
 		175C96482430A5D60042B677 /* ReverseKGroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C96472430A5D60042B677 /* ReverseKGroupList.swift */; };
+		175C964A2430BDAD0042B677 /* RemoveDuplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C96492430BDAD0042B677 /* RemoveDuplicates.swift */; };
 		17737E84242B21490040A405 /* ThreeSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17737E83242B21490040A405 /* ThreeSum.swift */; };
 		17737E86242B46000040A405 /* ReverseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17737E85242B46000040A405 /* ReverseList.swift */; };
 		17737E88242B46360040A405 /* ListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17737E87242B46360040A405 /* ListNode.swift */; };
@@ -41,6 +42,7 @@
 		1707AB08242A6FB700337E8C /* ClimbingStars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbingStars.swift; sourceTree = "<group>"; };
 		175C9645242CE2450042B677 /* HasCycle2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCycle2.swift; sourceTree = "<group>"; };
 		175C96472430A5D60042B677 /* ReverseKGroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseKGroupList.swift; sourceTree = "<group>"; };
+		175C96492430BDAD0042B677 /* RemoveDuplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveDuplicates.swift; sourceTree = "<group>"; };
 		17737E83242B21490040A405 /* ThreeSum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeSum.swift; sourceTree = "<group>"; };
 		17737E85242B46000040A405 /* ReverseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseList.swift; sourceTree = "<group>"; };
 		17737E87242B46360040A405 /* ListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNode.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				17737E8B242CA9B00040A405 /* HasCycle.swift */,
 				175C9645242CE2450042B677 /* HasCycle2.swift */,
 				175C96472430A5D60042B677 /* ReverseKGroupList.swift */,
+				175C96492430BDAD0042B677 /* RemoveDuplicates.swift */,
 			);
 			path = AlgorithmPractice;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17737E88242B46360040A405 /* ListNode.swift in Sources */,
+				175C964A2430BDAD0042B677 /* RemoveDuplicates.swift in Sources */,
 				17737E86242B46000040A405 /* ReverseList.swift in Sources */,
 				17737E8C242CA9B00040A405 /* HasCycle.swift in Sources */,
 				1707AB05242A0A1D00337E8C /* MovieZeros.swift in Sources */,

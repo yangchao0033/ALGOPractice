@@ -9,7 +9,5 @@
 import Foundation
 
 print("Hello, World!")
-
 class Solution {
-    
 }
