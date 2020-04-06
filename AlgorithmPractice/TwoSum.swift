@@ -11,13 +11,12 @@ import Cocoa
 class TwoSum {
     func towSum(_ nums: [Int], _ target: Int) -> [Int] {
             // 1. 暴力法 O(n^2)
-    //        for i in 0..<nums.count {
-    //            for j in i + 1..<nums.count {
-    //                if nums[i] + nums[j] == target {
-    //                    return [i, j]
-    //                }
-    //            }
-    //        }
+//    for i in 0..<nums.count - 1 {
+//        for j in i + 1..<nums.count where nums[i] + nums[j] == target {
+//            return [i, j]
+//        }
+//    }
+//    return [0, 0]
     //        return [0, 0]
             // 2. Set 法 O(n^2)
     //        var set: Set<Int> = []

@@ -1,3 +1,5 @@
 identifier_name:
   min_length:
     warning: 0
+trailing_whitespace:
+  ignores_empty_lines: true

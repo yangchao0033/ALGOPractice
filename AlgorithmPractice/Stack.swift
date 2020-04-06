@@ -12,7 +12,10 @@ struct Stack<T> {
     private var array = [T]()
     // isEmpty
     public var isEmpty: Bool {
-        array.isEmpty
+        return array.isEmpty
+    }
+    public var count: Int {
+        return array.count
     }
     // push
     public mutating func push(_ element: T) {
@@ -20,10 +23,10 @@ struct Stack<T> {
     }
     // pop
     public mutating func pop() -> T? {
-        array.popLast()
+       return array.popLast()
     }
     // peek
     public var peek: T? {
-        array.last
+        return array.last
     }
 }

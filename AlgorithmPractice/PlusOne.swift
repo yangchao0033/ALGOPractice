@@ -11,9 +11,8 @@ import Cocoa
 class PlusOne {
     func plusOne(_ digits: [Int]) -> [Int] {
         var digits = digits
-        for i in (0...digits.count - 1).reversed() {
-            digits[i] += 1
-            digits[i] %= 10
+        for i in (0..<digits.count).reversed() {
+            digits[i] = (digits[i] + 1) % 10
             if digits[i] != 0 {
                 return digits
             }

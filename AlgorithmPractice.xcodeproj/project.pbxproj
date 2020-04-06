@@ -17,6 +17,8 @@
 		1727FC2524349DD800832422 /* LargestRectangleArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727FC2424349DD800832422 /* LargestRectangleArea.swift */; };
 		1727FC2B2434F07D00832422 /* MaxSlidingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727FC2A2434F07D00832422 /* MaxSlidingWindow.swift */; };
 		1727FC2D2434F0AF00832422 /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727FC2C2434F0AF00832422 /* Deque.swift */; };
+		1727FC2F243B6A0E00832422 /* MyCircularDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727FC2E243B6A0E00832422 /* MyCircularDeque.swift */; };
+		1727FC31243B706300832422 /* TrappingRainWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727FC30243B706300832422 /* TrappingRainWater.swift */; };
 		175C9646242CE2450042B677 /* HasCycle2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C9645242CE2450042B677 /* HasCycle2.swift */; };
 		175C96482430A5D60042B677 /* ReverseKGroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C96472430A5D60042B677 /* ReverseKGroupList.swift */; };
 		175C964A2430BDAD0042B677 /* RemoveDuplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C96492430BDAD0042B677 /* RemoveDuplicates.swift */; };
@@ -57,6 +59,8 @@
 		1727FC2424349DD800832422 /* LargestRectangleArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargestRectangleArea.swift; sourceTree = "<group>"; };
 		1727FC2A2434F07D00832422 /* MaxSlidingWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxSlidingWindow.swift; sourceTree = "<group>"; };
 		1727FC2C2434F0AF00832422 /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deque.swift; sourceTree = "<group>"; };
+		1727FC2E243B6A0E00832422 /* MyCircularDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCircularDeque.swift; sourceTree = "<group>"; };
+		1727FC30243B706300832422 /* TrappingRainWater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrappingRainWater.swift; sourceTree = "<group>"; };
 		175C9645242CE2450042B677 /* HasCycle2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCycle2.swift; sourceTree = "<group>"; };
 		175C96472430A5D60042B677 /* ReverseKGroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseKGroupList.swift; sourceTree = "<group>"; };
 		175C96492430BDAD0042B677 /* RemoveDuplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveDuplicates.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				1727FC2224343C0C00832422 /* Stack.swift */,
 				1727FC2A2434F07D00832422 /* MaxSlidingWindow.swift */,
 				1727FC2C2434F0AF00832422 /* Deque.swift */,
+				1727FC2E243B6A0E00832422 /* MyCircularDeque.swift */,
+				1727FC30243B706300832422 /* TrappingRainWater.swift */,
 			);
 			path = AlgorithmPractice;
 			sourceTree = "<group>";
@@ -269,7 +275,9 @@
 				1727FC2B2434F07D00832422 /* MaxSlidingWindow.swift in Sources */,
 				175C96482430A5D60042B677 /* ReverseKGroupList.swift in Sources */,
 				175C9646242CE2450042B677 /* HasCycle2.swift in Sources */,
+				1727FC31243B706300832422 /* TrappingRainWater.swift in Sources */,
 				175C9654243232F00042B677 /* MergeTwoLists.swift in Sources */,
+				1727FC2F243B6A0E00832422 /* MyCircularDeque.swift in Sources */,
 				1707AAFD2429F31500337E8C /* main.swift in Sources */,
 				1727FC2D2434F0AF00832422 /* Deque.swift in Sources */,
 				1707AB09242A6FB700337E8C /* ClimbingStars.swift in Sources */,
