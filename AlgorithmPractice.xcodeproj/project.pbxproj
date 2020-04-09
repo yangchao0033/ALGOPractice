@@ -19,6 +19,8 @@
 		1727FC2D2434F0AF00832422 /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727FC2C2434F0AF00832422 /* Deque.swift */; };
 		1727FC2F243B6A0E00832422 /* MyCircularDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727FC2E243B6A0E00832422 /* MyCircularDeque.swift */; };
 		1727FC31243B706300832422 /* TrappingRainWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727FC30243B706300832422 /* TrappingRainWater.swift */; };
+		172F93F6243F33C400032DFE /* WordIsAnagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172F93F5243F33C400032DFE /* WordIsAnagram.swift */; };
+		172F93F8243F695800032DFE /* GroupAnagrams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172F93F7243F695800032DFE /* GroupAnagrams.swift */; };
 		175C9646242CE2450042B677 /* HasCycle2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C9645242CE2450042B677 /* HasCycle2.swift */; };
 		175C96482430A5D60042B677 /* ReverseKGroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C96472430A5D60042B677 /* ReverseKGroupList.swift */; };
 		175C964A2430BDAD0042B677 /* RemoveDuplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C96492430BDAD0042B677 /* RemoveDuplicates.swift */; };
@@ -61,6 +63,9 @@
 		1727FC2C2434F0AF00832422 /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deque.swift; sourceTree = "<group>"; };
 		1727FC2E243B6A0E00832422 /* MyCircularDeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCircularDeque.swift; sourceTree = "<group>"; };
 		1727FC30243B706300832422 /* TrappingRainWater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrappingRainWater.swift; sourceTree = "<group>"; };
+		172F93EE243C524000032DFE /* AlgorithmPractice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlgorithmPractice-Bridging-Header.h"; sourceTree = "<group>"; };
+		172F93F5243F33C400032DFE /* WordIsAnagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordIsAnagram.swift; sourceTree = "<group>"; };
+		172F93F7243F695800032DFE /* GroupAnagrams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAnagrams.swift; sourceTree = "<group>"; };
 		175C9645242CE2450042B677 /* HasCycle2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCycle2.swift; sourceTree = "<group>"; };
 		175C96472430A5D60042B677 /* ReverseKGroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseKGroupList.swift; sourceTree = "<group>"; };
 		175C96492430BDAD0042B677 /* RemoveDuplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveDuplicates.swift; sourceTree = "<group>"; };
@@ -112,6 +117,8 @@
 		1707AAFB2429F31500337E8C /* AlgorithmPractice */ = {
 			isa = PBXGroup;
 			children = (
+				172F93F7243F695800032DFE /* GroupAnagrams.swift */,
+				172F93F5243F33C400032DFE /* WordIsAnagram.swift */,
 				1707AAFC2429F31500337E8C /* main.swift */,
 				1727FC2424349DD800832422 /* LargestRectangleArea.swift */,
 				17737E85242B46000040A405 /* ReverseList.swift */,
@@ -137,6 +144,7 @@
 				1727FC2C2434F0AF00832422 /* Deque.swift */,
 				1727FC2E243B6A0E00832422 /* MyCircularDeque.swift */,
 				1727FC30243B706300832422 /* TrappingRainWater.swift */,
+				172F93EE243C524000032DFE /* AlgorithmPractice-Bridging-Header.h */,
 			);
 			path = AlgorithmPractice;
 			sourceTree = "<group>";
@@ -192,6 +200,7 @@
 				TargetAttributes = {
 					1707AAF82429F31500337E8C = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -274,6 +283,7 @@
 				17737E84242B21490040A405 /* ThreeSum.swift in Sources */,
 				1727FC2B2434F07D00832422 /* MaxSlidingWindow.swift in Sources */,
 				175C96482430A5D60042B677 /* ReverseKGroupList.swift in Sources */,
+				172F93F6243F33C400032DFE /* WordIsAnagram.swift in Sources */,
 				175C9646242CE2450042B677 /* HasCycle2.swift in Sources */,
 				1727FC31243B706300832422 /* TrappingRainWater.swift in Sources */,
 				175C9654243232F00042B677 /* MergeTwoLists.swift in Sources */,
@@ -286,6 +296,7 @@
 				175C96522431F5EA0042B677 /* PlusOne.swift in Sources */,
 				1727FC212433A3A200832422 /* MinStack.swift in Sources */,
 				175C964E2431AB690042B677 /* SortedArrayMerge.swift in Sources */,
+				172F93F8243F695800032DFE /* GroupAnagrams.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,10 +420,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BC58ACB1BA370ABFACAAB1E9 /* Pods-AlgorithmPractice.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SURL4UGYU;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AlgorithmPractice/AlgorithmPractice-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -421,10 +440,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA1ADEBC9FD99868A143DE10 /* Pods-AlgorithmPractice.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SURL4UGYU;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AlgorithmPractice/AlgorithmPractice-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

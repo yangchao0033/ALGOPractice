@@ -20,12 +20,13 @@ class RoateArray {
     //            }
     //        }
             // 2. 数组拷贝（取模索引）
-    //        var buffer = [Int](repeating: 0, count: nums.count)
-    //        for i in 0..<nums.count {
-    //            buffer[(i + k) % nums.count] = nums[i]
-    //        }
-    //        for j in 0..<nums.count {
-    //            nums[j] = buffer[j]
+    //        let n = nums.count
+    //        let k = k % n
+    //        guard k != 0 else { return }
+    //        var tempArray = [Int]()
+    //        tempArray.append(contentsOf: nums)
+    //        for i in 0..<n {
+    //            nums[(i + k) % n] = tempArray[i]
     //        }
             // 3. 环状替换(先忽略)
     //        let n = nums.count
@@ -50,9 +51,9 @@ class RoateArray {
     //            start += 1
     //        }
             // 4. 大小反转
-    //        reverseArray(array: &nums, left: 0, right: nums.count - 1)
-    //        reverseArray(array: &nums, left: 0, right: k - 1)
-    //        reverseArray(array: &nums, left: k, right: nums.count - 1)
+            reverseArray(array: &nums, left: 0, right: nums.count - 1)
+            reverseArray(array: &nums, left: 0, right: k - 1)
+            reverseArray(array: &nums, left: k, right: nums.count - 1)
         }
         func reverseArray(array: inout [Int], left: Int, right: Int) {
             var left = left
