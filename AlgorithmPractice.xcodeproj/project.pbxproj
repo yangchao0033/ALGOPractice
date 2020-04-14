@@ -11,6 +11,7 @@
 		1707AB05242A0A1D00337E8C /* MovieZeros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707AB04242A0A1D00337E8C /* MovieZeros.swift */; };
 		1707AB07242A550700337E8C /* MaxWaterArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707AB06242A550700337E8C /* MaxWaterArea.swift */; };
 		1707AB09242A6FB700337E8C /* ClimbingStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707AB08242A6FB700337E8C /* ClimbingStars.swift */; };
+		170DCA87244611CC0048A6C8 /* PostorderNTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170DCA86244611CC0048A6C8 /* PostorderNTree.swift */; };
 		1727FC1F2433963900832422 /* BracketsIsValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727FC1E2433963900832422 /* BracketsIsValid.swift */; };
 		1727FC212433A3A200832422 /* MinStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727FC202433A3A200832422 /* MinStack.swift */; };
 		1727FC2324343C0C00832422 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727FC2224343C0C00832422 /* Stack.swift */; };
@@ -21,6 +22,11 @@
 		1727FC31243B706300832422 /* TrappingRainWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1727FC30243B706300832422 /* TrappingRainWater.swift */; };
 		172F93F6243F33C400032DFE /* WordIsAnagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172F93F5243F33C400032DFE /* WordIsAnagram.swift */; };
 		172F93F8243F695800032DFE /* GroupAnagrams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172F93F7243F695800032DFE /* GroupAnagrams.swift */; };
+		1737C2212445953600100AB8 /* BinaryTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C2202445953500100AB8 /* BinaryTreeNode.swift */; };
+		1737C2232445A3FC00100AB8 /* InorderTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C2222445A3FC00100AB8 /* InorderTraversal.swift */; };
+		1737C2252445AE5700100AB8 /* PreorderTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C2242445AE5700100AB8 /* PreorderTraversal.swift */; };
+		1737C2272445C72B00100AB8 /* PostorderTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737C2262445C72B00100AB8 /* PostorderTraversal.swift */; };
+		17482F96244569270028C3D9 /* LengthOfLargestSubstring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17482F95244569270028C3D9 /* LengthOfLargestSubstring.swift */; };
 		175C9646242CE2450042B677 /* HasCycle2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C9645242CE2450042B677 /* HasCycle2.swift */; };
 		175C96482430A5D60042B677 /* ReverseKGroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C96472430A5D60042B677 /* ReverseKGroupList.swift */; };
 		175C964A2430BDAD0042B677 /* RemoveDuplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C96492430BDAD0042B677 /* RemoveDuplicates.swift */; };
@@ -55,6 +61,7 @@
 		1707AB04242A0A1D00337E8C /* MovieZeros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieZeros.swift; sourceTree = "<group>"; };
 		1707AB06242A550700337E8C /* MaxWaterArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxWaterArea.swift; sourceTree = "<group>"; };
 		1707AB08242A6FB700337E8C /* ClimbingStars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbingStars.swift; sourceTree = "<group>"; };
+		170DCA86244611CC0048A6C8 /* PostorderNTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostorderNTree.swift; sourceTree = "<group>"; };
 		1727FC1E2433963900832422 /* BracketsIsValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketsIsValid.swift; sourceTree = "<group>"; };
 		1727FC202433A3A200832422 /* MinStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinStack.swift; sourceTree = "<group>"; };
 		1727FC2224343C0C00832422 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -66,6 +73,11 @@
 		172F93EE243C524000032DFE /* AlgorithmPractice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlgorithmPractice-Bridging-Header.h"; sourceTree = "<group>"; };
 		172F93F5243F33C400032DFE /* WordIsAnagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordIsAnagram.swift; sourceTree = "<group>"; };
 		172F93F7243F695800032DFE /* GroupAnagrams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAnagrams.swift; sourceTree = "<group>"; };
+		1737C2202445953500100AB8 /* BinaryTreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTreeNode.swift; sourceTree = "<group>"; };
+		1737C2222445A3FC00100AB8 /* InorderTraversal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InorderTraversal.swift; sourceTree = "<group>"; };
+		1737C2242445AE5700100AB8 /* PreorderTraversal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreorderTraversal.swift; sourceTree = "<group>"; };
+		1737C2262445C72B00100AB8 /* PostorderTraversal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostorderTraversal.swift; sourceTree = "<group>"; };
+		17482F95244569270028C3D9 /* LengthOfLargestSubstring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthOfLargestSubstring.swift; sourceTree = "<group>"; };
 		175C9645242CE2450042B677 /* HasCycle2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCycle2.swift; sourceTree = "<group>"; };
 		175C96472430A5D60042B677 /* ReverseKGroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseKGroupList.swift; sourceTree = "<group>"; };
 		175C96492430BDAD0042B677 /* RemoveDuplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveDuplicates.swift; sourceTree = "<group>"; };
@@ -120,6 +132,7 @@
 				172F93F7243F695800032DFE /* GroupAnagrams.swift */,
 				172F93F5243F33C400032DFE /* WordIsAnagram.swift */,
 				1707AAFC2429F31500337E8C /* main.swift */,
+				170DCA86244611CC0048A6C8 /* PostorderNTree.swift */,
 				1727FC2424349DD800832422 /* LargestRectangleArea.swift */,
 				17737E85242B46000040A405 /* ReverseList.swift */,
 				1707AB04242A0A1D00337E8C /* MovieZeros.swift */,
@@ -145,6 +158,11 @@
 				1727FC2E243B6A0E00832422 /* MyCircularDeque.swift */,
 				1727FC30243B706300832422 /* TrappingRainWater.swift */,
 				172F93EE243C524000032DFE /* AlgorithmPractice-Bridging-Header.h */,
+				17482F95244569270028C3D9 /* LengthOfLargestSubstring.swift */,
+				1737C2202445953500100AB8 /* BinaryTreeNode.swift */,
+				1737C2222445A3FC00100AB8 /* InorderTraversal.swift */,
+				1737C2242445AE5700100AB8 /* PreorderTraversal.swift */,
+				1737C2262445C72B00100AB8 /* PostorderTraversal.swift */,
 			);
 			path = AlgorithmPractice;
 			sourceTree = "<group>";
@@ -272,12 +290,14 @@
 			files = (
 				17737E88242B46360040A405 /* ListNode.swift in Sources */,
 				175C964A2430BDAD0042B677 /* RemoveDuplicates.swift in Sources */,
+				1737C2212445953600100AB8 /* BinaryTreeNode.swift in Sources */,
 				175C964C243119460042B677 /* RoateArray.swift in Sources */,
 				17737E86242B46000040A405 /* ReverseList.swift in Sources */,
 				17737E8C242CA9B00040A405 /* HasCycle.swift in Sources */,
 				175C96502431EBFC0042B677 /* TwoSum.swift in Sources */,
 				1727FC2524349DD800832422 /* LargestRectangleArea.swift in Sources */,
 				1707AB05242A0A1D00337E8C /* MovieZeros.swift in Sources */,
+				1737C2272445C72B00100AB8 /* PostorderTraversal.swift in Sources */,
 				1707AB07242A550700337E8C /* MaxWaterArea.swift in Sources */,
 				17737E8A242BAEFE0040A405 /* SwapPairs.swift in Sources */,
 				17737E84242B21490040A405 /* ThreeSum.swift in Sources */,
@@ -285,12 +305,16 @@
 				175C96482430A5D60042B677 /* ReverseKGroupList.swift in Sources */,
 				172F93F6243F33C400032DFE /* WordIsAnagram.swift in Sources */,
 				175C9646242CE2450042B677 /* HasCycle2.swift in Sources */,
+				1737C2232445A3FC00100AB8 /* InorderTraversal.swift in Sources */,
+				17482F96244569270028C3D9 /* LengthOfLargestSubstring.swift in Sources */,
 				1727FC31243B706300832422 /* TrappingRainWater.swift in Sources */,
 				175C9654243232F00042B677 /* MergeTwoLists.swift in Sources */,
 				1727FC2F243B6A0E00832422 /* MyCircularDeque.swift in Sources */,
 				1707AAFD2429F31500337E8C /* main.swift in Sources */,
 				1727FC2D2434F0AF00832422 /* Deque.swift in Sources */,
+				170DCA87244611CC0048A6C8 /* PostorderNTree.swift in Sources */,
 				1707AB09242A6FB700337E8C /* ClimbingStars.swift in Sources */,
+				1737C2252445AE5700100AB8 /* PreorderTraversal.swift in Sources */,
 				1727FC1F2433963900832422 /* BracketsIsValid.swift in Sources */,
 				1727FC2324343C0C00832422 /* Stack.swift in Sources */,
 				175C96522431F5EA0042B677 /* PlusOne.swift in Sources */,
