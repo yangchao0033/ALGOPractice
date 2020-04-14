@@ -195,7 +195,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = superYang;
 				TargetAttributes = {
 					1707AAF82429F31500337E8C = {
@@ -421,6 +421,7 @@
 			baseConfigurationReference = BC58ACB1BA370ABFACAAB1E9 /* Pods-AlgorithmPractice.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SURL4UGYU;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -441,6 +442,7 @@
 			baseConfigurationReference = FA1ADEBC9FD99868A143DE10 /* Pods-AlgorithmPractice.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SURL4UGYU;
 				ENABLE_HARDENED_RUNTIME = YES;
