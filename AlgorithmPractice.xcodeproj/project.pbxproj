@@ -40,6 +40,7 @@
 		17737E88242B46360040A405 /* ListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17737E87242B46360040A405 /* ListNode.swift */; };
 		17737E8A242BAEFE0040A405 /* SwapPairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17737E89242BAEFE0040A405 /* SwapPairs.swift */; };
 		17737E8C242CA9B00040A405 /* HasCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17737E8B242CA9B00040A405 /* HasCycle.swift */; };
+		17B8D56B2446F57800700459 /* NTreeLevelorderTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B8D56A2446F57800700459 /* NTreeLevelorderTraversal.swift */; };
 		4FEE4AF12AE42F0EF10A612E /* libPods-AlgorithmPractice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0DB78E2DA4D3820329A09E /* libPods-AlgorithmPractice.a */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		17737E87242B46360040A405 /* ListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNode.swift; sourceTree = "<group>"; };
 		17737E89242BAEFE0040A405 /* SwapPairs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapPairs.swift; sourceTree = "<group>"; };
 		17737E8B242CA9B00040A405 /* HasCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCycle.swift; sourceTree = "<group>"; };
+		17B8D56A2446F57800700459 /* NTreeLevelorderTraversal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NTreeLevelorderTraversal.swift; sourceTree = "<group>"; };
 		5B0DB78E2DA4D3820329A09E /* libPods-AlgorithmPractice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AlgorithmPractice.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC58ACB1BA370ABFACAAB1E9 /* Pods-AlgorithmPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlgorithmPractice.debug.xcconfig"; path = "Target Support Files/Pods-AlgorithmPractice/Pods-AlgorithmPractice.debug.xcconfig"; sourceTree = "<group>"; };
 		FA1ADEBC9FD99868A143DE10 /* Pods-AlgorithmPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlgorithmPractice.release.xcconfig"; path = "Target Support Files/Pods-AlgorithmPractice/Pods-AlgorithmPractice.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				172F93F7243F695800032DFE /* GroupAnagrams.swift */,
 				172F93F5243F33C400032DFE /* WordIsAnagram.swift */,
 				1707AAFC2429F31500337E8C /* main.swift */,
+				17B8D56A2446F57800700459 /* NTreeLevelorderTraversal.swift */,
 				170DCA86244611CC0048A6C8 /* PostorderNTree.swift */,
 				1727FC2424349DD800832422 /* LargestRectangleArea.swift */,
 				17737E85242B46000040A405 /* ReverseList.swift */,
@@ -291,6 +294,7 @@
 				17737E88242B46360040A405 /* ListNode.swift in Sources */,
 				175C964A2430BDAD0042B677 /* RemoveDuplicates.swift in Sources */,
 				1737C2212445953600100AB8 /* BinaryTreeNode.swift in Sources */,
+				17B8D56B2446F57800700459 /* NTreeLevelorderTraversal.swift in Sources */,
 				175C964C243119460042B677 /* RoateArray.swift in Sources */,
 				17737E86242B46000040A405 /* ReverseList.swift in Sources */,
 				17737E8C242CA9B00040A405 /* HasCycle.swift in Sources */,
