@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1703C0292448B35800723550 /* IntervalMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703C0282448B35800723550 /* IntervalMerge.swift */; };
+		1703C02B2448C49500723550 /* NumberReverse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703C02A2448C49500723550 /* NumberReverse.swift */; };
+		1703C02D2448C4B100723550 /* CanJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703C02C2448C4B100723550 /* CanJump.swift */; };
 		1707AAFD2429F31500337E8C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707AAFC2429F31500337E8C /* main.swift */; };
 		1707AB05242A0A1D00337E8C /* MovieZeros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707AB04242A0A1D00337E8C /* MovieZeros.swift */; };
 		1707AB07242A550700337E8C /* MaxWaterArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707AB06242A550700337E8C /* MaxWaterArea.swift */; };
@@ -41,6 +44,8 @@
 		17737E8A242BAEFE0040A405 /* SwapPairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17737E89242BAEFE0040A405 /* SwapPairs.swift */; };
 		17737E8C242CA9B00040A405 /* HasCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17737E8B242CA9B00040A405 /* HasCycle.swift */; };
 		17B8D56B2446F57800700459 /* NTreeLevelorderTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B8D56A2446F57800700459 /* NTreeLevelorderTraversal.swift */; };
+		17E3F3B02448A1EE0005BA59 /* GenerateParenthesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E3F3AF2448A1EE0005BA59 /* GenerateParenthesis.swift */; };
+		17F131EC2448639500CE166A /* BSTTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F131EB2448639500CE166A /* BSTTraversal.swift */; };
 		4FEE4AF12AE42F0EF10A612E /* libPods-AlgorithmPractice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0DB78E2DA4D3820329A09E /* libPods-AlgorithmPractice.a */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +62,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1703C0282448B35800723550 /* IntervalMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalMerge.swift; sourceTree = "<group>"; };
+		1703C02A2448C49500723550 /* NumberReverse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberReverse.swift; sourceTree = "<group>"; };
+		1703C02C2448C4B100723550 /* CanJump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanJump.swift; sourceTree = "<group>"; };
 		1707AAF92429F31500337E8C /* AlgorithmPractice */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AlgorithmPractice; sourceTree = BUILT_PRODUCTS_DIR; };
 		1707AAFC2429F31500337E8C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1707AB04242A0A1D00337E8C /* MovieZeros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieZeros.swift; sourceTree = "<group>"; };
@@ -93,6 +101,8 @@
 		17737E89242BAEFE0040A405 /* SwapPairs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapPairs.swift; sourceTree = "<group>"; };
 		17737E8B242CA9B00040A405 /* HasCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCycle.swift; sourceTree = "<group>"; };
 		17B8D56A2446F57800700459 /* NTreeLevelorderTraversal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NTreeLevelorderTraversal.swift; sourceTree = "<group>"; };
+		17E3F3AF2448A1EE0005BA59 /* GenerateParenthesis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateParenthesis.swift; sourceTree = "<group>"; };
+		17F131EB2448639500CE166A /* BSTTraversal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTTraversal.swift; sourceTree = "<group>"; };
 		5B0DB78E2DA4D3820329A09E /* libPods-AlgorithmPractice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AlgorithmPractice.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC58ACB1BA370ABFACAAB1E9 /* Pods-AlgorithmPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlgorithmPractice.debug.xcconfig"; path = "Target Support Files/Pods-AlgorithmPractice/Pods-AlgorithmPractice.debug.xcconfig"; sourceTree = "<group>"; };
 		FA1ADEBC9FD99868A143DE10 /* Pods-AlgorithmPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlgorithmPractice.release.xcconfig"; path = "Target Support Files/Pods-AlgorithmPractice/Pods-AlgorithmPractice.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,7 +144,12 @@
 				172F93F7243F695800032DFE /* GroupAnagrams.swift */,
 				172F93F5243F33C400032DFE /* WordIsAnagram.swift */,
 				1707AAFC2429F31500337E8C /* main.swift */,
+				17E3F3AF2448A1EE0005BA59 /* GenerateParenthesis.swift */,
+				1703C0282448B35800723550 /* IntervalMerge.swift */,
+				1703C02A2448C49500723550 /* NumberReverse.swift */,
+				1703C02C2448C4B100723550 /* CanJump.swift */,
 				17B8D56A2446F57800700459 /* NTreeLevelorderTraversal.swift */,
+				17F131EB2448639500CE166A /* BSTTraversal.swift */,
 				170DCA86244611CC0048A6C8 /* PostorderNTree.swift */,
 				1727FC2424349DD800832422 /* LargestRectangleArea.swift */,
 				17737E85242B46000040A405 /* ReverseList.swift */,
@@ -308,21 +323,26 @@
 				1727FC2B2434F07D00832422 /* MaxSlidingWindow.swift in Sources */,
 				175C96482430A5D60042B677 /* ReverseKGroupList.swift in Sources */,
 				172F93F6243F33C400032DFE /* WordIsAnagram.swift in Sources */,
+				1703C02B2448C49500723550 /* NumberReverse.swift in Sources */,
 				175C9646242CE2450042B677 /* HasCycle2.swift in Sources */,
 				1737C2232445A3FC00100AB8 /* InorderTraversal.swift in Sources */,
 				17482F96244569270028C3D9 /* LengthOfLargestSubstring.swift in Sources */,
 				1727FC31243B706300832422 /* TrappingRainWater.swift in Sources */,
+				1703C02D2448C4B100723550 /* CanJump.swift in Sources */,
 				175C9654243232F00042B677 /* MergeTwoLists.swift in Sources */,
 				1727FC2F243B6A0E00832422 /* MyCircularDeque.swift in Sources */,
 				1707AAFD2429F31500337E8C /* main.swift in Sources */,
 				1727FC2D2434F0AF00832422 /* Deque.swift in Sources */,
 				170DCA87244611CC0048A6C8 /* PostorderNTree.swift in Sources */,
 				1707AB09242A6FB700337E8C /* ClimbingStars.swift in Sources */,
+				17F131EC2448639500CE166A /* BSTTraversal.swift in Sources */,
 				1737C2252445AE5700100AB8 /* PreorderTraversal.swift in Sources */,
 				1727FC1F2433963900832422 /* BracketsIsValid.swift in Sources */,
 				1727FC2324343C0C00832422 /* Stack.swift in Sources */,
 				175C96522431F5EA0042B677 /* PlusOne.swift in Sources */,
 				1727FC212433A3A200832422 /* MinStack.swift in Sources */,
+				1703C0292448B35800723550 /* IntervalMerge.swift in Sources */,
+				17E3F3B02448A1EE0005BA59 /* GenerateParenthesis.swift in Sources */,
 				175C964E2431AB690042B677 /* SortedArrayMerge.swift in Sources */,
 				172F93F8243F695800032DFE /* GroupAnagrams.swift in Sources */,
 			);

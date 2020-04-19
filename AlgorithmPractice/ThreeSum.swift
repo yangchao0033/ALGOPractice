@@ -32,7 +32,7 @@ class ThreeSum: NSObject {
         // s == 0 添加到结果&& i++ && 循环去重 && j-- && 循环去重
     func threeSum1(_ nums: [Int]) -> [[Int]] {
         let count = nums.endIndex
-        guard count > 3 else { return [nums] }
+        guard count >= 3 else { return [] }
         var numbers = nums
         numbers.sort()
         var res = [[Int]]()
@@ -44,32 +44,34 @@ class ThreeSum: NSObject {
                 guard numbers[k] <= 0 else { break }
                 let threeSum = numbers[k] + numbers[i] + numbers[j]
                 if threeSum < 0 {
-                    i += 1
-                    while i < j
-                        && numbers[i] == numbers[i - 1] {
-                        i += 1
-                    }
+                    i = leftIndexByMove(leftBar: i, rightBar: j, nums: numbers)
                 } else if threeSum > 0 {
-                    j -= 1
-                    while i < j
-                        && numbers[j] == numbers[j + 1] {
-                        j -= 1
-                    }
+                    j = rightIndexByMove(leftBar: i, rightBar: j, nums: numbers)
                 } else {
                     res.append([numbers[k], numbers[i], numbers[j]])
-                    i += 1
-                    while i < j
-                        && numbers[i] == numbers[i - 1] {
-                        i += 1
-                    }
-                    j -= 1
-                    while i < j
-                        && numbers[j] == numbers[j + 1] {
-                        j -= 1
-                    }
+                    i = leftIndexByMove(leftBar: i, rightBar: j, nums: numbers)
+                    j = rightIndexByMove(leftBar: i, rightBar: j, nums: numbers)
                 }
             }
         }
         return res
+    }
+    private func leftIndexByMove(leftBar: Int, rightBar: Int, nums: [Int]) -> Int {
+        return indexByMoveLeftOrRight(isLeft: true, leftBar: leftBar, rightBar: rightBar, nums: nums)
+    }
+    private func rightIndexByMove(leftBar: Int, rightBar: Int, nums: [Int]) -> Int {
+        return indexByMoveLeftOrRight(isLeft: false, leftBar: leftBar, rightBar: rightBar, nums: nums)
+    }
+    private func indexByMoveLeftOrRight(isLeft: Bool, leftBar: Int, rightBar: Int, nums: [Int]) -> Int {
+        let offset = isLeft ? 1 : -1
+        var moveItem = isLeft ? leftBar : rightBar
+        moveItem += offset
+        while true {
+            let condition = (isLeft ? moveItem < rightBar : leftBar < moveItem)
+                    && nums[moveItem] == nums[moveItem - offset]
+            guard condition else { break }
+            moveItem += offset
+        }
+        return moveItem
     }
 }
