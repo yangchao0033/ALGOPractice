@@ -9,43 +9,66 @@
 import Cocoa
 
 class ClimbingStars {
-    // 解法一：斐波那契通项公示 O(logn)
+    // 法一：斐波那契额求和公式
+    // 法二：暴力递归/缓存递归 (正向反向皆可，0...n | n...0)
+    // 法三：动态规划
     func climStars(_ n: Int) -> Int {
+        // 解法一：斐波那契通项公示 O(logn)
         // 由于比斐波那契数列少 1
-        let index = Double(n + 1)
-        let sqrtFive = sqrt(5)
-        let fibN = (pow((1 + sqrtFive) / 2, index) - pow((1 - sqrtFive) / 2, index)) / sqrtFive
-        return Int(fibN)
-    }
-    // 解法二：斐波那契迭代求和，并使用额外空间 时间 O(n) 空间 O(n)
-    func climStars1(_ n: Int) -> Int {
-        guard n != 0 else {
-            return 0
-        }
-        guard n != 1 else {
-            return 1
-        }
-        guard n != 2 else {
-            return 2
-        }
-        // 填充一个数组
-        var array = [Int](repeating: 0, count: n + 1)
-        array[1] = 1
-        array[2] = 2
-        for index in 3...n {
-            array[index] = array[index - 1] + array[index - 2]
-        }
-        return array[n]
-    }
-    // 解法三：整体同二，但不开辟新空间 时间 O(n) 空间 O(1)
-    func climStars2(_ n: Int) -> Int {
-        guard n > 2 else { return n }
-        var fn = 0, f1 = 1, f2 = 2
+//        let index = Double(n + 1)
+//        let sqrtFive = sqrt(5)
+//        let fibN = (pow((1 + sqrtFive) / 2, index) - pow((1 - sqrtFive) / 2, index)) / sqrtFive
+//        return Int(fibN)
+        // 解法二：递归
+        // a. 暴力递归
+        //        func climbHelper(_ n: Int) -> Int {
+//            if n == 1 {
+//                return 1
+//            }
+//            if n == 2 {
+//                return 2
+//            }
+//            return climbHelper(n - 1) + climbHelper(n - 2)
+//        }
+//        return climbHelper(n)
+        // b. 缓存递归
+        //        func climbHelper(_ n: Int, _ cache: inout [Int]) -> Int {
+//            if n == 1 {
+//                return 1
+//            }
+//            if n == 2 {
+//                return 2
+//            }
+//            if cache[n] != -1 {
+//                return cache[n]
+//            }
+//            cache[n] = climbHelper(n - 1, &cache) + climbHelper(n - 2, &cache)
+//            return cache[n]
+//        }
+//        var cache = [Int](repeating: -1, count: n + 1)
+//        return climbHelper(n, &cache)
+        // 解法三：动态规划
+        // a. 辅助数组
+        //        if n == 1 || n == 2 {
+//            return n
+//        }
+//        var array = [Int](repeating: 0, count: n + 1)
+//        array[1] = 1
+//        array[2] = 2
+//        for i in 3..<array.count {
+//            array[i] = array[i - 1] + array[i - 2]
+//        }
+//        return array[n]
+        // b. 临时变量
+        guard n != 1 && n != 2 else { return n }
+        var first = 1
+        var second = 2
+        var three = 0
         for _ in 3...n {
-            fn = f1 + f2
-            f1 = f2
-            f2 = fn
+            three = first + second
+            first = second
+            second = three
         }
-        return fn
+        return three
     }
 }
