@@ -1,14 +1,12 @@
 //
-//  main.swift
-//  AlgorithmPractice
-//
-//  Created by 超杨 on 2020/3/24.
-//  Copyright © 2020 superYang. All rights reserved.
+// Created by 超杨 on 2020/4/30.
+// Copyright (c) 2020 superYang. All rights reserved.
 //
 
-class Solution {
+import Foundation
+
+class HappyNumber {
     var set: Set<Int> = []
-
     func isHappy(_ n: Int) -> Bool {
         // 1. 逐位求平方和 + 递归 + HashSet 查环
 //        var cur = n
@@ -26,7 +24,7 @@ class Solution {
 //            set.insert(n)
 //            return isHappy(res)
 //        }
-    // 法二：快慢指针
+        // 法二：快慢指针
         var fast = n
         var slow = n
         repeat {
@@ -36,7 +34,6 @@ class Solution {
         } while slow != fast
         return fast == 1
     }
-
     func squareSum(_ n: Int) -> Int {
         var sum = 0
         var n = n
@@ -48,6 +45,3 @@ class Solution {
         return sum
     }
 }
-
-print(Solution().isHappy(19))
-ClassNameHelper.classNamePasteGet()

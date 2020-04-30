@@ -54,6 +54,7 @@ class GroupAnagrams {
             }
             return Array(hashMap.values)
         }
+
     //    func isAnagram(_ s: String, _ t: String) -> Bool {
     //        var count = [Int](repeating: 0, count: 26)
     //        let aCharUnicodeScalar = 97
