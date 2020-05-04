@@ -62,6 +62,8 @@
 		557727C8EF2990FB94690234 /* MaximumSubarray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772D75A59CABF8F4A96ED1 /* MaximumSubarray.swift */; };
 		5577283BA9A2D200BF3E1E83 /* NumIslands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577237AA1B847FD3E092057 /* NumIslands.swift */; };
 		5577284A538F97079DC0ECB3 /* LongestSubstringWithoutRepeatingCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772CFDC2D8C5500FBBEFCA /* LongestSubstringWithoutRepeatingCharacters.swift */; };
+		5577287D6185FBCEE87F1554 /* ALGOHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557722E1758DC8812058BD97 /* ALGOHelper.swift */; };
+		5577292E57C53DBBCBFDE90E /* ALGOHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557722E1758DC8812058BD97 /* ALGOHelper.swift */; };
 		55772A0E01575F88D10A2273 /* MinimumDepthOfBinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557729E0693F0BD196ACF4BA /* MinimumDepthOfBinaryTree.swift */; };
 		55772A5DD255BED098C31CCF /* JumpGameIi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772779BCA3D6D526FAABCC /* JumpGameIi.swift */; };
 		55772B9937971BBAD7EF6657 /* ShuZuZhongShuZiChuXianDeCiShuLcof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772C9F7EA96589A68F0D3E /* ShuZuZhongShuZiChuXianDeCiShuLcof.swift */; };
@@ -128,6 +130,7 @@
 		17F8F860245EE14800846C43 /* AlgorithmPracticeUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorithmPracticeUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F8F862245EE14800846C43 /* AlgorithmPracticeUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmPracticeUnitTest.swift; sourceTree = "<group>"; };
 		17F8F864245EE14800846C43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		557722E1758DC8812058BD97 /* ALGOHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALGOHelper.swift; sourceTree = "<group>"; };
 		5577230118A45D12BEE16A14 /* GetMaxRepetitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMaxRepetitions.swift; sourceTree = "<group>"; };
 		5577237AA1B847FD3E092057 /* NumIslands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumIslands.swift; sourceTree = "<group>"; };
 		557724ED95F573CDDF239EF2 /* HappyNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HappyNumber.swift; sourceTree = "<group>"; };
@@ -260,6 +263,7 @@
 			children = (
 				17F8F862245EE14800846C43 /* AlgorithmPracticeUnitTest.swift */,
 				17F8F864245EE14800846C43 /* Info.plist */,
+				557722E1758DC8812058BD97 /* ALGOHelper.swift */,
 			);
 			path = AlgorithmPracticeUnitTest;
 			sourceTree = "<group>";
@@ -473,6 +477,7 @@
 				5577284A538F97079DC0ECB3 /* LongestSubstringWithoutRepeatingCharacters.swift in Sources */,
 				5577253016190CDB31C8CED4 /* MaximumSubarray.swift in Sources */,
 				55772A5DD255BED098C31CCF /* JumpGameIi.swift in Sources */,
+				5577287D6185FBCEE87F1554 /* ALGOHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +489,7 @@
 				557727C8EF2990FB94690234 /* MaximumSubarray.swift in Sources */,
 				557723C51C2BC657404D429A /* ClassNameHelper.swift in Sources */,
 				557724034A7B28022C9FB144 /* JumpGameIi.swift in Sources */,
+				5577292E57C53DBBCBFDE90E /* ALGOHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

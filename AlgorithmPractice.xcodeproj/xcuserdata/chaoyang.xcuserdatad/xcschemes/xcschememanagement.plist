@@ -19,19 +19,33 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>AlgorithmPracticeUnitTest.testMaximumSubarray.xcscheme</key>
+		<key>All in AlgorithmPracticeUnitTest.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>AlgorithmPracticeUnitTest.testJumpGameIi.xcscheme</key>
+		<key>All in ALGOHelper.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>6</integer>
+		</dict>
+		<key>ALGOHelper.testClassNameHelper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>All in AlgorithmPracticeUnitTest.swift (1).xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

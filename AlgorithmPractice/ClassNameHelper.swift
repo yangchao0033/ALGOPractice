@@ -23,9 +23,9 @@ class ClassNameHelper {
         res = res?.capitalized.replacingOccurrences(of: "-", with: "")
         return res
     }
-    static func classNamePrinter(by urlStr: String) {
-        print(className(by: urlStr) ?? "数据不合法")
-    }
+//    static func classNamePrinter(by urlStr: String) {
+//        print(className(by: urlStr) ?? "数据不合法")
+//    }
     static func classNamePasteGet() {
         let pb = NSPasteboard.general
         let content: String? = pb.readObjects(forClasses: [NSString.self], options: nil)?.first as? String
