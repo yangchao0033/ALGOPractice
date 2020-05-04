@@ -1,5 +1,5 @@
 //
-//  MergeTwoLists.swift
+//  MergeTwoSortedLists.swift
 //  AlgorithmPractice
 //
 //  Created by 超杨 on 2020/3/30.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MergeTwoLists {
+class MergeTwoSortedLists {
      func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
             // 1. 前缀指针
     //        var l1 = l1
