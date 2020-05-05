@@ -8,15 +8,6 @@
 
 import Cocoa
 
-class TreeNode {
-    var val: Int
-    var left: TreeNode?
-    var right: TreeNode?
-    init(_ data: Int) {
-        self.val = data
-    }
-}
-
 class InorderTraversal {
     func inorderTraversal(_ root: TreeNode?) -> [Int] {
         // 1. 递归抽取

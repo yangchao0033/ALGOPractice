@@ -32,9 +32,9 @@ class ClassNameHelper {
         if let text = className(by: content ?? "类名生成失败") {
             pb.clearContents()
             let success =  pb.setString(text, forType: .string)
-            if !success { print("设置剪切板失败") } else { print("成功获取类名") }
+            if !success { debugPrint("设置剪切板失败") } else { print("成功获取类名") }
         } else {
-            print("类名获取失败 by yang")
+            debugPrint("类名获取失败 by yang")
         }
     }
 }

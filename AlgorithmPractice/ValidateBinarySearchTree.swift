@@ -5,7 +5,7 @@
 
 import Foundation
 
-class IsValidBST {
+class ValidateBinarySearchTree {
     func isValidBST(_ root: TreeNode?) -> Bool {
 //        // 法一：上下边界递归
 //        // 1. 二叉搜索树基本条件之外，隐含条件为左子树和的所有元素必须都小于根节点，右子树亦然

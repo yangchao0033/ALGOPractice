@@ -7,15 +7,5 @@
 //
 
 class Solution {
-    func jump(_ nums: [Int]) -> Int {
-        // 贪心算法
-        var end = 0
-        var maxPosition = 0
-        for (index, num) in nums.enumerated() {
 
-        }
-        return 0
-    }
 }
-
-
