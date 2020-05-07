@@ -28,7 +28,7 @@ class ALGOHelper: XCTestCase {
         // 测试异常case
         pb.clearContents()
         let testStr2 = "https://baidu.com"
-        let success2 =  pb.setString(testStr2, forType: .string)
+        pb.setString(testStr2, forType: .string)
         ClassNameHelper.classNamePasteGet()
         let content2: String? = pb.readObjects(forClasses: [NSString.self], options: nil)?.first as? String
         XCTAssertTrue(content2 == testStr2)

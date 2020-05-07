@@ -42,10 +42,14 @@ class AlgorithmPracticeUnitTest: XCTestCase {
         XCTAssertTrue(str == "[5,1,null,null,4,3,null,null,6,null,null]")
         let newRoot = TreeNode.deserialize(str)
         XCTAssertNotNil(newRoot)
+
         func inorderTraversal(_ root: TreeNode?) -> [Int] {
-            guard let root = root else { return [] }
+            guard let root = root else {
+                return []
+            }
             return [root.val] + inorderTraversal(root.left) + inorderTraversal(root.right)
         }
+
         let t1 = inorderTraversal(root)
         let t2 = inorderTraversal(newRoot)
         XCTAssertTrue(t1 == t2)
@@ -57,6 +61,31 @@ class AlgorithmPracticeUnitTest: XCTestCase {
         let root1 = TreeNode.deserialize("[5,1,null,null,4,3,null,null,6,null,null]")
         XCTAssertFalse(ValidateBinarySearchTree().isValidBST(root1))
         XCTAssertTrue(ValidateBinarySearchTree().isValidBST(nil))
+    }
+
+    func testConvertSortedArrayToBinarySearchTree() throws {
+        let array = [-10, -3, 0, 5, 9]
+        let root = ConvertSortedArrayToBinarySearchTree().sortedArrayToBST(array)
+        let str = TreeNode.serialize(root)
+        XCTAssertTrue(str == "[0,-3,-10,null,null,null,9,5,null,null,null]")
+    }
+    
+    func testSubtreeOfAnotherTree() throws {
+        let s = TreeNode.deserialize("[3,4,1,null,null,2,null,null,5,null,null]")
+        let t = TreeNode.deserialize("[4,1,null,null,2,null,null]")
+        XCTAssertTrue(SubtreeOfAnotherTree().isSubtree(s, t))
+
+        let s1 = TreeNode.deserialize("[3,4,1,null,null,2,0,null,null,null,5,null,null]")
+        let t1 = TreeNode.deserialize("[4,1,null,null,2,null,null]")
+        XCTAssertFalse(SubtreeOfAnotherTree().isSubtree(s1, t1))
+    }
+
+    func testSameTree() {
+        let s = TreeNode.deserialize("[3,4,1,null,null,2,null,null,5,null,null]")
+        let t = TreeNode.deserialize("[3,4,1,null,null,2,null,null,5,null,null]")
+        XCTAssertTrue(SameTree().isSameTree(s, t))
+        let s1 = TreeNode.deserialize("[3,4,1,null,null,2,0,null,null,null,5,null,null]")
+        XCTAssertFalse(SameTree().isSameTree(s, s1))
     }
 
     /*
