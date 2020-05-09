@@ -19,35 +19,35 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>AlgorithmPracticeUnitTest.testTreeNodeSerializeAndDeserialize.xcscheme</key>
+		<key>AlgorithmPracticeUnitTest.testValidateBinarySearchTree.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>AlgorithmPracticeUnitTest.testValidateBinarySearchTree.xcscheme</key>
+		<key>AlgorithmPracticeUnitTest.testConvertSortedArrayToBinarySearchTree.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
-		<key>AlgorithmPracticeUnitTest.testConvertSortedArrayToBinarySearchTree.xcscheme</key>
+		<key>AlgorithmPracticeUnitTest.testSubtreeOfAnotherTree.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
-		<key>AlgorithmPracticeUnitTest.testSubtreeOfAnotherTree.xcscheme</key>
+		<key>AlgorithmPracticeUnitTest.testSameTree.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
-		<key>AlgorithmPracticeUnitTest.testSameTree.xcscheme</key>
+		<key>AlgorithmPracticeUnitTest.testSqrtx.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />

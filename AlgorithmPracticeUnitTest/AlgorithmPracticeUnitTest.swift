@@ -88,6 +88,17 @@ class AlgorithmPracticeUnitTest: XCTestCase {
         XCTAssertFalse(SameTree().isSameTree(s, s1))
     }
 
+    func testSqrtx() {
+        let res =  Sqrtx().mySqrt(6)
+        XCTAssertTrue(res == 2)
+
+        let res1 =  Sqrtx().mySqrt(1)
+        XCTAssertTrue(res1 == 1)
+
+        let res2 =  Sqrtx().mySqrt(0)
+        XCTAssertTrue(res2 == 0)
+    }
+
     /*
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
