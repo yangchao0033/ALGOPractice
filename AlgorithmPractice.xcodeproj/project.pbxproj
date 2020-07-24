@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1707AAFD2429F31500337E8C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707AAFC2429F31500337E8C /* main.swift */; };
-		17DAAA4424C9D1220044856F /* SinglyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DAAA4324C9D1220044856F /* SinglyLinkedList.swift */; };
+		17DAAA4424C9D1220044856F /* doublyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DAAA4324C9D1220044856F /* doublyLinkedList.swift */; };
 		17F8F863245EE14800846C43 /* AlgorithmPracticeUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8F862245EE14800846C43 /* AlgorithmPracticeUnitTest.swift */; };
 		4FEE4AF12AE42F0EF10A612E /* libPods-AlgorithmPractice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0DB78E2DA4D3820329A09E /* libPods-AlgorithmPractice.a */; };
 		557720051CA0163E8CF382B2 /* GenerateParenthesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772977CE07DA080E0A8A7D /* GenerateParenthesis.swift */; };
@@ -155,7 +155,7 @@
 		1707AAF92429F31500337E8C /* AlgorithmPractice */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AlgorithmPractice; sourceTree = BUILT_PRODUCTS_DIR; };
 		1707AAFC2429F31500337E8C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		172F93EE243C524000032DFE /* AlgorithmPractice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlgorithmPractice-Bridging-Header.h"; sourceTree = "<group>"; };
-		17DAAA4324C9D1220044856F /* SinglyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedList.swift; sourceTree = "<group>"; };
+		17DAAA4324C9D1220044856F /* doublyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doublyLinkedList.swift; sourceTree = "<group>"; };
 		17F8F860245EE14800846C43 /* AlgorithmPracticeUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorithmPracticeUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F8F862245EE14800846C43 /* AlgorithmPracticeUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmPracticeUnitTest.swift; sourceTree = "<group>"; };
 		17F8F864245EE14800846C43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 				55772CDB8D465C85BAEFBD42 /* TreeNode.swift */,
 				5577209361C5C386C1056403 /* BinaryTreeNode.swift */,
 				557725EC9B9EE165102BC075 /* SequenceList.swift */,
-				17DAAA4324C9D1220044856F /* SinglyLinkedList.swift */,
+				17DAAA4324C9D1220044856F /* doublyLinkedList.swift */,
 			);
 			path = DataStruct;
 			sourceTree = "<group>";
@@ -542,7 +542,7 @@
 				557721DD4CF6956EDC2D9B76 /* PostorderNTree.swift in Sources */,
 				557723E5AB3AE418B867BA15 /* WasToChange.swift in Sources */,
 				557720959948ABC63FC1DF61 /* IntervalMerge.swift in Sources */,
-				17DAAA4424C9D1220044856F /* SinglyLinkedList.swift in Sources */,
+				17DAAA4424C9D1220044856F /* doublyLinkedList.swift in Sources */,
 				557728ED24DBB37FF8DB070C /* PlusOne.swift in Sources */,
 				55772BDFC27CCB85C100C080 /* ClimbingStars.swift in Sources */,
 				55772A18E4E355C85E2980C7 /* ReverseList.swift in Sources */,
