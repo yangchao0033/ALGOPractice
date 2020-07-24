@@ -8,13 +8,17 @@
 
 import Cocoa
 
-public class ListNode {
+ class ListNode {
     public var val: Int
     public var next: ListNode?
+    
     public init(_ val: Int) {
         self.val = val
         self.next = nil
     }
+}
+
+extension ListNode {
     static func toNodeList(by array: [Int]) -> ListNode? {
         let nodes = array.map { ListNode($0) }
         for i in 0..<nodes.count - 1 {
