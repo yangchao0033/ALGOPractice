@@ -18,6 +18,7 @@ import Cocoa
     }
 }
 
+
 extension ListNode {
     static func toNodeList(by array: [Int]) -> ListNode? {
         let nodes = array.map { ListNode($0) }

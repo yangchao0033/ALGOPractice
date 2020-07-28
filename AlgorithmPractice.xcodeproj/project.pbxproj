@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1707AAFD2429F31500337E8C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707AAFC2429F31500337E8C /* main.swift */; };
-		17DAAA4424C9D1220044856F /* doublyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DAAA4324C9D1220044856F /* doublyLinkedList.swift */; };
+		17C9F18724CADED200A4841F /* SinglyLinkedCircularList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9F18624CADED200A4841F /* SinglyLinkedCircularList.swift */; };
+		17C9F18924CAED7900A4841F /* SinglyLinkedCircularListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9F18824CAED7900A4841F /* SinglyLinkedCircularListTests.swift */; };
+		17C9F18A24CAEDDF00A4841F /* SinglyLinkedCircularList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9F18624CADED200A4841F /* SinglyLinkedCircularList.swift */; };
+		17DAAA4424C9D1220044856F /* DoublyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DAAA4324C9D1220044856F /* DoublyLinkedList.swift */; };
 		17F8F863245EE14800846C43 /* AlgorithmPracticeUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8F862245EE14800846C43 /* AlgorithmPracticeUnitTest.swift */; };
 		4FEE4AF12AE42F0EF10A612E /* libPods-AlgorithmPractice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0DB78E2DA4D3820329A09E /* libPods-AlgorithmPractice.a */; };
 		557720051CA0163E8CF382B2 /* GenerateParenthesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772977CE07DA080E0A8A7D /* GenerateParenthesis.swift */; };
@@ -155,7 +158,9 @@
 		1707AAF92429F31500337E8C /* AlgorithmPractice */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AlgorithmPractice; sourceTree = BUILT_PRODUCTS_DIR; };
 		1707AAFC2429F31500337E8C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		172F93EE243C524000032DFE /* AlgorithmPractice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlgorithmPractice-Bridging-Header.h"; sourceTree = "<group>"; };
-		17DAAA4324C9D1220044856F /* doublyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doublyLinkedList.swift; sourceTree = "<group>"; };
+		17C9F18624CADED200A4841F /* SinglyLinkedCircularList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedCircularList.swift; sourceTree = "<group>"; };
+		17C9F18824CAED7900A4841F /* SinglyLinkedCircularListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedCircularListTests.swift; sourceTree = "<group>"; };
+		17DAAA4324C9D1220044856F /* DoublyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublyLinkedList.swift; sourceTree = "<group>"; };
 		17F8F860245EE14800846C43 /* AlgorithmPracticeUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorithmPracticeUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F8F862245EE14800846C43 /* AlgorithmPracticeUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmPracticeUnitTest.swift; sourceTree = "<group>"; };
 		17F8F864245EE14800846C43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -284,6 +289,7 @@
 				17F8F862245EE14800846C43 /* AlgorithmPracticeUnitTest.swift */,
 				17F8F864245EE14800846C43 /* Info.plist */,
 				557722E1758DC8812058BD97 /* ALGOHelper.swift */,
+				17C9F18824CAED7900A4841F /* SinglyLinkedCircularListTests.swift */,
 			);
 			path = AlgorithmPracticeUnitTest;
 			sourceTree = "<group>";
@@ -294,11 +300,11 @@
 				557723C0F402CFF8139CBDCE /* Deque.swift */,
 				55772D3B7403B06E230D300B /* ListNode.swift */,
 				55772C05DBCD965232AB25D7 /* Stack.swift */,
-				55772EAABE36929A9006CB0E /* MyCircularDeque.swift */,
 				55772CDB8D465C85BAEFBD42 /* TreeNode.swift */,
 				5577209361C5C386C1056403 /* BinaryTreeNode.swift */,
 				557725EC9B9EE165102BC075 /* SequenceList.swift */,
-				17DAAA4324C9D1220044856F /* doublyLinkedList.swift */,
+				17DAAA4324C9D1220044856F /* DoublyLinkedList.swift */,
+				17C9F18624CADED200A4841F /* SinglyLinkedCircularList.swift */,
 			);
 			path = DataStruct;
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 		55772CB4B7E92C84E5058A58 /* Problems */ = {
 			isa = PBXGroup;
 			children = (
+				55772EAABE36929A9006CB0E /* MyCircularDeque.swift */,
 				557727F4F6FA1E255CE6F1A3 /* ValidateBinarySearchTree.swift */,
 				5577203171F1EF78853F19E3 /* SwapPairs.swift */,
 				557723F6D81FA76290A14B09 /* PreorderTraversal.swift */,
@@ -542,7 +549,7 @@
 				557721DD4CF6956EDC2D9B76 /* PostorderNTree.swift in Sources */,
 				557723E5AB3AE418B867BA15 /* WasToChange.swift in Sources */,
 				557720959948ABC63FC1DF61 /* IntervalMerge.swift in Sources */,
-				17DAAA4424C9D1220044856F /* doublyLinkedList.swift in Sources */,
+				17DAAA4424C9D1220044856F /* DoublyLinkedList.swift in Sources */,
 				557728ED24DBB37FF8DB070C /* PlusOne.swift in Sources */,
 				55772BDFC27CCB85C100C080 /* ClimbingStars.swift in Sources */,
 				55772A18E4E355C85E2980C7 /* ReverseList.swift in Sources */,
@@ -560,6 +567,7 @@
 				557723D4875C4603A9E80266 /* MinimumDepthOfBinaryTree.swift in Sources */,
 				55772110817E5CBB66DB6DA3 /* ReverseKGroupList.swift in Sources */,
 				55772B479116108788C17FD2 /* RightSideView.swift in Sources */,
+				17C9F18724CADED200A4841F /* SinglyLinkedCircularList.swift in Sources */,
 				557724C7207E979C689E02F2 /* NumberReverse.swift in Sources */,
 				55772F8E56522D4DEAD82803 /* HappyNumber.swift in Sources */,
 				55772CA88F14B716E1433A47 /* RemoveDuplicates.swift in Sources */,
@@ -594,12 +602,14 @@
 				557720C5F4B0D628AC40D91F /* ValidateBinarySearchTree.swift in Sources */,
 				55772CD17FD2AE08EF388A1B /* SwapPairs.swift in Sources */,
 				55772B615A8F4AC992B699A0 /* PreorderTraversal.swift in Sources */,
+				17C9F18A24CAEDDF00A4841F /* SinglyLinkedCircularList.swift in Sources */,
 				55772DD71E6C84F933C21563 /* SingleNumber.swift in Sources */,
 				557728B9D6E66440AB67EBBC /* PostorderTraversal.swift in Sources */,
 				5577240D022B8EAFE5CA6678 /* HasCycle2.swift in Sources */,
 				557725AE71C8648DD8B5EB9C /* WordIsAnagram.swift in Sources */,
 				55772AAA3333FDBEE8B11DF2 /* JumpGameIi.swift in Sources */,
 				55772ED61E21A4CEAF97FE2F /* LongestSubstringWithoutRepeatingCharacters.swift in Sources */,
+				17C9F18924CAED7900A4841F /* SinglyLinkedCircularListTests.swift in Sources */,
 				55772C9038BC10C77A083D3D /* MaximumSubarray.swift in Sources */,
 				5577226B379BF06F2C5CC52C /* NTreeLevelorderTraversal.swift in Sources */,
 				55772F60A505BBEFE63209F3 /* NumberOfSubarrays.swift in Sources */,

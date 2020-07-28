@@ -98,6 +98,16 @@ class AlgorithmPracticeUnitTest: XCTestCase {
         let res2 =  Sqrtx().mySqrt(0)
         XCTAssertTrue(res2 == 0)
     }
+    
+    func testMergeSortedList() {
+        let a1 = [0, 2, 4, 6, 8]
+        let a2 = [1, 3, 4, 6, 8, 12]
+        let l1 = ListNode.toNodeList(by: a1)
+        let l2 = ListNode.toNodeList(by: a2)
+//        let l3 = MergeTwoSortedLists().mergeTwoLists(l1, l2)
+        let l3 = MergeTwoSortedLists().mergeTwoLists3(l1, l2)
+        ListNode.printNodeList(l3)
+    }
 
     /*
     func testPerformanceExample() throws {

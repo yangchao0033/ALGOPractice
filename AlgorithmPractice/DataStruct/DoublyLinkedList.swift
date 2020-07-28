@@ -8,13 +8,13 @@
 
 import Cocoa
 
-public final class LinkedList<T> {
+public final class DoublyLinkedList<T> {
     
     /// 双向链表结点类定义
-    public class LinkedListNode<T> {
+    public class DoublyLinkedListNode<T> {
         var value: T
-        var next: LinkedListNode?
-        weak var previous: LinkedListNode?
+        var next: DoublyLinkedListNode?
+        weak var previous: DoublyLinkedListNode?
         
         public init(value: T) {
             self.value = value
@@ -22,7 +22,7 @@ public final class LinkedList<T> {
     }
     
     /// 使用别名提高可读性
-    public typealias Node = LinkedListNode<T>
+    public typealias Node = DoublyLinkedListNode<T>
     
     /// head 结点仅内部可修改
     private(set) var head: Node?
@@ -109,7 +109,7 @@ public final class LinkedList<T> {
     
     /// 添加新的链表的拷贝到链表末尾
     /// - Parameter list: 要添加到末尾的链表
-    public func append(_ list: LinkedList) {
+    public func append(_ list: DoublyLinkedList) {
         var nodeToCopy = list.head
         while let node = nodeToCopy {
             append(node.value)
@@ -146,7 +146,7 @@ public final class LinkedList<T> {
     /// - Parameters:
     ///   - list: 要插入的链表
     ///   - index: 要插入的位置索引
-    public func insert(_ list: LinkedList, at index: Int) {
+    public func insert(_ list: DoublyLinkedList, at index: Int) {
         guard !list.isEmpty else { return }
         
         if index == 0 {
@@ -203,10 +203,22 @@ public final class LinkedList<T> {
         return remove(node: node)
     }
     
+    public func printAll() {
+        print(self)
+//        var s = "["
+//        var node = head
+//        while let nd = node {
+//            s += "\(nd.value)"
+//            node = node?.next
+//            if node != nil { s += ", " }
+//        }
+//        s += "]"
+//        print(s)
+    }
 }
 
 // MARK: - Extension to enable the standard conversion of a list to String
-extension LinkedList: CustomStringConvertible {
+extension DoublyLinkedList: CustomStringConvertible {
     public var description: String {
         var s = "["
         var node = head
@@ -220,7 +232,7 @@ extension LinkedList: CustomStringConvertible {
 }
 
 // MARK: - Extension to enable initialization from an Array
-extension LinkedList {
+extension DoublyLinkedList {
     convenience init(array: [T]) {
         self.init()
         
@@ -229,9 +241,9 @@ extension LinkedList {
 }
 
 // MARK: - An extension with an implementation of 'map' & 'filter' functions
-extension LinkedList {
-    public func map<U>(transform: (T) -> U) -> LinkedList<U> {
-        let result = LinkedList<U>()
+extension DoublyLinkedList {
+    public func map<U>(transform: (T) -> U) -> DoublyLinkedList<U> {
+        let result = DoublyLinkedList<U>()
         var node = head
         while let nd = node {
             result.append(transform(nd.value))
@@ -240,8 +252,8 @@ extension LinkedList {
         return result
     }
     
-    public func filter(predicate: (T) -> Bool) -> LinkedList<T> {
-        let result = LinkedList<T>()
+    public func filter(predicate: (T) -> Bool) -> DoublyLinkedList<T> {
+        let result = DoublyLinkedList<T>()
         var node = head
         while let nd = node {
             if predicate(nd.value) {
@@ -254,7 +266,7 @@ extension LinkedList {
 }
 
 // MARK: - Extension to enable initialization from an Array Literal
-extension LinkedList: ExpressibleByArrayLiteral {
+extension DoublyLinkedList: ExpressibleByArrayLiteral {
     public convenience init(arrayLiteral elements: T...) {
         self.init()
         
@@ -263,7 +275,7 @@ extension LinkedList: ExpressibleByArrayLiteral {
 }
 
 // MARK: - Collection
-extension LinkedList: Collection {
+extension DoublyLinkedList: Collection {
     
     public typealias Index = LinkedListIndex<T>
     
@@ -299,7 +311,7 @@ extension LinkedList: Collection {
 // MARK: - Collection Index
 /// Custom index type that contains a reference to the node at index 'tag'
 public struct LinkedListIndex<T>: Comparable {
-    fileprivate let node: LinkedList<T>.LinkedListNode<T>?
+    fileprivate let node: DoublyLinkedList<T>.DoublyLinkedListNode<T>?
     fileprivate let tag: Int
     
     public static func == <T>(lhs: LinkedListIndex<T>, rhs: LinkedListIndex<T>) -> Bool {
