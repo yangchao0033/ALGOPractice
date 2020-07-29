@@ -64,12 +64,39 @@ class MergeTwoSortedLists {
                 pc = npa
                 pa = npa.next
                 
-                pb = pb?.next
+                pb = npb.next
                 
             }
         }
         pc?.next = pa != nil ? pa : pb
         
+        return dummy?.next
+    }
+    
+    /// 变种题目
+    /*
+     一直两个链表 A、B表示两个集合，其元素递增排列，设计算法求出AB的交集，并存储在A链表中
+     */
+    func intersectionList1( _ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        let dummy: ListNode? = ListNode(-1)
+        dummy?.next = l1
+        var pa = l1
+        var pb = l2
+        var pc = dummy
+        
+        while let npa = pa, let npb = pb {
+            if npa.val < npb.val {
+                pa = npa.next
+            } else if npa.val > npb.val {
+                pb = npb.next
+            } else {
+                pc?.next = npa
+                pc = pc?.next
+                pa = npa.next
+                
+                pb = npb.next
+            }
+        }
         return dummy?.next
     }
 }

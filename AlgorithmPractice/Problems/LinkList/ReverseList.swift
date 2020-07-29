@@ -11,17 +11,14 @@ import Cocoa
 class ReverseList {
     // 迭代法
     func reverseList1(_ head: ListNode?) -> ListNode? {
-        // 1. 保存前一个节点
-        // 2. 在每个节点翻转前，保存下一个节点
-        var currentNode = head
-        var preNode: ListNode?
-        while currentNode != nil {
-            let tempNext = currentNode?.next
-            currentNode?.next = preNode
-            preNode = currentNode
-            currentNode = tempNext
+        let dummy = ListNode(-1)
+        var pa = head
+        while let npa = pa {
+            pa = npa.next
+            npa.next = dummy.next
+            dummy.next = npa
         }
-        return preNode
+        return dummy.next
     }
     // 递归法
     func reverseList(_ head: ListNode?) -> ListNode? {
