@@ -402,5 +402,18 @@ class LinkedListTags {
         }
         return p
     }
+    /**
+     *https://leetcode-cn.com/problems/convert-binary-number-in-a-linked-list-to-integer/
+     *二进制链表转整数
+     */
+    func getDecimalValue(_ head: ListNode?) -> Int {
+        var sum = 0
+        var cur = head
+        while let curP = cur {
+            sum = sum * 2 + curP.val
+            cur = cur?.next
+        }
+        return sum
+    }
     
 }

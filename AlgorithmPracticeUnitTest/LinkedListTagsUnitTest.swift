@@ -72,7 +72,8 @@ class LinkedListTagsUnitTest: XCTestCase {
         l2?.next?.next?.next = l0
         XCTAssertEqual(ListNode.toArray(by: l1), [4, 1, 8, 4, 5])
         XCTAssertEqual(ListNode.toArray(by: l2), [5, 0, 1, 8, 4, 5])
-        let node = testObj.getIntersectionNode(headA: l1, headB: l2)
+//        let node = testObj.getIntersectionNode(headA: l1, headB: l2)
+        let node = testObj.getIntersectionNode(l1, l2)
         XCTAssertEqual(node, l0)
     }
     
@@ -136,6 +137,12 @@ class LinkedListTagsUnitTest: XCTestCase {
         let l1 = ListNode.toNodeList(by: [1, 2, 3, 4, 5, 6])
         let middle1 = testObj.middleNode(l1)
         XCTAssertEqual(middle1?.val, 4)
+    }
+    
+    func testGetDecimalValue() {
+        let l0 = ListNode.toNodeList(by: [1, 0, 1])
+        let res = testObj.getDecimalValue(l0)
+        XCTAssertEqual(res, 5)
     }
     
 }
