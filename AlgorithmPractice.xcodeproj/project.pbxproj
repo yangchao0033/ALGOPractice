@@ -8,9 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		1707AAFD2429F31500337E8C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1707AAFC2429F31500337E8C /* main.swift */; };
+		174FF74424D1217100DD1ACB /* ArrayTagsUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174FF74324D1217100DD1ACB /* ArrayTagsUnitTest.swift */; };
+		174FF74624D12D6F00DD1ACB /* ArrayTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174FF74524D12D6F00DD1ACB /* ArrayTags.swift */; };
+		174FF74724D12E6200DD1ACB /* ArrayTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174FF74524D12D6F00DD1ACB /* ArrayTags.swift */; };
 		17C9F18724CADED200A4841F /* SinglyLinkedCircularList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9F18624CADED200A4841F /* SinglyLinkedCircularList.swift */; };
 		17C9F18924CAED7900A4841F /* SinglyLinkedCircularListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9F18824CAED7900A4841F /* SinglyLinkedCircularListTests.swift */; };
 		17C9F18A24CAEDDF00A4841F /* SinglyLinkedCircularList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9F18624CADED200A4841F /* SinglyLinkedCircularList.swift */; };
+		17CF925724D00F0D0042566F /* LinkedListTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CF925624D00F0D0042566F /* LinkedListTags.swift */; };
+		17CF925924D00F770042566F /* LinkedListTagsUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CF925824D00F770042566F /* LinkedListTagsUnitTest.swift */; };
+		17CF925A24D00FEF0042566F /* LinkedListTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CF925624D00F0D0042566F /* LinkedListTags.swift */; };
 		17DAAA4424C9D1220044856F /* DoublyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DAAA4324C9D1220044856F /* DoublyLinkedList.swift */; };
 		17F8F863245EE14800846C43 /* AlgorithmPracticeUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F8F862245EE14800846C43 /* AlgorithmPracticeUnitTest.swift */; };
 		4FEE4AF12AE42F0EF10A612E /* libPods-AlgorithmPractice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0DB78E2DA4D3820329A09E /* libPods-AlgorithmPractice.a */; };
@@ -35,7 +41,7 @@
 		557722BC83BD5C4093BD162E /* IntervalMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577271278F5D0FE72CBD488 /* IntervalMerge.swift */; };
 		557722C9BD7649D992024BA9 /* TwoSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557723A1FA792A5345E3DD05 /* TwoSum.swift */; };
 		557722F97AA3A26C00784277 /* GenerateParenthesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772977CE07DA080E0A8A7D /* GenerateParenthesis.swift */; };
-		55772326B3211FA032BE9BD3 /* RoateArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772F5A968D3FFF534A4997 /* RoateArray.swift */; };
+		55772326B3211FA032BE9BD3 /* RotateArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772F5A968D3FFF534A4997 /* RotateArray.swift */; };
 		5577232B97585574E9714DE8 /* ClimbingStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772840A7FABA1BC4BBC819 /* ClimbingStars.swift */; };
 		557723C51C2BC657404D429A /* ClassNameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577293BB9B1D669D4C94246 /* ClassNameHelper.swift */; };
 		557723D4875C4603A9E80266 /* MinimumDepthOfBinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772F5B414AFA55913B330E /* MinimumDepthOfBinaryTree.swift */; };
@@ -45,7 +51,7 @@
 		5577246947DD4039DAB41C0F /* NTreeLevelorderTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557721D1696D5FCF8F847964 /* NTreeLevelorderTraversal.swift */; };
 		5577249604E454D5C404B3BC /* HasCycle2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557726F3FB5B0226A85B6BB4 /* HasCycle2.swift */; };
 		557724C7207E979C689E02F2 /* NumberReverse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772EF36D20076A0FFD5618 /* NumberReverse.swift */; };
-		557724EAACC8CC578FE8DE8B /* RoateArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772F5A968D3FFF534A4997 /* RoateArray.swift */; };
+		557724EAACC8CC578FE8DE8B /* RotateArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772F5A968D3FFF534A4997 /* RotateArray.swift */; };
 		557725418A0A01A6CDFE4861 /* BracketsIsValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772463659835B0B4DD8EFD /* BracketsIsValid.swift */; };
 		55772547634E508F224E28FC /* ThreeSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772C7CBE143426210541A7 /* ThreeSum.swift */; };
 		55772552238644BC92AC2FEB /* GetMaxRepetitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772CA790731FF08B2F6670 /* GetMaxRepetitions.swift */; };
@@ -140,6 +146,7 @@
 		55772FB34248255BC798722B /* NumberReverse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772EF36D20076A0FFD5618 /* NumberReverse.swift */; };
 		55772FBAFCD303B966B0AB30 /* CanJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55772A963189930FA6E0CE63 /* CanJump.swift */; };
 		55772FBF3A7F8B87818A8CC3 /* ClassNameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577293BB9B1D669D4C94246 /* ClassNameHelper.swift */; };
+		758DB7288E0CD5AFBEC2D2F5 /* libPods-AlgorithmPracticeUnitTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEEA722C420B80AD48F54AF /* libPods-AlgorithmPracticeUnitTest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -158,12 +165,17 @@
 		1707AAF92429F31500337E8C /* AlgorithmPractice */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AlgorithmPractice; sourceTree = BUILT_PRODUCTS_DIR; };
 		1707AAFC2429F31500337E8C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		172F93EE243C524000032DFE /* AlgorithmPractice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlgorithmPractice-Bridging-Header.h"; sourceTree = "<group>"; };
+		174FF74324D1217100DD1ACB /* ArrayTagsUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTagsUnitTest.swift; sourceTree = "<group>"; };
+		174FF74524D12D6F00DD1ACB /* ArrayTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTags.swift; sourceTree = "<group>"; };
 		17C9F18624CADED200A4841F /* SinglyLinkedCircularList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedCircularList.swift; sourceTree = "<group>"; };
 		17C9F18824CAED7900A4841F /* SinglyLinkedCircularListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedCircularListTests.swift; sourceTree = "<group>"; };
+		17CF925624D00F0D0042566F /* LinkedListTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedListTags.swift; sourceTree = "<group>"; };
+		17CF925824D00F770042566F /* LinkedListTagsUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedListTagsUnitTest.swift; sourceTree = "<group>"; };
 		17DAAA4324C9D1220044856F /* DoublyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublyLinkedList.swift; sourceTree = "<group>"; };
 		17F8F860245EE14800846C43 /* AlgorithmPracticeUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorithmPracticeUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F8F862245EE14800846C43 /* AlgorithmPracticeUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmPracticeUnitTest.swift; sourceTree = "<group>"; };
 		17F8F864245EE14800846C43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CEEA722C420B80AD48F54AF /* libPods-AlgorithmPracticeUnitTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AlgorithmPracticeUnitTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5577203171F1EF78853F19E3 /* SwapPairs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwapPairs.swift; sourceTree = "<group>"; };
 		5577206F608090B441B2BE9E /* ReverseKGroupList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseKGroupList.swift; sourceTree = "<group>"; };
 		5577207A53388873D630B665 /* Sqrtx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sqrtx.swift; sourceTree = "<group>"; };
@@ -223,11 +235,13 @@
 		55772EAABE36929A9006CB0E /* MyCircularDeque.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCircularDeque.swift; sourceTree = "<group>"; };
 		55772ECBD3D74502CFBDB611 /* SameTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SameTree.swift; sourceTree = "<group>"; };
 		55772EF36D20076A0FFD5618 /* NumberReverse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberReverse.swift; sourceTree = "<group>"; };
-		55772F5A968D3FFF534A4997 /* RoateArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoateArray.swift; sourceTree = "<group>"; };
+		55772F5A968D3FFF534A4997 /* RotateArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateArray.swift; sourceTree = "<group>"; };
 		55772F5B414AFA55913B330E /* MinimumDepthOfBinaryTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinimumDepthOfBinaryTree.swift; sourceTree = "<group>"; };
 		55772F923AA6ECECE30923A1 /* InvertTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvertTree.swift; sourceTree = "<group>"; };
 		55772FD9C13F5052B3438189 /* NumIslands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumIslands.swift; sourceTree = "<group>"; };
 		5B0DB78E2DA4D3820329A09E /* libPods-AlgorithmPractice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AlgorithmPractice.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		95F499E66ED36F5B5D380A35 /* Pods-AlgorithmPracticeUnitTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlgorithmPracticeUnitTest.debug.xcconfig"; path = "Target Support Files/Pods-AlgorithmPracticeUnitTest/Pods-AlgorithmPracticeUnitTest.debug.xcconfig"; sourceTree = "<group>"; };
+		AC6837534A53E698A504C79A /* Pods-AlgorithmPracticeUnitTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlgorithmPracticeUnitTest.release.xcconfig"; path = "Target Support Files/Pods-AlgorithmPracticeUnitTest/Pods-AlgorithmPracticeUnitTest.release.xcconfig"; sourceTree = "<group>"; };
 		BC58ACB1BA370ABFACAAB1E9 /* Pods-AlgorithmPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlgorithmPractice.debug.xcconfig"; path = "Target Support Files/Pods-AlgorithmPractice/Pods-AlgorithmPractice.debug.xcconfig"; sourceTree = "<group>"; };
 		FA1ADEBC9FD99868A143DE10 /* Pods-AlgorithmPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlgorithmPractice.release.xcconfig"; path = "Target Support Files/Pods-AlgorithmPractice/Pods-AlgorithmPractice.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -245,6 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				758DB7288E0CD5AFBEC2D2F5 /* libPods-AlgorithmPracticeUnitTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +298,26 @@
 			path = AlgorithmPractice;
 			sourceTree = "<group>";
 		};
+		174FF74224D120B200DD1ACB /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				55772F5A968D3FFF534A4997 /* RotateArray.swift */,
+				174FF74524D12D6F00DD1ACB /* ArrayTags.swift */,
+			);
+			path = Array;
+			sourceTree = "<group>";
+		};
+		17CF925524D00EC70042566F /* LinkList */ = {
+			isa = PBXGroup;
+			children = (
+				5577206F608090B441B2BE9E /* ReverseKGroupList.swift */,
+				557727246A0929AA9321E85B /* MergeTwoSortedLists.swift */,
+				55772BE305DC3830F70E953B /* ReverseList.swift */,
+				17CF925624D00F0D0042566F /* LinkedListTags.swift */,
+			);
+			path = LinkList;
+			sourceTree = "<group>";
+		};
 		17F8F861245EE14800846C43 /* AlgorithmPracticeUnitTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +325,8 @@
 				17F8F864245EE14800846C43 /* Info.plist */,
 				557722E1758DC8812058BD97 /* ALGOHelper.swift */,
 				17C9F18824CAED7900A4841F /* SinglyLinkedCircularListTests.swift */,
+				17CF925824D00F770042566F /* LinkedListTagsUnitTest.swift */,
+				174FF74324D1217100DD1ACB /* ArrayTagsUnitTest.swift */,
 			);
 			path = AlgorithmPracticeUnitTest;
 			sourceTree = "<group>";
@@ -312,6 +349,8 @@
 		55772CB4B7E92C84E5058A58 /* Problems */ = {
 			isa = PBXGroup;
 			children = (
+				174FF74224D120B200DD1ACB /* Array */,
+				17CF925524D00EC70042566F /* LinkList */,
 				55772EAABE36929A9006CB0E /* MyCircularDeque.swift */,
 				557727F4F6FA1E255CE6F1A3 /* ValidateBinarySearchTree.swift */,
 				5577203171F1EF78853F19E3 /* SwapPairs.swift */,
@@ -339,9 +378,7 @@
 				5577271278F5D0FE72CBD488 /* IntervalMerge.swift */,
 				55772C54D5B2FEF16CEF1C75 /* PlusOne.swift */,
 				55772840A7FABA1BC4BBC819 /* ClimbingStars.swift */,
-				55772BE305DC3830F70E953B /* ReverseList.swift */,
 				55772A0013038C8C18969FC4 /* BSTTraversal.swift */,
-				557727246A0929AA9321E85B /* MergeTwoSortedLists.swift */,
 				55772CE0171117396E6065D7 /* SearchInRotatedSortedArray.swift */,
 				5577227B410434B938117F37 /* MovieZeros.swift */,
 				5577286D1096EF5FA05882E1 /* MaxWaterArea.swift */,
@@ -352,7 +389,6 @@
 				557723A1FA792A5345E3DD05 /* TwoSum.swift */,
 				55772C2D14E35A72C5B3690C /* TrappingRainWater.swift */,
 				55772F5B414AFA55913B330E /* MinimumDepthOfBinaryTree.swift */,
-				5577206F608090B441B2BE9E /* ReverseKGroupList.swift */,
 				55772DEE222C4229E76D7F80 /* RightSideView.swift */,
 				55772EF36D20076A0FFD5618 /* NumberReverse.swift */,
 				55772C0A566E8AFC9A8ED053 /* HappyNumber.swift */,
@@ -363,7 +399,6 @@
 				55772463659835B0B4DD8EFD /* BracketsIsValid.swift */,
 				55772A963189930FA6E0CE63 /* CanJump.swift */,
 				55772787F464CAFB8CD45A6C /* HasCycle.swift */,
-				55772F5A968D3FFF534A4997 /* RoateArray.swift */,
 				557727AB5A795902526F0E62 /* SortedArrayMerge.swift */,
 				55772CC2ECA6424774AD3A1A /* MaxSlidingWindow.swift */,
 				557722C10865907887BDE112 /* MinStack.swift */,
@@ -375,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				5B0DB78E2DA4D3820329A09E /* libPods-AlgorithmPractice.a */,
+				2CEEA722C420B80AD48F54AF /* libPods-AlgorithmPracticeUnitTest.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -384,6 +420,8 @@
 			children = (
 				BC58ACB1BA370ABFACAAB1E9 /* Pods-AlgorithmPractice.debug.xcconfig */,
 				FA1ADEBC9FD99868A143DE10 /* Pods-AlgorithmPractice.release.xcconfig */,
+				95F499E66ED36F5B5D380A35 /* Pods-AlgorithmPracticeUnitTest.debug.xcconfig */,
+				AC6837534A53E698A504C79A /* Pods-AlgorithmPracticeUnitTest.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -414,9 +452,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17F8F865245EE14800846C43 /* Build configuration list for PBXNativeTarget "AlgorithmPracticeUnitTest" */;
 			buildPhases = (
+				A76F2AD7C4028E19C7967C68 /* [CP] Check Pods Manifest.lock */,
 				17F8F85C245EE14800846C43 /* Sources */,
 				17F8F85D245EE14800846C43 /* Frameworks */,
 				17F8F85E245EE14800846C43 /* Resources */,
+				17D3C62B24D2D84700FCE12B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -516,6 +556,45 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		17D3C62B24D2D84700FCE12B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		A76F2AD7C4028E19C7967C68 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AlgorithmPracticeUnitTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -552,6 +631,7 @@
 				17DAAA4424C9D1220044856F /* DoublyLinkedList.swift in Sources */,
 				557728ED24DBB37FF8DB070C /* PlusOne.swift in Sources */,
 				55772BDFC27CCB85C100C080 /* ClimbingStars.swift in Sources */,
+				17CF925724D00F0D0042566F /* LinkedListTags.swift in Sources */,
 				55772A18E4E355C85E2980C7 /* ReverseList.swift in Sources */,
 				55772DAE14C0AEDA9D55DC58 /* BSTTraversal.swift in Sources */,
 				557726E9D84C34B1067CC0E9 /* MergeTwoSortedLists.swift in Sources */,
@@ -577,10 +657,11 @@
 				557725418A0A01A6CDFE4861 /* BracketsIsValid.swift in Sources */,
 				55772A7F74D602DE681E0980 /* CanJump.swift in Sources */,
 				55772D7BC544B49CEB4F6ED4 /* HasCycle.swift in Sources */,
-				557724EAACC8CC578FE8DE8B /* RoateArray.swift in Sources */,
+				557724EAACC8CC578FE8DE8B /* RotateArray.swift in Sources */,
 				557729EB3DC8B6698389778B /* SortedArrayMerge.swift in Sources */,
 				557727B656A2EC253ABAEA8F /* MaxSlidingWindow.swift in Sources */,
 				557726696D881B26986673F6 /* MinStack.swift in Sources */,
+				174FF74624D12D6F00DD1ACB /* ArrayTags.swift in Sources */,
 				557726DBB9F097E75A4F461B /* Deque.swift in Sources */,
 				557721C76E1D4996262528BE /* ListNode.swift in Sources */,
 				55772C2516676197C52658C5 /* Stack.swift in Sources */,
@@ -603,6 +684,7 @@
 				55772CD17FD2AE08EF388A1B /* SwapPairs.swift in Sources */,
 				55772B615A8F4AC992B699A0 /* PreorderTraversal.swift in Sources */,
 				17C9F18A24CAEDDF00A4841F /* SinglyLinkedCircularList.swift in Sources */,
+				17CF925A24D00FEF0042566F /* LinkedListTags.swift in Sources */,
 				55772DD71E6C84F933C21563 /* SingleNumber.swift in Sources */,
 				557728B9D6E66440AB67EBBC /* PostorderTraversal.swift in Sources */,
 				5577240D022B8EAFE5CA6678 /* HasCycle2.swift in Sources */,
@@ -644,6 +726,8 @@
 				55772A4843C17ADFE56C4413 /* RightSideView.swift in Sources */,
 				55772FB34248255BC798722B /* NumberReverse.swift in Sources */,
 				55772A7100B235269ABF39BB /* HappyNumber.swift in Sources */,
+				174FF74424D1217100DD1ACB /* ArrayTagsUnitTest.swift in Sources */,
+				174FF74724D12E6200DD1ACB /* ArrayTags.swift in Sources */,
 				55772D7B1954D441419C05B0 /* RemoveDuplicates.swift in Sources */,
 				55772570973920F3436630D0 /* InorderTraversal.swift in Sources */,
 				55772EA8C8D937C192DB3141 /* LengthOfLargestSubstring.swift in Sources */,
@@ -651,7 +735,8 @@
 				55772A462CAD8BC74176D3CB /* BracketsIsValid.swift in Sources */,
 				55772FBAFCD303B966B0AB30 /* CanJump.swift in Sources */,
 				55772DCB0E5E328F484DBEF6 /* HasCycle.swift in Sources */,
-				55772326B3211FA032BE9BD3 /* RoateArray.swift in Sources */,
+				55772326B3211FA032BE9BD3 /* RotateArray.swift in Sources */,
+				17CF925924D00F770042566F /* LinkedListTagsUnitTest.swift in Sources */,
 				55772BE907D0CD777B9111D1 /* SortedArrayMerge.swift in Sources */,
 				55772432F09D6F4AC6F613A5 /* MaxSlidingWindow.swift in Sources */,
 				55772A28C57F5D607F4C3D45 /* MinStack.swift in Sources */,
@@ -824,6 +909,7 @@
 		};
 		17F8F866245EE14800846C43 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95F499E66ED36F5B5D380A35 /* Pods-AlgorithmPracticeUnitTest.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -843,6 +929,7 @@
 		};
 		17F8F867245EE14800846C43 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC6837534A53E698A504C79A /* Pods-AlgorithmPracticeUnitTest.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;

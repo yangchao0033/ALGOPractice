@@ -117,4 +117,5 @@ class SinglyLinkedCircularListTests: XCTestCase {
         XCTAssertEqual(list.last?.value, 13)
         XCTAssertTrue(list.last?.next === list.head)
     }
+     
 }

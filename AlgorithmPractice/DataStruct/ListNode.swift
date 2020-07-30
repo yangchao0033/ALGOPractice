@@ -18,7 +18,6 @@ import Cocoa
     }
 }
 
-
 extension ListNode {
     static func toNodeList(by array: [Int]) -> ListNode? {
         let nodes = array.map { ListNode($0) }
@@ -33,5 +32,15 @@ extension ListNode {
             print(cur?.val ?? -1)
             cur = cur?.next
         }
+    }
+    static func toArray(by head: ListNode?) -> [Int] {
+        var cur = head
+        var a = [Int]()
+        while let ncr = cur {
+            a.append(ncr.val)
+            cur = ncr.next
+        }
+        debugPrint("debugLog: toArray is \(a)")
+        return a
     }
 }

@@ -12,11 +12,12 @@ class ReverseList {
     // 迭代法
     func reverseList1(_ head: ListNode?) -> ListNode? {
         let dummy = ListNode(-1)
-        var pa = head
-        while let npa = pa {
-            pa = npa.next
-            npa.next = dummy.next
-            dummy.next = npa
+        var cur = head
+        while cur != nil {
+            let next = cur?.next
+            cur?.next = dummy.next
+            dummy.next = cur
+            cur = next
         }
         return dummy.next
     }

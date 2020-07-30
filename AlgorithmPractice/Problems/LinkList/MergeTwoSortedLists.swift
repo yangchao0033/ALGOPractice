@@ -73,8 +73,8 @@ class MergeTwoSortedLists {
         return dummy?.next
     }
     
-    /// 变种题目
     /*
+     变种题目
      一直两个链表 A、B表示两个集合，其元素递增排列，设计算法求出AB的交集，并存储在A链表中
      */
     func intersectionList1( _ l1: ListNode?, _ l2: ListNode?) -> ListNode? {

@@ -104,9 +104,33 @@ class AlgorithmPracticeUnitTest: XCTestCase {
         let a2 = [1, 3, 4, 6, 8, 12]
         let l1 = ListNode.toNodeList(by: a1)
         let l2 = ListNode.toNodeList(by: a2)
-//        let l3 = MergeTwoSortedLists().mergeTwoLists(l1, l2)
-        let l3 = MergeTwoSortedLists().mergeTwoLists3(l1, l2)
-        ListNode.printNodeList(l3)
+        let l3 = MergeTwoSortedLists().mergeTwoLists(l1, l2)
+        XCTAssertEqual([0, 1, 2, 3, 4, 4, 6, 6, 8, 8, 12],
+                       ListNode.toArray(by: l3))
+        if true {
+            let l1 = ListNode.toNodeList(by: a1)
+            let l2 = ListNode.toNodeList(by: a2)
+            let l4 = MergeTwoSortedLists().mergeTwoLists3(l1, l2)
+            XCTAssertEqual([0, 1, 2, 3, 4, 6, 8, 12],
+            ListNode.toArray(by: l4))
+        }
+        
+        if true {
+            let l1 = ListNode.toNodeList(by: a1)
+            let l2 = ListNode.toNodeList(by: a2)
+            let l5 = MergeTwoSortedLists().intersectionList1(l1, l2)
+            XCTAssertEqual([4, 6, 8],
+            ListNode.toArray(by: l5))
+        }
+        
+    }
+    
+    func testReverseList() {
+        let a1 = [1, 3, 4, 6, 8, 12]
+        let l1 = ListNode.toNodeList(by: a1)
+        let l2 = ReverseList().reverseList1(l1)
+        XCTAssertEqual([12, 8, 6, 4, 3, 1],
+        ListNode.toArray(by: l2))
     }
 
     /*

@@ -9,25 +9,24 @@
 import XCTest
 
 class ArrayTagsUnitTest: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    let n1 = [0, 2, 4, 6, 8]
+    let n2 = [1, 3, 4, 6, 8, 12]
+    let arrayTags = ArrayTags()
+    
+    func testRotateArrat() {
+        var arr = n2
+        RotateArray().rotate(&arr, 9)
+        XCTAssertEqual(arr, [6, 8, 12, 1, 3, 4])
+        
+        var arr2 = n2
+        RotateArray().rotate(&arr2, 0)
+        XCTAssertEqual(arr2, n2)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testMajorityElement() {
+        let arr = [1, 2, 5, 9, 5, 9, 5, 5, 5]
+        XCTAssertEqual(arrayTags.majorityElement(arr),
+                       5)
     }
 
 }

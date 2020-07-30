@@ -113,7 +113,7 @@ public final class SinglyLinkedCircularList<T> {
                 node.next = head
             }
         } else {
-            let prev = self.node(at:index - 1)
+            let prev = self.node(at: index - 1)
             let next = prev.next
             node.next = next
             prev.next = node
@@ -196,7 +196,6 @@ public final class SinglyLinkedCircularList<T> {
             return node.value
         }
     }
-    
     
 }
 
