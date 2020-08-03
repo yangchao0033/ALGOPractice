@@ -145,4 +145,73 @@ class LinkedListTagsUnitTest: XCTestCase {
         XCTAssertEqual(res, 5)
     }
     
+    func testRemoveDuplicateNodes() {
+        let l0 = ListNode.toNodeList(by: [1, 2, 3, 3, 2, 1])
+        let l1 = testObj.removeDuplicateNodes(l0)
+        XCTAssertEqual(ListNode.toArray(by: l1), [1, 2, 3])
+        let l2 = ListNode.toNodeList(by: [1, 1, 1, 2])
+        let l3 = testObj.removeDuplicateNodes(l2)
+        XCTAssertEqual(ListNode.toArray(by: l3), [1, 2])
+    }
+    func testPartition() {
+        let l0 = ListNode.toNodeList(by: [3, 5, 8, 5, 10, 2, 1])
+        let l1 = testObj.partition(l0, 5)
+        XCTAssertTrue(isPartitionTrue(l1, 5))
+        print(ListNode.toArray(by: l1))
+    }
+    func isPartitionTrue(_ head: ListNode?, _ x: Int) -> Bool {
+        var node = head
+        var left = true
+        while let nd = node {
+            if left && nd.val >= x {
+                left = false
+            }
+            if left == false && nd.val < x {
+                return false
+            }
+            node = nd.next
+        }
+        return true
+    }
+    
+    func testCopyRandomList() {
+        let arr = [[7, nil], [13, 0], [11, 4], [10, 2], [1, 0]]
+        let dummy = RNode(-1)
+        var cur = dummy
+        var ma = [RNode]()
+        for item in arr {
+            if let val = item[0] {
+                let node = RNode(val)
+                ma.append(node)
+                cur.next = node
+                cur = node
+            }
+        }
+        
+        var i = 0
+        for item in arr {
+            let node = ma[i]
+            if let val = item[1] {
+                node.random = ma[val]
+            }
+            i += 1
+        }
+        _ = testObj.copyRandomList(dummy.next)
+        
+    }
+    
+    func testRemoveZeroSumSublists() {
+        let l1 = ListNode.toNodeList(by: [1, 2, 3, -3, -2])
+//        let l1 = ListNode.toNodeList(by: [1, -1])
+        let l2 = testObj.removeZeroSumSublists(l1)
+        var node = l2
+        while let nd = node, let next = nd.next {
+            if nd.val + next.val == 0 {
+                XCTFail("校验失败，存在连续相加为0的节点")
+                break
+            }
+            node = next
+        }
+    }
+    
 }

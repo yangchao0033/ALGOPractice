@@ -306,15 +306,15 @@ class LinkedListTags {
      */
     func isPalindrome(_ head: ListNode?) -> Bool {
         // 方法一：使用辅助空间
-//        var a1 = [Int]()
-//        var a2 = [Int]()
-//        var cur = head
-//        while let curP = cur {
-//            a1.insert(curP.val, at: 0)
-//            a2.append(curP.val)
-//            cur = cur?.next
-//        }
-//        return a1 == a2
+        //        var a1 = [Int]()
+        //        var a2 = [Int]()
+        //        var cur = head
+        //        while let curP = cur {
+        //            a1.insert(curP.val, at: 0)
+        //            a2.append(curP.val)
+        //            cur = cur?.next
+        //        }
+        //        return a1 == a2
         var middle: ListNode?
         var slow = head
         var fast = head
@@ -415,5 +415,141 @@ class LinkedListTags {
         }
         return sum
     }
+    /**
+     * https://leetcode-cn.com/problems/remove-duplicate-node-lcci/
+     * 移除未排序链表中的重复节点
+     */
+    func removeDuplicateNodes(_ head: ListNode?) -> ListNode? {
+        // 使用集合
+        var set: Set<Int> = []
+        var cur = head
+        while let curNode = cur, let next = curNode.next {
+            set.insert(curNode.val)
+            if set.contains(next.val) {
+                cur?.next = cur?.next?.next
+            } else {
+                cur = cur?.next
+            }
+        }
+        return head
+        //        // 位运算
+        //        var bits = [Int](repeating: 0, count: 20000 / 32 + 1)
+        //        var cur = head
+        //        while let node = cur, let next = node.next {
+        //            bits[node.val / 32] |= 1 << (node.val % 32)
+        //            if (bits[next.val / 32] & (1 << (next.val % 32))) != 0 {
+        //                node.next = next.next
+        //            } else {
+        //                cur = next
+        //            }
+        //        }
+        //        return head
+    }
+    /**
+     * https://leetcode-cn.com/problems/partition-list-lcci/
+     *  分割链表
+     *  编写程序以 x 为基准分割链表，使得所有小于 x 的节点排在大于或等于 x 的节点之前。如果链表中包含 x，x 只需出现在小于 x 的元素之后(如下所示)。分割元素 x 只需处于“右半部分”即可，其不需要被置于左右两部分之间。
+     */
+    func partition(_ head: ListNode?, _ x: Int) -> ListNode? {
+        // 方法一：使用两个哑节点
+        let dummy0 = ListNode(-1)
+        dummy0.next = head
+        var pre: ListNode? = dummy0
+        var cur = head
+        let dummy1 = ListNode(-1)
+        var cur1: ListNode? = dummy1
+        while let curNode = cur {
+            if curNode.val < x {
+                pre?.next = curNode.next
+                cur = curNode.next
+                cur1?.next = curNode
+                cur1 = cur1?.next
+            } else {
+                pre = cur
+                cur = curNode.next
+            }
+        }
+        cur1?.next = dummy0.next
+        return dummy1.next
+    }
     
+    /**
+     * https://leetcode-cn.com/problems/copy-list-with-random-pointer/
+     * 复制带随机指针的链表
+     */
+    func copyRandomList(_ head: RNode?) -> RNode? {
+//        let dummy = RNode(-1)
+//        var dict = [RNode: RNode]()
+//        var node: RNode? = dummy
+//        var oriNode = head
+//
+//        while let ond = oriNode {
+//            let newNode = RNode(ond.val)
+//            dict[ond] = newNode
+//            node?.next = newNode
+//            node = newNode
+//            oriNode = ond.next
+//
+//        }
+//        oriNode = head
+//        node = dummy.next
+//        while let ond = oriNode {
+//            if let rd = ond.random, let rdn = dict[rd] {
+//                node?.random = rdn
+//            }
+//            oriNode = ond.next
+//            node = node?.next
+//        }
+//        return dummy.next
+        guard let hd = head else { return nil }
+        var copyMap = [RNode: RNode]()
+        var node = head
+        while let nd = node {
+            let copy = RNode(nd.val)
+            copyMap[nd] = copy
+            node = nd.next
+        }
+        node = head
+        while let nd = node {
+            if let next = node?.next {
+                copyMap[nd]?.next = copyMap[next]
+            }
+            if let random = nd.random {
+                copyMap[nd]?.random = copyMap[random]
+            }
+            node = nd.next
+        }
+        return copyMap[hd]
+    }
+    
+    /**
+     *  从链表中删去总和值为零的连续节点
+     *  https://leetcode-cn.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/
+     */
+    func removeZeroSumSublists(_ head: ListNode?) -> ListNode? {
+        guard head != nil else {
+            return nil
+        }
+        var dict = [Int: ListNode]()
+        let dummy = ListNode(0)
+        dummy.next = head
+        var node = head
+        var sum = 0
+        while let nd = node {
+            sum += nd.val
+            dict[sum] = nd
+            node = nd.next
+        }
+        node = dummy
+        sum = 0
+        while let nd = node {
+            sum += nd.val
+            if let targetNode = dict[sum] {
+                nd.next = targetNode.next
+            }
+            node = nd.next
+        }
+        return dummy.next
+    }
 }
+
