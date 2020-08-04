@@ -448,28 +448,29 @@ class LinkedListTags {
     /**
      * https://leetcode-cn.com/problems/partition-list-lcci/
      *  分割链表
-     *  编写程序以 x 为基准分割链表，使得所有小于 x 的节点排在大于或等于 x 的节点之前。如果链表中包含 x，x 只需出现在小于 x 的元素之后(如下所示)。分割元素 x 只需处于“右半部分”即可，其不需要被置于左右两部分之间。
+     *  编写程序以 x 为基准分割链表，使得所有小于 x 的节点排在大于或等于 x 的节点之前。
+     *  如果链表中包含 x，x 只需出现在小于 x 的元素之后(如下所示)。分割元素 x 只需处于“右半部分”即可，其不需要被置于左右两部分之间。
      */
     func partition(_ head: ListNode?, _ x: Int) -> ListNode? {
-        // 方法一：使用两个哑节点
+        guard let head = head else { return nil }
         let dummy0 = ListNode(-1)
+        let dummy1 = ListNode(-2)
         dummy0.next = head
+        var maxNode: ListNode? = head
         var pre: ListNode? = dummy0
-        var cur = head
-        let dummy1 = ListNode(-1)
-        var cur1: ListNode? = dummy1
-        while let curNode = cur {
-            if curNode.val < x {
-                pre?.next = curNode.next
-                cur = curNode.next
-                cur1?.next = curNode
-                cur1 = cur1?.next
+        var minNode: ListNode? = dummy1
+        while let maxN = maxNode {
+            if maxN.val < x {
+                pre?.next = maxN.next
+                minNode?.next = maxN
+                minNode = maxN
+                maxNode = pre?.next
             } else {
-                pre = cur
-                cur = curNode.next
+                maxNode = maxN.next
+                pre = pre?.next
             }
         }
-        cur1?.next = dummy0.next
+        minNode?.next = dummy0.next
         return dummy1.next
     }
     
@@ -551,5 +552,168 @@ class LinkedListTags {
         }
         return dummy.next
     }
+    
+    /**
+     *  两数相加
+     *  https://leetcode-cn.com/problems/add-two-numbers/
+     */
+    func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        let dummy = ListNode(-1)
+        var node: ListNode? = dummy
+        var l1 = l1
+        var l2 = l2
+        var carry = false
+        while l1 != nil || l2 != nil {
+            var sum = 0
+            if let cur = l1 {
+                sum += cur.val
+                l1 = l1?.next
+            }
+            if let cur = l2 {
+                sum += cur.val
+                l2 = l2?.next
+            }
+            if carry {
+                sum += 1
+            }
+            carry = sum / 10 >= 1
+            node?.next = ListNode(sum % 10)
+            node = node?.next
+        }
+        if carry {
+            node?.next = ListNode(1)
+        }
+        return dummy.next
+    }
+    
+    /**
+     *    https://leetcode-cn.com/problems/reorder-list/solution/
+     *    重排链表
+     *     给定一个单链表 L：L0→L1→…→Ln-1→Ln ，
+     *     将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→…
+     *     你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+     */
+    func reorderList(_ head: ListNode?) {
+        // 方法一：使用数组做辅助索引
+//        var array = [ListNode]()
+//        var node = head
+//        while let nd = node {
+//            array.append(nd)
+//            node = nd.next
+//        }
+//        guard array.count > 0 else { return }
+//        node = head
+//        var left = 0
+//        var right = array.count - 1
+//        while left < right {
+//            array[left].next = array[right]
+//            left += 1
+//            if left == right { // 个数为偶数，提前相遇
+//                break
+//            }
+//            array[right].next = array[left]
+//            right -= 1
+//        }
+//        array[left].next = nil
+        // 方法二：折半切割 + 逆序 + 链表合并
+        let middle = reorderListFindMiddleHelper(head)
+        let reverse = reorderListReverseList(middle?.next)
+        middle?.next = nil
+        var node = head
+        var re = reverse
+        while re != nil {
+            let temp = re?.next
+            re?.next = node?.next
+            node?.next = re
+            node = re?.next
+            re = temp
+        }
+    }
+    func reorderListFindMiddleHelper(_ head: ListNode?) -> ListNode? {
+        var fast = head
+        var slow = head
+        while fast?.next != nil {
+            fast = fast?.next?.next
+            slow = slow?.next
+        }
+        return slow
+    }
+    func reorderListReverseList(_ head: ListNode?) -> ListNode? {
+        let dummy = ListNode(-1)
+        var node = head
+        while node != nil {
+            let temp = node?.next
+            node?.next = dummy.next
+            dummy.next = node
+            node = temp
+        }
+        return dummy.next
+    }
+    
+    /**
+     * https://leetcode-cn.com/problems/reverse-linked-list-ii/
+     * 92. 反转链表 II
+     */
+    func reverseBetween(_ head: ListNode?, _ m: Int, _ n: Int) -> ListNode? {
+        /*
+         思路
+         1. 迭代并找出反转区域的前一个节点 reversePre 和反转区域的最后一个节点 reverseTail
+         2. 将反转区域反转
+         3. 将 reversePre.next 指向反转区域头结点, 将 reverseTail.next 指向反转区域的后一个节点
+         */
+        // 记录链表头结点
+//        let dummy = ListNode(-1)
+//        dummy.next = head
+//        var node: ListNode? = dummy
+//        var pos = 0
+//        // 记录反转链表区域数据
+//        let reverseDummy = ListNode(-1)
+//        var reverseTail: ListNode? // 反转链表最后一个节点
+//        var reversePre: ListNode? // 反转链表前一个节点
+//        // 迭代链表
+//        while node != nil {
+//            if pos == m - 1 {
+//                reversePre = node
+//            }
+//            if pos >= m && pos <= n { // 开始反转
+//                if pos == m {
+//                    reverseTail = node
+//                }
+//                let temp = node?.next
+//                node?.next = reverseDummy.next
+//                reverseDummy.next = node
+//                node = temp
+//                if pos == n {
+//                    reverseTail?.next = temp
+//                }
+//            } else {
+//                node = node?.next
+//            }
+//            pos += 1
+//        }
+//        reversePre?.next = reverseDummy.next
+//        return dummy.next
+        /*
+         方法二：
+         1. 将指针移动到 m
+         2. 节点两两交换实现区域内反转
+         */
+        guard m <= n && head != nil else {
+            return nil
+        }
+        let dummy = ListNode(-1)
+        dummy.next = head
+        var pre: ListNode? = dummy
+        for _ in 0..<m-1 {
+            pre = pre?.next
+        }
+        let node = pre?.next
+        for _ in m..<n {
+            let next = node?.next
+            node?.next = next?.next
+            next?.next = pre?.next
+            pre?.next = next
+        }
+        return dummy.next
+    }
 }
-

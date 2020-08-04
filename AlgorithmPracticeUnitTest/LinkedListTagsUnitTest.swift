@@ -43,11 +43,11 @@ class LinkedListTagsUnitTest: XCTestCase {
         let l1 = ListNode.toNodeList(by: [1, 2, 3, 3, 4, 4, 5])
         let l2 = testObj.deleteDuplicatesII(l1)
         XCTAssertEqual(ListNode.toArray(by: l2),
-        [1, 2, 5])
+                       [1, 2, 5])
         let l3 = ListNode.toNodeList(by: [1, 1, 1])
         let l4 = testObj.deleteDuplicatesII(l3)
         XCTAssertEqual(ListNode.toArray(by: l4),
-        [])
+                       [])
     }
     
     func testRemoveNthFromEnd() {
@@ -72,7 +72,7 @@ class LinkedListTagsUnitTest: XCTestCase {
         l2?.next?.next?.next = l0
         XCTAssertEqual(ListNode.toArray(by: l1), [4, 1, 8, 4, 5])
         XCTAssertEqual(ListNode.toArray(by: l2), [5, 0, 1, 8, 4, 5])
-//        let node = testObj.getIntersectionNode(headA: l1, headB: l2)
+        //        let node = testObj.getIntersectionNode(headA: l1, headB: l2)
         let node = testObj.getIntersectionNode(l1, l2)
         XCTAssertEqual(node, l0)
     }
@@ -202,7 +202,7 @@ class LinkedListTagsUnitTest: XCTestCase {
     
     func testRemoveZeroSumSublists() {
         let l1 = ListNode.toNodeList(by: [1, 2, 3, -3, -2])
-//        let l1 = ListNode.toNodeList(by: [1, -1])
+        //        let l1 = ListNode.toNodeList(by: [1, -1])
         let l2 = testObj.removeZeroSumSublists(l1)
         var node = l2
         while let nd = node, let next = nd.next {
@@ -212,6 +212,36 @@ class LinkedListTagsUnitTest: XCTestCase {
             }
             node = next
         }
+    }
+    
+    func testAddTwoNumbers() {
+        let l1 = ListNode.toNodeList(by: [2, 4, 3])
+        let l2 = ListNode.toNodeList(by: [5, 6, 4])
+        let l3 = testObj.addTwoNumbers(l1, l2)
+        XCTAssertEqual(ListNode.toArray(by: l3), [7, 0, 8])
+        
+        let l4 = ListNode.toNodeList(by: [9, 9, 9])
+        let l5 = ListNode.toNodeList(by: [1])
+        let l6 = testObj.addTwoNumbers(l4, l5)
+        XCTAssertEqual(ListNode.toArray(by: l6), [0, 0, 0, 1])
+    }
+    
+    func testReorderList() {
+        let l1 = ListNode.toNodeList(by: [1, 2, 3, 4, 5])
+        testObj.reorderList(l1)
+        XCTAssertEqual(ListNode.toArray(by: l1), [1, 5, 2, 4, 3])
+        let l2 = ListNode.toNodeList(by: [1, 2, 3, 4, 5, 6])
+        testObj.reorderList(l2)
+        XCTAssertEqual(ListNode.toArray(by: l2), [1, 6, 2, 5, 3, 4])
+    }
+    
+    func testReverseBetween() {
+        let l1 = ListNode.toNodeList(by: [1, 2, 3, 4, 5])
+        let l2 = testObj.reverseBetween(l1, 2, 4)
+        XCTAssertEqual(ListNode.toArray(by: l2), [1, 4, 3, 2, 5])
+        let l3 = ListNode.toNodeList(by: [1, 2, 3, 4, 5])
+        let l4 = testObj.reverseBetween(l3, 1, 5)
+        XCTAssertEqual(ListNode.toArray(by: l4), [5, 4, 3, 2, 1])
     }
     
 }
