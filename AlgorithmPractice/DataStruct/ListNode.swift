@@ -21,7 +21,8 @@ import Cocoa
 extension ListNode {
     static func toNodeList(by array: [Int]) -> ListNode? {
         let nodes = array.map { ListNode($0) }
-        for i in 0..<nodes.count - 1 {
+//        for i in 0..<nodes.count - 1 {
+        for i in stride(from: 0, to: nodes.count - 1, by: 1) {
             nodes[i].next = nodes[i + 1]
         }
         return nodes.first

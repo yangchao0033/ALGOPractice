@@ -226,6 +226,18 @@ class LinkedListTagsUnitTest: XCTestCase {
         XCTAssertEqual(ListNode.toArray(by: l6), [0, 0, 0, 1])
     }
     
+    func testAddTwoNumbersII() {
+        let l1 = ListNode.toNodeList(by: [7, 2, 4, 3])
+        let l2 = ListNode.toNodeList(by: [5, 6, 4])
+        let l3 = testObj.addTwoNumbersII(l1, l2)
+        XCTAssertEqual(ListNode.toArray(by: l3), [7, 8, 0, 7])
+        
+        let l4 = ListNode.toNodeList(by: [9, 9, 9])
+        let l5 = ListNode.toNodeList(by: [1])
+        let l6 = testObj.addTwoNumbersII(l4, l5)
+        XCTAssertEqual(ListNode.toArray(by: l6), [1, 0, 0, 0])
+    }
+    
     func testReorderList() {
         let l1 = ListNode.toNodeList(by: [1, 2, 3, 4, 5])
         testObj.reorderList(l1)
@@ -244,4 +256,54 @@ class LinkedListTagsUnitTest: XCTestCase {
         XCTAssertEqual(ListNode.toArray(by: l4), [5, 4, 3, 2, 1])
     }
     
+    func testMyLinkedList() {
+        let linkedList = MyLinkedList()
+        linkedList.addAtHead(7)
+        linkedList.addAtHead(2)
+        linkedList.addAtHead(1)
+        linkedList.addAtIndex(3, 0)
+        linkedList.deleteAtIndex(2)
+        linkedList.addAtHead(6)
+        linkedList.addAtTail(4)
+        XCTAssertEqual(linkedList.get(4), 4)
+        linkedList.addAtHead(4)
+        linkedList.addAtIndex(5, 0)
+        linkedList.addAtHead(6)
+    }
+    
+    func testSplitListToParts() {
+        let l1 = ListNode.toNodeList(by: [1, 2, 3])
+        let array = testObj.splitListToParts(l1, 5)
+        var res = [[Int?]]()
+        for item in array {
+            let itemArray = ListNode.toArray(by: item)
+            res.append(itemArray)
+        }
+        XCTAssertEqual(res, [[1], [2], [3], [], []])
+        let l2 = ListNode.toNodeList(by: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        let array2 = testObj.splitListToParts(l2, 3)
+        var res2 = [[Int?]]()
+        for item in array2 {
+            let itemArray = ListNode.toArray(by: item)
+            res2.append(itemArray)
+        }
+        XCTAssertEqual(res2, [[1, 2, 3, 4], [5, 6, 7], [8, 9, 10]])
+        let l3 = ListNode.toNodeList(by: [])
+        let array3 = testObj.splitListToParts(l3, 3)
+        print(array3)
+    }
+    
+    func testRotateRight() {
+        let l1 = ListNode.toNodeList(by: [1, 2, 3, 4, 5])
+        let l2 = testObj.rotateRight(l1, 7)
+        XCTAssertEqual(ListNode.toArray(by: l2), [4, 5, 1, 2, 3])
+        
+        let l3 = ListNode.toNodeList(by: [])
+        let l4 = testObj.rotateRight(l3, 0)
+        XCTAssertEqual(ListNode.toArray(by: l4), [])
+        
+        let l5 = ListNode.toNodeList(by: [1, 2])
+        let l6 = testObj.rotateRight(l5, 0)
+        XCTAssertEqual(ListNode.toArray(by: l6), [1, 2])
+    }
 }

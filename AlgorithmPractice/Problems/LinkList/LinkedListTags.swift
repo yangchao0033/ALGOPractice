@@ -479,29 +479,29 @@ class LinkedListTags {
      * 复制带随机指针的链表
      */
     func copyRandomList(_ head: RNode?) -> RNode? {
-//        let dummy = RNode(-1)
-//        var dict = [RNode: RNode]()
-//        var node: RNode? = dummy
-//        var oriNode = head
-//
-//        while let ond = oriNode {
-//            let newNode = RNode(ond.val)
-//            dict[ond] = newNode
-//            node?.next = newNode
-//            node = newNode
-//            oriNode = ond.next
-//
-//        }
-//        oriNode = head
-//        node = dummy.next
-//        while let ond = oriNode {
-//            if let rd = ond.random, let rdn = dict[rd] {
-//                node?.random = rdn
-//            }
-//            oriNode = ond.next
-//            node = node?.next
-//        }
-//        return dummy.next
+        //        let dummy = RNode(-1)
+        //        var dict = [RNode: RNode]()
+        //        var node: RNode? = dummy
+        //        var oriNode = head
+        //
+        //        while let ond = oriNode {
+        //            let newNode = RNode(ond.val)
+        //            dict[ond] = newNode
+        //            node?.next = newNode
+        //            node = newNode
+        //            oriNode = ond.next
+        //
+        //        }
+        //        oriNode = head
+        //        node = dummy.next
+        //        while let ond = oriNode {
+        //            if let rd = ond.random, let rdn = dict[rd] {
+        //                node?.random = rdn
+        //            }
+        //            oriNode = ond.next
+        //            node = node?.next
+        //        }
+        //        return dummy.next
         guard let hd = head else { return nil }
         var copyMap = [RNode: RNode]()
         var node = head
@@ -559,29 +559,65 @@ class LinkedListTags {
      */
     func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
         let dummy = ListNode(-1)
-        var node: ListNode? = dummy
-        var l1 = l1
-        var l2 = l2
+        var cur: ListNode? = dummy
         var carry = false
-        while l1 != nil || l2 != nil {
+        var node1 = l1
+        var node2 = l2
+        while node1 != nil || node2 != nil || carry {
             var sum = 0
-            if let cur = l1 {
-                sum += cur.val
-                l1 = l1?.next
+            if let n1 = node1 {
+                sum += n1.val
             }
-            if let cur = l2 {
-                sum += cur.val
-                l2 = l2?.next
+            if let n2 = node2 {
+                sum += n2.val
             }
-            if carry {
-                sum += 1
-            }
+            
+            sum += carry ? 1 : 0
             carry = sum / 10 >= 1
-            node?.next = ListNode(sum % 10)
-            node = node?.next
+            cur?.next = ListNode(sum % 10)
+            cur = cur?.next
+            node1 = node1?.next
+            node2 = node2?.next
         }
-        if carry {
-            node?.next = ListNode(1)
+        return dummy.next
+    }
+    
+    /**
+     * https://leetcode-cn.com/problems/add-two-numbers-ii/
+     * 445. 两数相加II
+     * 输入：(7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
+     * 输出：7 -> 8 -> 0 -> 7
+     */
+    func addTwoNumbersII(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        var node1 = l1
+        var node2 = l2
+        var stack1 = Stack<ListNode>()
+        var stack2 = Stack<ListNode>()
+        while node1 != nil || node2 != nil {
+            if let n1 = node1 {
+                stack1.push(n1)
+            }
+            if let n2 = node2 {
+                stack2.push(n2)
+            }
+            node1 = node1?.next
+            node2 = node2?.next
+        }
+        var carry = 0
+        let dummy = ListNode(-1)
+        while !stack1.isEmpty || !stack2.isEmpty || carry > 0 {
+            var sum = 0
+            if let n1 = stack1.pop() {
+                sum += n1.val
+            }
+            if let n2 = stack2.pop() {
+                sum += n2.val
+            }
+            sum += carry
+            carry = sum / 10
+            let cur = ListNode(sum % 10)
+            cur.next = dummy.next
+            dummy.next = cur
         }
         return dummy.next
     }
@@ -595,26 +631,26 @@ class LinkedListTags {
      */
     func reorderList(_ head: ListNode?) {
         // 方法一：使用数组做辅助索引
-//        var array = [ListNode]()
-//        var node = head
-//        while let nd = node {
-//            array.append(nd)
-//            node = nd.next
-//        }
-//        guard array.count > 0 else { return }
-//        node = head
-//        var left = 0
-//        var right = array.count - 1
-//        while left < right {
-//            array[left].next = array[right]
-//            left += 1
-//            if left == right { // 个数为偶数，提前相遇
-//                break
-//            }
-//            array[right].next = array[left]
-//            right -= 1
-//        }
-//        array[left].next = nil
+        //        var array = [ListNode]()
+        //        var node = head
+        //        while let nd = node {
+        //            array.append(nd)
+        //            node = nd.next
+        //        }
+        //        guard array.count > 0 else { return }
+        //        node = head
+        //        var left = 0
+        //        var right = array.count - 1
+        //        while left < right {
+        //            array[left].next = array[right]
+        //            left += 1
+        //            if left == right { // 个数为偶数，提前相遇
+        //                break
+        //            }
+        //            array[right].next = array[left]
+        //            right -= 1
+        //        }
+        //        array[left].next = nil
         // 方法二：折半切割 + 逆序 + 链表合并
         let middle = reorderListFindMiddleHelper(head)
         let reverse = reorderListReverseList(middle?.next)
@@ -662,37 +698,37 @@ class LinkedListTags {
          3. 将 reversePre.next 指向反转区域头结点, 将 reverseTail.next 指向反转区域的后一个节点
          */
         // 记录链表头结点
-//        let dummy = ListNode(-1)
-//        dummy.next = head
-//        var node: ListNode? = dummy
-//        var pos = 0
-//        // 记录反转链表区域数据
-//        let reverseDummy = ListNode(-1)
-//        var reverseTail: ListNode? // 反转链表最后一个节点
-//        var reversePre: ListNode? // 反转链表前一个节点
-//        // 迭代链表
-//        while node != nil {
-//            if pos == m - 1 {
-//                reversePre = node
-//            }
-//            if pos >= m && pos <= n { // 开始反转
-//                if pos == m {
-//                    reverseTail = node
-//                }
-//                let temp = node?.next
-//                node?.next = reverseDummy.next
-//                reverseDummy.next = node
-//                node = temp
-//                if pos == n {
-//                    reverseTail?.next = temp
-//                }
-//            } else {
-//                node = node?.next
-//            }
-//            pos += 1
-//        }
-//        reversePre?.next = reverseDummy.next
-//        return dummy.next
+        //        let dummy = ListNode(-1)
+        //        dummy.next = head
+        //        var node: ListNode? = dummy
+        //        var pos = 0
+        //        // 记录反转链表区域数据
+        //        let reverseDummy = ListNode(-1)
+        //        var reverseTail: ListNode? // 反转链表最后一个节点
+        //        var reversePre: ListNode? // 反转链表前一个节点
+        //        // 迭代链表
+        //        while node != nil {
+        //            if pos == m - 1 {
+        //                reversePre = node
+        //            }
+        //            if pos >= m && pos <= n { // 开始反转
+        //                if pos == m {
+        //                    reverseTail = node
+        //                }
+        //                let temp = node?.next
+        //                node?.next = reverseDummy.next
+        //                reverseDummy.next = node
+        //                node = temp
+        //                if pos == n {
+        //                    reverseTail?.next = temp
+        //                }
+        //            } else {
+        //                node = node?.next
+        //            }
+        //            pos += 1
+        //        }
+        //        reversePre?.next = reverseDummy.next
+        //        return dummy.next
         /*
          方法二：
          1. 将指针移动到 m
@@ -715,5 +751,227 @@ class LinkedListTags {
             pre?.next = next
         }
         return dummy.next
+    }
+    
+    func splitListToParts(_ root: ListNode?, _ k: Int) -> [ListNode?] {
+        // 1. 先遍历并计算size
+        // 2. 求出每组应该放入的最大个数
+        // 3. 遍历并装入数组
+//        guard root != nil else {
+//            return []
+//        }
+        var node = root
+        var size = 0
+        while node != nil {
+            node = node?.next
+            size += 1
+        }
+
+        let unitCount = size < k ? 1 : size / k
+        let unitMod = size < k ? 0 : size % k
+        node = root
+        var curUnitCount = 0
+        var curTotalCount = 0
+        var res = [ListNode?]()
+        var i = 0
+        while curTotalCount < k {
+            let next = node?.next
+            if curUnitCount == 0 {
+                res.append(node)
+                curTotalCount += 1
+                
+            }
+            curUnitCount += 1
+            let maxUnitCount = unitCount + (curTotalCount <= unitMod ? 1 : 0)
+            if curUnitCount == maxUnitCount {
+                node?.next = nil
+                curUnitCount = 0
+            }
+            node = next
+            i += 1
+        }
+        return res
+    }
+    
+    func rotateRight(_ head: ListNode?, _ k: Int) -> ListNode? {
+        // 快慢指针
+        guard head != nil else {
+            return nil
+        }
+        var n = 0
+        var cur = head
+        while cur != nil {
+            n += 1
+            cur = cur?.next
+        }
+        
+        var k = k % n
+        var slow = head
+        var fast = head
+        while k != 0 {
+            fast = fast?.next
+            k -= 1
+        }
+        while fast?.next != nil {
+            fast = fast?.next
+            slow = slow?.next
+        }
+        fast?.next = head
+        let h = slow?.next
+        slow?.next = nil
+        return h
+    }
+    
+}
+
+/**
+ *  707.设计链表
+ *  https://leetcode-cn.com/problems/design-linked-list/
+ */
+class MyLinkedList {
+    // 单链表
+    /*
+    class MLNode {
+        var val: Int
+        var next: MLNode?
+        init(_ val: Int) {
+            self.val = val
+        }
+    }
+    
+    let dummy = MLNode(-1)
+    
+    private var last: MLNode {
+        var cur = dummy
+        while let next = cur.next {
+            cur = next
+        }
+        return cur
+    }
+    
+    /** Initialize your data structure here. */
+    init() {
+        
+    }
+    
+    /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
+    func get(_ index: Int) -> Int {
+        guard let node = getNode(index) else { return -1 }
+        return node.val
+    }
+    
+    private func getNode(_ index: Int) -> MLNode? {
+        let index = index + 1
+        guard index >= 0 else {
+            return nil
+        }
+        var cur: MLNode? = dummy
+        var i = 0
+        while cur != nil {
+            if i == index {
+                return cur
+            }
+            cur = cur?.next
+            i += 1
+        }
+        return nil
+    }
+    
+    func addAtHead(_ val: Int) {
+        addAtIndex(0, val)
+    }
+    
+    /** Append a node of value val to the last element of the linked list. */
+    func addAtTail(_ val: Int) {
+        let node = MLNode(val)
+        last.next = node
+    }
+    
+    func addAtIndex(_ index: Int, _ val: Int) {
+        let index = index < 0 ? 0 : index
+        let prev = getNode(index - 1)
+        let node = MLNode(val)
+        node.next = prev?.next
+        prev?.next = node
+    }
+    
+    /** Delete the index-th node in the linked list, if the index is valid. */
+    func deleteAtIndex(_ index: Int) {
+        guard index >= 0 else {
+            return
+        }
+        let prev = getNode(index - 1)
+        prev?.next = prev?.next?.next
+    }
+ */
+    // 双向链表
+    class MLNode {
+        var val: Int
+        var next: MLNode?
+        var prev: MLNode?
+        init(_ val: Int) {
+            self.val = val
+        }
+    }
+
+    let dummy = MLNode(-1)
+    var size = 0
+    init() {
+        
+    }
+    
+    func get(_ index: Int) -> Int {
+        guard let node = getNode(index) else { return -1 }
+        return node.val
+    }
+    
+    func addAtHead(_ val: Int) {
+        addAtIndex(0, val)
+    }
+    
+    func addAtTail(_ val: Int) {
+        addAtIndex(size, val)
+    }
+    
+    func addAtIndex(_ index: Int, _ val: Int) {
+        let index = index >= 0 ? index : 0
+        guard let pre = getNode(index - 1) else { return}
+        let node = MLNode(val)
+        node.next = pre.next
+        pre.next?.prev = node
+        node.prev = pre
+        pre.next = node
+        size += 1
+    }
+    
+    func deleteAtIndex(_ index: Int) {
+        guard index >= 0 else {
+            return
+        }
+        guard let node = getNode(index) else { return }
+        let pre = node.prev
+        let next = node.next
+        pre?.next = next
+        next?.prev = pre
+        node.prev = nil
+        node.next = nil
+        size -= 1
+    }
+    
+    private func getNode(_ index: Int) -> MLNode? {
+        let index = index + 1
+        guard index >= 0 else {
+            return nil
+        }
+        var cur: MLNode? = dummy
+        var i = 0
+        while cur != nil {
+            if i == index {
+                return cur
+            }
+            cur = cur?.next
+            i += 1
+        }
+        return nil
     }
 }
