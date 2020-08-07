@@ -7,7 +7,7 @@
 //
 
 import XCTest
-
+// swiftlint:disable type_body_length
 class LinkedListTagsUnitTest: XCTestCase {
     let n1 = [0, 2, 4, 6, 8]
     let n2 = [1, 3, 4, 6, 8, 12]
@@ -74,7 +74,7 @@ class LinkedListTagsUnitTest: XCTestCase {
         XCTAssertEqual(ListNode.toArray(by: l2), [5, 0, 1, 8, 4, 5])
         //        let node = testObj.getIntersectionNode(headA: l1, headB: l2)
         let node = testObj.getIntersectionNode(l1, l2)
-        XCTAssertEqual(node, l0)
+        XCTAssertTrue(node === l0)
     }
     
     func testOddEvenList() {
@@ -93,7 +93,7 @@ class LinkedListTagsUnitTest: XCTestCase {
         let last = l0?.next?.next?.next
         last?.next = h1
         let node = testObj.detectCycle(l0)
-        XCTAssertEqual(node, h1)
+        XCTAssertTrue(node === h1)
         // 测试无环
         let l2 = ListNode.toNodeList(by: n1)
         let node1 = testObj.detectCycle(l2)
@@ -306,4 +306,46 @@ class LinkedListTagsUnitTest: XCTestCase {
         let l6 = testObj.rotateRight(l5, 0)
         XCTAssertEqual(ListNode.toArray(by: l6), [1, 2])
     }
+    
+    func testNumComponents() {
+        let l1 = ListNode.toNodeList(by: [0, 1, 2, 3, 4])
+        let g = [0, 3, 1, 4]
+        let res = testObj.numComponents(l1, g)
+        XCTAssertEqual(res, 2)
+    }
+    
+    func testReverseKGroup() {
+        let l1 = ListNode.toNodeList(by: [1, 2, 3, 4, 5])
+        let l2 = testObj.reverseKGroup(l1, 2)
+        let arr = ListNode.toArray(by: l2)
+        XCTAssertEqual(arr, [2, 1, 4, 3, 5])
+        
+        let l3 = ListNode.toNodeList(by: [1, 2, 3, 4, 5])
+        let l4 = testObj.reverseKGroup(l3, 3)
+        let arr1 = ListNode.toArray(by: l4)
+        XCTAssertEqual(arr1, [3, 2, 1, 4, 5])
+    }
+    
+    func testMergeSortedList() {
+        let a1 = [0, 2, 4, 6, 8]
+        let a2 = [1, 3, 4, 6, 8, 12]
+        let l1 = ListNode.toNodeList(by: a1)
+        let l2 = ListNode.toNodeList(by: a2)
+        let l3 = testObj.mergeTwoLists(l1, l2)
+        XCTAssertEqual([0, 1, 2, 3, 4, 4, 6, 6, 8, 8, 12],
+                       ListNode.toArray(by: l3))
+        
+    }
+    
+    func testMergeKLists() {
+        let l1 = ListNode.toNodeList(by: [1, 2])
+        let l2 = ListNode.toNodeList(by: [3, 4])
+        let l3 = ListNode.toNodeList(by: [1, 2, 3, 4, 5, 6])
+        let array = [l1, l2, l3]
+        let l4 = testObj.mergeKLists(array)
+        let res = ListNode.toArray(by: l4)
+        XCTAssertEqual(res, [1, 1, 2, 2, 3, 3, 4, 4, 5, 6])
+        
+    }
 }
+// swiftlint:enable type_body_length

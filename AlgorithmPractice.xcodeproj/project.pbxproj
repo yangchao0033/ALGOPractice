@@ -313,6 +313,9 @@
 		17CF925524D00EC70042566F /* LinkList */ = {
 			isa = PBXGroup;
 			children = (
+				557726F3FB5B0226A85B6BB4 /* HasCycle2.swift */,
+				5577203171F1EF78853F19E3 /* SwapPairs.swift */,
+				55772787F464CAFB8CD45A6C /* HasCycle.swift */,
 				5577206F608090B441B2BE9E /* ReverseKGroupList.swift */,
 				557727246A0929AA9321E85B /* MergeTwoSortedLists.swift */,
 				55772BE305DC3830F70E953B /* ReverseList.swift */,
@@ -357,11 +360,9 @@
 				17CF925524D00EC70042566F /* LinkList */,
 				55772EAABE36929A9006CB0E /* MyCircularDeque.swift */,
 				557727F4F6FA1E255CE6F1A3 /* ValidateBinarySearchTree.swift */,
-				5577203171F1EF78853F19E3 /* SwapPairs.swift */,
 				557723F6D81FA76290A14B09 /* PreorderTraversal.swift */,
 				55772934399DDD497A39BED7 /* SingleNumber.swift */,
 				5577285A6C01A26318BEDC6E /* PostorderTraversal.swift */,
-				557726F3FB5B0226A85B6BB4 /* HasCycle2.swift */,
 				55772D2D60EF8272F5144329 /* WordIsAnagram.swift */,
 				557726DDA623A560183A2916 /* JumpGameIi.swift */,
 				55772505CAE8BA6DECA72BEB /* LongestSubstringWithoutRepeatingCharacters.swift */,
@@ -402,7 +403,6 @@
 				5577207A53388873D630B665 /* Sqrtx.swift */,
 				55772463659835B0B4DD8EFD /* BracketsIsValid.swift */,
 				55772A963189930FA6E0CE63 /* CanJump.swift */,
-				55772787F464CAFB8CD45A6C /* HasCycle.swift */,
 				557727AB5A795902526F0E62 /* SortedArrayMerge.swift */,
 				55772CC2ECA6424774AD3A1A /* MaxSlidingWindow.swift */,
 				557722C10865907887BDE112 /* MinStack.swift */,

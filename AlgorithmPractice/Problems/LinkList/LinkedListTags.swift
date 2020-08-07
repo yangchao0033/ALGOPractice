@@ -241,7 +241,7 @@ class LinkedListTags {
             return nil
         }
         slow = head
-        while slow != fast {
+        while slow !== fast {
             slow = slow?.next
             fast = fast?.next
         }
@@ -364,7 +364,7 @@ class LinkedListTags {
         }
         return true
     }
-    func reverseHelper(_ head: ListNode?) -> ListNode? {
+    private func reverseHelper(_ head: ListNode?) -> ListNode? {
         let dummy = ListNode(-1)
         var cur = head
         while cur != nil {
@@ -822,6 +822,136 @@ class LinkedListTags {
         return h
     }
     
+    // swiftlint:disable identifier_name
+    /**
+     *  https://leetcode-cn.com/problems/linked-list-components/
+     *  817. 链表组件
+     */
+    func numComponents(_ head: ListNode?, _ G: [Int]) -> Int {
+        // swiftlint:enable identifier_name
+        var set = Set<Int>()
+        G.forEach { set.insert($0) }
+        var ans = 0
+        var cur = head
+        while let curVal = cur?.val {
+            if set.contains(curVal) {
+                if let nextVal = cur?.next?.val {
+                    if !set.contains(nextVal) {
+                        ans += 1
+                    }
+                } else {
+                    ans += 1
+                }
+            }
+            cur = cur?.next
+        }
+        return ans
+    }
+    
+    /**
+     *  https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
+     *  25. K 个一组翻转链表
+     */
+    func reverseKGroup(_ head: ListNode?, _ k: Int) -> ListNode? {
+        // 设定起止指针 & 前后指针
+        let dummy = ListNode(-1)
+        dummy.next = head
+        var pre: ListNode? = dummy
+        var end: ListNode? = dummy
+        while end?.next != nil {
+            var i = 0
+            while i < k && end != nil {
+                end = end?.next
+                i += 1
+            }
+            guard end != nil else {
+                break
+            }
+            let start = pre?.next
+            let next = end?.next
+            end?.next = nil
+            pre?.next = reverseKGroupHelper(start)
+            start?.next = next
+            pre = start
+            end = pre
+        }
+        return dummy.next
+    }
+    private func reverseKGroupHelper(_ head: ListNode?) -> ListNode? {
+        let dummy = ListNode(-1)
+        var cur = head
+        while cur != nil {
+            let next = cur?.next
+            cur?.next = dummy.next
+            dummy.next = cur
+            cur = next
+        }
+        return dummy.next
+    }
+    
+    /**
+     *  21. 合并两个有序链表
+     *  https://leetcode-cn.com/problems/merge-two-sorted-lists/
+     */
+    func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        var l1 = l1
+        var l2 = l2
+        let dummy = ListNode(-1)
+        var tail: ListNode? = dummy
+        while tail != nil {
+            var minNode: ListNode? = l1
+            if let n1 = minNode, let n2 = l2, n2.val < n1.val {
+                minNode = l2
+            }
+            if minNode == nil {
+                minNode = l1 != nil ? l1 : l2
+            }
+            tail?.next = minNode
+            tail = tail?.next
+            if minNode === l1 {
+                l1 = l1?.next
+            } else {
+                l2 = l2?.next
+            }
+        }
+        return dummy.next
+    }
+    
+    /**
+     *  23. 合并 K 个排序链表
+     *  https://leetcode-cn.com/problems/merge-k-sorted-lists/
+     */
+    func mergeKLists(_ lists: [ListNode?]) -> ListNode? {
+        let k = lists.count
+        var lists = lists
+        let dummy = ListNode(-1)
+        var trail: ListNode? = dummy
+        while true {
+            var minNode: ListNode?
+            var minPoint: Int?
+            for i in 0..<k {
+                guard let listHead = lists[i] else { continue }
+                if let minN = minNode {
+                    if listHead.val < minN.val {
+                        minNode = listHead
+                        minPoint = i
+                    }
+                } else {
+                    minNode = listHead
+                    minPoint = i
+                }
+            }
+            guard let index = minPoint else {
+                break
+            }
+            trail?.next = minNode
+            trail = trail?.next
+            lists[index] = lists[index]?.next
+        }
+        
+        return dummy.next
+    }
+    
 }
 
 /**
@@ -975,3 +1105,5 @@ class MyLinkedList {
         return nil
     }
 }
+
+// swiftlint:enable file_length type_body_length
