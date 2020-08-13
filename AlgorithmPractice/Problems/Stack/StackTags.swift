@@ -69,38 +69,76 @@ class StackTags {
         }
         return stack.reduce(0, +)
     }
-}
-
-/**
- *  使用两个栈实现队列
- *  https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/
- */
-class CQueue {
     
-    var appendStack = [Int]()
-    var deleteStack = [Int]()
-    
-    init() {
-        
-    }
-    
-    func appendTail(_ value: Int) {
-        appendStack.append(value)
-    }
-    
-    func deleteHead() -> Int {
-        
-        guard let x = deleteStack.popLast() else {
-            guard !appendStack.isEmpty else {
-                return -1
+    /**
+     * 496. 下一个更大元素 I
+     * https://leetcode-cn.com/problems/next-greater-element-i/
+     */
+    func nextGreaterElement(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        // 1. 遍历 nums2, 并维护单调递减栈
+        // 2. 使用hash 表记录第一个小的记录
+        // 3. 遍历 num1，并通过 hash 表映射为结果
+        var stack = [Int]()
+        var map = [Int: Int]()
+        for item in nums2 {
+            while let last = stack.last, last < item {
+                map[stack.popLast()!] = item
             }
-            while let last = appendStack.popLast() {
-                deleteStack.append(last)
-            }
-            guard let deleteValue = deleteStack.popLast() else { return -1 }
-            return deleteValue
+            stack.append(item)
         }
-        return x
+        return nums1.map { map[$0] ?? -1 }
+    }
+    
+    /**
+     *  503. 下一个更大元素 II
+     *  https://leetcode-cn.com/problems/next-greater-element-ii/
+     */
+    func nextGreaterElements(_ nums: [Int]) -> [Int] {
+        var stack = [Int]()
+        let n = nums.count
+        var res = [Int](repeating: 0, count: n)
+        for i in (0..<n*2).reversed() {
+            while let last = stack.last, last <= nums[i % n] {
+                _ = stack.popLast()
+            }
+            res[i % n] = stack.last ?? -1
+            stack.append(nums[i % n])
+        }
+        return res
+    }
+    
+    // swiftlint:disable identifier_name
+    /**
+     *  739. 每日温度
+     *  https://leetcode-cn.com/problems/daily-temperatures/
+     */
+    func dailyTemperatures(_ T: [Int]) -> [Int] {
+        // swiftlint:enable identifier_name
+        // 使用元组
+//        var stack = [(Int, Int)]()
+//        let n = T.count
+//        var res = [Int](repeating: 0, count: n)
+//        for i in (0..<n).reversed() {
+//            while let (_, value) = stack.last, value <= T[i] {
+//                _ = stack.popLast()
+//            }
+//            let (index, _) = stack.last ?? (i, 0)
+//            res[i] = index - i
+//            stack.append((i, T[i]))
+//        }
+//        return res
+        // 使用下标
+        var stack = [Int]()
+        let n = T.count
+        var res = [Int](repeating: 0, count: n)
+        for i in (0..<n).reversed() {
+            while let last = stack.last, T[last] <= T[i] {
+                _ = stack.popLast()
+            }
+            res[i] = (stack.last ?? i) - i
+            stack.append(i)
+        }
+        return res
     }
     
 }
@@ -159,21 +197,18 @@ class MyQueue {
 }
 
 class MinStack {
-
     var stack = [Int]()
     var minStack = [Int]()
-    /** initialize your data structure here. */
     init() {
-        
     }
     
     func push(_ x: Int) {
         stack.append(x)
-        if let last = minStack.last, last < x {
-            minStack.append(last)
-        } else {
+        guard let last = minStack.last, last < x else {
             minStack.append(x)
+            return
         }
+        minStack.append(last)
     }
     
     func pop() {
@@ -182,10 +217,10 @@ class MinStack {
     }
     
     func top() -> Int {
-        stack.last ?? Int.min
+        return stack.last ?? Int.min
     }
     
-    func getMin() -> Int {
-        minStack.last ?? Int.min
+    func min() -> Int {
+        return minStack.last ?? Int.min
     }
 }

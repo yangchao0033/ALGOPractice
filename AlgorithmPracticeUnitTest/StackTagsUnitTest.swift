@@ -53,5 +53,27 @@ class StackTagsUnitTest: XCTestCase {
         let res1 = testObj.calPoints(arry1)
         XCTAssertEqual(res1, 27)
     }
+    
+    func testNextGreaterElement() {
+        
+        let n1 = testObj.nextGreaterElement([4, 1, 2], [1, 3, 4, 2])
+        XCTAssertEqual(n1, [-1, 3, -1])
+        
+        let n2 = testObj.nextGreaterElement([2, 4], [1, 2, 3, 4])
+        XCTAssertEqual(n2, [3, -1])
+    }
+    
+    func testNextGreaterElements() {
+        let n1 = testObj.nextGreaterElements([1, 2, 1])
+        XCTAssertEqual(n1, [2, -1, 2])
+        
+        let n2 = testObj.nextGreaterElements([5, 4, 3, 2, 1])
+        XCTAssertEqual(n2, [-1, 5, 5, 5, 5])
+    }
+    
+    func testDailyTemperatures() {
+        let n1 = testObj.dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])
+        XCTAssertEqual(n1, [1, 1, 4, 2, 1, 1, 0, 0])
+    }
 
 }
