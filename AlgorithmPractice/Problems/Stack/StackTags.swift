@@ -81,7 +81,7 @@ class StackTags {
         var stack = [Int]()
         var map = [Int: Int]()
         for item in nums2 {
-            while let last = stack.last, last < item {
+            while let last = stack.last, last <= item {
                 map[stack.popLast()!] = item
             }
             stack.append(item)
