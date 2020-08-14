@@ -8,6 +8,7 @@
 
 import Cocoa
 
+// swiftlint:disable file_length
 class StackTags {
     /**
      *  20.有效的括号
@@ -75,15 +76,26 @@ class StackTags {
      * https://leetcode-cn.com/problems/next-greater-element-i/
      */
     func nextGreaterElement(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
-        // 1. 遍历 nums2, 并维护单调递减栈
+        // 1. 遍历 nums2, 并维护单调递减栈(正序暂时不研究了)
         // 2. 使用hash 表记录第一个小的记录
         // 3. 遍历 num1，并通过 hash 表映射为结果
+        //        var stack = [Int]()
+        //        var map = [Int: Int]()
+        //        for item in nums2 {
+        //            while let last = stack.last, last <= item {
+        //                map[stack.popLast()!] = item
+        //            }
+        //            stack.append(item)
+        //        }
+        //        return nums1.map { map[$0] ?? -1 }
+        // 方法二： 逆序
         var stack = [Int]()
         var map = [Int: Int]()
-        for item in nums2 {
+        for item in nums2.reversed() {
             while let last = stack.last, last <= item {
-                map[stack.popLast()!] = item
+                _ = stack.popLast()
             }
+            map[item] = stack.last ?? -1
             stack.append(item)
         }
         return nums1.map { map[$0] ?? -1 }
@@ -115,18 +127,18 @@ class StackTags {
     func dailyTemperatures(_ T: [Int]) -> [Int] {
         // swiftlint:enable identifier_name
         // 使用元组
-//        var stack = [(Int, Int)]()
-//        let n = T.count
-//        var res = [Int](repeating: 0, count: n)
-//        for i in (0..<n).reversed() {
-//            while let (_, value) = stack.last, value <= T[i] {
-//                _ = stack.popLast()
-//            }
-//            let (index, _) = stack.last ?? (i, 0)
-//            res[i] = index - i
-//            stack.append((i, T[i]))
-//        }
-//        return res
+        //        var stack = [(Int, Int)]()
+        //        let n = T.count
+        //        var res = [Int](repeating: 0, count: n)
+        //        for i in (0..<n).reversed() {
+        //            while let (_, value) = stack.last, value <= T[i] {
+        //                _ = stack.popLast()
+        //            }
+        //            let (index, _) = stack.last ?? (i, 0)
+        //            res[i] = index - i
+        //            stack.append((i, T[i]))
+        //        }
+        //        return res
         // 使用下标
         var stack = [Int]()
         let n = T.count
@@ -139,6 +151,220 @@ class StackTags {
             stack.append(i)
         }
         return res
+    }
+    
+    /**
+     *  1441. 用栈操作构建数组
+     *  https://leetcode-cn.com/problems/build-an-array-with-stack-operations/
+     */
+    func buildArray(_ target: [Int], _ n: Int) -> [String] {
+        var res = [String]()
+        var p = 0
+        for item in 1...target[target.count - 1] {
+            res.append("Push")
+            if target[p] != item {
+                res.append("Pop")
+            } else {
+                p += 1
+            }
+        }
+        return res
+    }
+    
+    // swiftlint:disable identifier_name
+    /**
+     *  844. 比较含退格的字符串
+     *  https://leetcode-cn.com/problems/backspace-string-compare/
+     */
+    func backspaceCompare(_ S: String, _ T: String) -> Bool {
+        // swiftlint:enable identifier_name
+        // 方法一：操作两个栈
+        var stackS = ""
+        var stackT = ""
+        for char in S {
+            if char == "#" {
+                _ = stackS.popLast()
+            } else {
+                stackS.append(char)
+            }
+        }
+        for char in T {
+            if char == "#" {
+                _ = stackT.popLast()
+            } else {
+                stackT.append(char)
+            }
+        }
+        return stackS == stackT
+    }
+    
+    // swiftlint:disable identifier_name
+    /**
+     *  1021. 删除最外层的括号
+     *  https://leetcode-cn.com/problems/remove-outermost-parentheses/
+     */
+    func removeOuterParentheses(_ S: String) -> String {
+        // swiftlint:enable identifier_name
+        var stack = [Character]()
+        var res = [Character]()
+        for char in S {
+            if char == "(" {
+                stack.append(char)
+                if stack.count > 1 {
+                    res.append(char)
+                }
+            } else {
+                _ = stack.popLast()
+                if stack.count != 0 {
+                    res.append(char)
+                }
+            }
+        }
+        return String(res)
+    }
+    /**
+     *  1544. 整理字符串
+     *  https://leetcode-cn.com/problems/make-the-string-great/
+     */
+    func makeGood(_ s: String) -> String {
+        var stack = [Character]()
+        for char in s {
+            if let last = stack.last, last != char, last.lowercased() == char.lowercased() {
+                _ = stack.popLast()
+            } else {
+                stack.append(char)
+            }
+        }
+        return String(stack)
+    }
+    
+    /**
+     *  636. 函数的独占时间
+     *  https://leetcode-cn.com/problems/exclusive-time-of-functions/
+     */
+    func exclusiveTime(_ n: Int, _ logs: [String]) -> [Int] {
+        var res = [Int](repeating: 0, count: n)
+        var stack = [(Int, Int)]()
+        for log in logs {
+            let piece = log.components(separatedBy: ":")
+            let ID = Int(piece[0])!
+            let flag = piece[1]
+            let timeStamp = Int(piece[2])!
+            let tuple = (ID, timeStamp)
+            
+            if flag == "start" {
+                stack.append(tuple)
+            } else {
+                if let (_, topTs) = stack.popLast() {
+                    let duration = timeStamp - topTs + 1
+                    res[ID] += duration
+                    if let (topID, _) = stack.last {
+                        res[topID] -= duration
+                    }
+                }
+            }
+        }
+        return res
+    }
+    
+    /**
+     *  456. 132模式
+     *  https://leetcode-cn.com/problems/132-pattern/
+     */
+    func find132pattern(_ nums: [Int]) -> Bool {
+        var ak = Int.min
+        var stack = [Int]()
+        for num in nums.reversed() {
+            if ak > num { return true }
+            while let top = stack.last, top < num {
+                ak = stack.popLast()!
+            }
+            stack.append(num)
+        }
+        return false
+    }
+    
+    // swiftlint:disable identifier_name
+    /**
+     * 880. 索引处的解码字符串
+     * https://leetcode-cn.com/problems/decoded-string-at-index/
+     */
+    func decodeAtIndex(_ S: String, _ K: Int) -> String {
+        // node: 该题目容易内存溢出，不要尝试完全解码
+        // 1. 正向遍历算出解码后的长度
+        var size = 0
+        for c in S {
+            if c.isASCII && c.isWholeNumber {
+                size *= c.wholeNumberValue!
+            } else {
+                size += 1
+            }
+        }
+        var K = K
+        // 2. 逆序遍历解码内容
+        for c in S.reversed() {
+            // 更新 K 的位置，避免不必要的循环
+            K %= size
+            // 3. 通过解码，找到 K 的字母位置
+            if K == 0 && c.isLetter {
+                return String(c)
+            }
+            if c.isASCII && c.isWholeNumber {
+                size /= c.wholeNumberValue!
+            } else {
+                size -= 1
+            }
+        }
+        return ""
+    }
+    // swiftlint:enable identifier_name
+    // swiftlint:disable for_where
+    /**
+     *  735.行星碰撞
+     *  https://leetcode-cn.com/problems/asteroid-collision/
+     */
+    func asteroidCollision(_ asteroids: [Int]) -> [Int] {
+        // lable 控制（推荐但不好写出来）
+        var stack = [Int]()
+        for star in asteroids {
+            innerLable: if true {
+                while let top = stack.last, star < 0, 0 < top {
+                    if top < -star { // 销毁栈顶行星, 并进行下一次判断
+                        _ = stack.popLast()
+                        continue
+                    } else if top == -star { // 销毁新加入的行星，同时不入栈
+                        _ = stack.popLast()
+                    }
+                    // 直接跳出，不入栈
+                    break innerLable
+                }
+                // 当有新行星不会相撞时入栈，比如同向
+                stack.append(star)
+            }
+        }
+        return stack
+        // func 版本
+//        var stack = [Int]()
+//        for star in asteroids {
+//            controlHelper(&stack, star)
+//        }
+//        return stack
+    }
+    // swiftlint:enable for_where
+    
+    func controlHelper(_ stack: inout [Int], _ star: Int) {
+        while let top = stack.last, star < 0, 0 < top {
+            if top < -star { // 销毁栈顶行星, 并进行下一次判断
+                _ = stack.popLast()
+                continue
+            } else if top == -star { // 销毁新加入的行星，同时不入栈
+                _ = stack.popLast()
+            }
+            // 直接跳出，不入栈
+            return
+        }
+        // 当有新行星不会相撞时入栈，比如同向
+        stack.append(star)
     }
     
 }
@@ -196,6 +422,81 @@ class MyQueue {
     }
 }
 
+class MyStack {
+    
+    // 方法一：双队列
+    //    var enterQueue = [Int]()
+    //    var deleteQueue = [Int]()
+    //    var mTop: Int?
+    //    /** Initialize your data structure here. */
+    //    init() {
+    //
+    //    }
+    //
+    //    /** Push element x onto stack. */
+    //    func push(_ x: Int) {
+    //        enterQueue.append(x)
+    //        mTop = x
+    //    }
+    //
+    //    /** Removes the element on top of the stack and returns that element. */
+    //    func pop() -> Int {
+    //        while enterQueue.count > 1 {
+    //            mTop = enterQueue.removeFirst()
+    //            deleteQueue.append(mTop!)
+    //        }
+    //        let res = enterQueue.removeFirst()
+    //        (enterQueue, deleteQueue) = (deleteQueue, enterQueue)
+    //        return res
+    //    }
+    //
+    //    /** Get the top element. */
+    //    func top() -> Int {
+    //        guard let top = mTop else {
+    //            return -1
+    //        }
+    //        return top
+    //    }
+    //
+    //    /** Returns whether the stack is empty. */
+    //    func empty() -> Bool {
+    //        return enterQueue.isEmpty
+    //    }
+    // 方法二：单队列
+    var queue = [Int]()
+    var mTop = -1
+    /** Initialize your data structure here. */
+    init() {
+        
+    }
+    
+    /** Push element x onto stack. */
+    func push(_ x: Int) {
+        queue.append(x)
+        mTop = x
+        var size = queue.count
+        while size > 1 {
+            queue.append(queue.removeFirst())
+            size -= 1
+        }
+    }
+    
+    /** Removes the element on top of the stack and returns that element. */
+    func pop() -> Int {
+        return queue.removeFirst()
+    }
+    
+    /** Get the top element. */
+    func top() -> Int {
+        return queue.first!
+    }
+    
+    /** Returns whether the stack is empty. */
+    func empty() -> Bool {
+        return queue.isEmpty
+    }
+}
+
 class MinStack {
     var stack = [Int]()
     var minStack = [Int]()
@@ -224,3 +525,4 @@ class MinStack {
         return minStack.last ?? Int.min
     }
 }
+// swiftlint:enable file_length
