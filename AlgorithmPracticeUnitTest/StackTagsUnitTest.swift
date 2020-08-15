@@ -38,6 +38,13 @@ class StackTagsUnitTest: XCTestCase {
         
     }
     
+    func testMinAddToMakeValid() {
+        XCTAssertEqual(testObj.minAddToMakeValid("())"), 1)
+        XCTAssertEqual(testObj.minAddToMakeValid("((("), 3)
+        XCTAssertEqual(testObj.minAddToMakeValid("()"), 0)
+        XCTAssertEqual(testObj.minAddToMakeValid("()))(("), 4)
+    }
+    
     func testRemoveDuplicates() {
         let s = "abbaca"
         let res = testObj.removeDuplicates(s)
@@ -135,10 +142,33 @@ class StackTagsUnitTest: XCTestCase {
         XCTAssertEqual(testObj.decodeAtIndex("a2345678999999999999999", 1), "a")
     }
     
+    func testDecodeString() {
+        XCTAssertEqual(testObj.decodeString("3[a]2[bc]"), "aaabcbc")
+        XCTAssertEqual(testObj.decodeString("3[a2[c]]"), "accaccacc")
+        XCTAssertEqual(testObj.decodeString("2[abc]3[cd]ef"), "abcabccdcdcdef")
+        XCTAssertEqual(testObj.decodeString("abc3[cd]xyz"), "abccdcdcdxyz")
+    }
+    
+    func testScoreOfParentheses() {
+        XCTAssertEqual(testObj.scoreOfParentheses("()"), 1)
+        XCTAssertEqual(testObj.scoreOfParentheses("(())"), 2)
+        XCTAssertEqual(testObj.scoreOfParentheses("()()"), 2)
+        XCTAssertEqual(testObj.scoreOfParentheses("(()(()))"), 6)
+    }
+    
     func testAsteroidCollision() {
         XCTAssertEqual(testObj.asteroidCollision([5, 10, -5]), [5, 10])
         XCTAssertEqual(testObj.asteroidCollision([8, -8]), [])
         XCTAssertEqual(testObj.asteroidCollision([10, 2, -5]), [10])
         XCTAssertEqual(testObj.asteroidCollision([-2, -1, 1, 2]), [-2, -1, 1, 2])
+    }
+    
+    func testSimplifyPath() {
+        XCTAssertEqual(testObj.simplifyPath("/home/"), "/home")
+        XCTAssertEqual(testObj.simplifyPath("/../"), "/")
+        XCTAssertEqual(testObj.simplifyPath("/home//foo/"), "/home/foo")
+        XCTAssertEqual(testObj.simplifyPath("/a/./b/../../c/"), "/c")
+        XCTAssertEqual(testObj.simplifyPath("/a/../../b/../c//.//"), "/c")
+        XCTAssertEqual(testObj.simplifyPath("/a//b////c/d//././/.."), "/a/b/c")
     }
 }

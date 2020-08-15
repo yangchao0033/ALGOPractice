@@ -8,7 +8,7 @@
 
 import Cocoa
 
-// swiftlint:disable file_length
+// swiftlint:disable file_length type_body_length
 class StackTags {
     /**
      *  20.有效的括号
@@ -27,6 +27,45 @@ class StackTags {
             }
         }
         return stack.isEmpty
+    }
+    
+    // swiftlint:disable identifier_name
+    /**
+     *  921. 使括号有效的最少添加
+     *  https://leetcode-cn.com/problems/minimum-add-to-make-parentheses-valid/
+     */
+    func minAddToMakeValid(_ S: String) -> Int {
+        // swiftlint:enable identifier_name
+        // 栈 O(n) O(n)
+//        var errCount = 0
+//        var stack = [Character]()
+//        for c in S {
+//            if c == "(" {
+//                stack.append(c)
+//            } else {
+//                guard let x = stack.popLast(), x == "(" else {
+//                    errCount += 1
+//                    continue
+//                }
+//            }
+//        }
+//        return errCount + stack.count
+        // 计算 O(n) O(1)
+        var hc = 0
+        var tc = 0
+        for c in S {
+            if c == "(" {
+                hc += 1
+            } else {
+                if hc > 0 {
+                    hc -= 1
+                } else {
+                    tc += 1
+                }
+            }
+        }
+        return hc + tc
+        // 不停替换 "()" 就不实现了，有点low
     }
     
     // swiftlint:disable identifier_name
@@ -205,6 +244,7 @@ class StackTags {
      */
     func removeOuterParentheses(_ S: String) -> String {
         // swiftlint:enable identifier_name
+        // 栈 O(n) O(n)
         var stack = [Character]()
         var res = [Character]()
         for char in S {
@@ -215,7 +255,7 @@ class StackTags {
                 }
             } else {
                 _ = stack.popLast()
-                if stack.count != 0 {
+                if !stack.isEmpty {
                     res.append(char)
                 }
             }
@@ -318,6 +358,76 @@ class StackTags {
         return ""
     }
     // swiftlint:enable identifier_name
+    
+    /**
+     *  394. 字符串解码
+     *  https://leetcode-cn.com/problems/decode-string/
+     */
+    func decodeString(_ s: String) -> String {
+        var stack = [(Int, String)]()
+        var res = ""
+        var muti = 0
+        for c in s {
+            switch c {
+            case "[":
+                stack.append((muti, res))
+                muti = 0
+                res = ""
+            case "]" :
+                if let (curMutil, lastRes) = stack.popLast() {
+                    res = lastRes + String(repeating: res, count: curMutil)
+                }
+            case let x where c.isWholeNumber:
+                muti = muti * 10 + x.wholeNumberValue!
+            default:
+                res.append(c)
+            }
+        }
+        return res
+    }
+    // swiftlint:disable identifier_name
+    /**
+     *  856. 括号的分数
+     *  https://leetcode-cn.com/problems/score-of-parentheses/
+     */
+    func scoreOfParentheses(_ S: String) -> Int {
+        // swiftlint:enable identifier_name
+        // 栈 O(n) O(n)
+//        var stack = [Int]()
+//        let flag = -1
+//        for c in S {
+//            if c == "(" {
+//                stack.append(flag)
+//            } else {
+//                if let top = stack.last, top == flag {
+//                    _ = stack.popLast()
+//                    stack.append(1)
+//                } else {
+//                    var temp = 0
+//                    while let a = stack.popLast(), a != flag {
+//                        temp += a
+//                    }
+//                    stack.append(temp * 2)
+//                }
+//            }
+//        }
+//        return stack.reduce(0, +)
+        // 算分 O(n) O(1)
+        var res = 0, bal = 0
+        let chars = Array(S)
+        for i in 0..<chars.count {
+            if chars[i] == "(" {
+                bal += 1
+            } else {
+                bal -= 1
+                if chars[i - 1] == "(" {
+                    res += 1 << bal
+                }
+            }
+        }
+        return res
+    }
+    
     // swiftlint:disable for_where
     /**
      *  735.行星碰撞
@@ -365,6 +475,23 @@ class StackTags {
         }
         // 当有新行星不会相撞时入栈，比如同向
         stack.append(star)
+    }
+    
+    /**
+     *  71. 简化路径
+     *  https://leetcode-cn.com/problems/simplify-path/
+     */
+    func simplifyPath(_ path: String) -> String {
+        var stack = [Substring]()
+        let paths = path.split(separator: "/")
+        for item in paths {
+            if item == ".." {
+                _ = stack.popLast()
+            } else if !item.isEmpty && item != "." {
+                stack.append(item)
+            }
+        }
+        return "/" + stack.joined(separator: "/")
     }
     
 }
@@ -525,4 +652,4 @@ class MinStack {
         return minStack.last ?? Int.min
     }
 }
-// swiftlint:enable file_length
+// swiftlint:enable file_length type_body_length
