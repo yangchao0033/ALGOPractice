@@ -49,7 +49,7 @@ class ClimbingStars {
 //        return climbHelper(n, &cache)
         // 解法三：动态规划
         // a. 辅助数组
-        //        if n == 1 || n == 2 {
+//        guard n != 1 && n != 2 else {
 //            return n
 //        }
 //        var array = [Int](repeating: 0, count: n + 1)
@@ -63,12 +63,9 @@ class ClimbingStars {
         guard n != 1 && n != 2 else { return n }
         var first = 1
         var second = 2
-        var three = 0
         for _ in 3...n {
-            three = first + second
-            first = second
-            second = three
+            (first, second) = (second, first + second) // 使用元组进行数值交换
         }
-        return three
+        return second
     }
 }

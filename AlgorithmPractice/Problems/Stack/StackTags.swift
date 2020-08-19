@@ -377,7 +377,7 @@ class StackTags {
                 if let (curMutil, lastRes) = stack.popLast() {
                     res = lastRes + String(repeating: res, count: curMutil)
                 }
-            case let x where c.isWholeNumber:
+            case let x where x.isWholeNumber:
                 muti = muti * 10 + x.wholeNumberValue!
             default:
                 res.append(c)
@@ -492,6 +492,33 @@ class StackTags {
             }
         }
         return "/" + stack.joined(separator: "/")
+    }
+    
+    /**
+     *  316. 去除重复字母
+     *  https://leetcode-cn.com/problems/remove-duplicate-letters/
+     */
+    func removeDuplicateLetters(_ s: String) -> String {
+        // 1. 对字符串进行遍历，并选择的入栈还是出栈
+        //      a. 如果栈里已经存在，则忽略（只存在一个元素）
+        //      b. 如果比栈顶元素字典序小，且栈顶元素在后面还出现过，则出栈
+        //      c. 否则，入栈
+        var stack = [Character]()
+        var lastAppearIndexArray = [Int](repeating: 0, count: 26)
+        let aAsciiValue = ("a" as Character).asciiValue!
+        for (i, c) in s.enumerated() { lastAppearIndexArray[Int(c.asciiValue! - aAsciiValue)] = i }
+        var set = [Bool](repeating: false, count: 26)
+        for (i, c) in s.enumerated() {
+            let curAsciiOffset = Int(c.asciiValue! - aAsciiValue)
+            guard !set[curAsciiOffset] else { continue }
+            while let top = stack.last, top > c, lastAppearIndexArray[Int(top.asciiValue! - aAsciiValue)] >= i {
+                let poped = stack.popLast()!
+                set[Int(poped.asciiValue! - aAsciiValue)] = false
+            }
+            stack.append(c)
+            set[curAsciiOffset] = true
+        }
+        return String(stack)
     }
     
 }

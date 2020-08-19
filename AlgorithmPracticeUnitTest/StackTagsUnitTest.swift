@@ -171,4 +171,9 @@ class StackTagsUnitTest: XCTestCase {
         XCTAssertEqual(testObj.simplifyPath("/a/../../b/../c//.//"), "/c")
         XCTAssertEqual(testObj.simplifyPath("/a//b////c/d//././/.."), "/a/b/c")
     }
+    
+    func testRemoveDuplicateLetters() {
+        XCTAssertEqual(testObj.removeDuplicateLetters("bcabc"), "abc")
+        XCTAssertEqual(testObj.removeDuplicateLetters("cbacdcbc"), "acdb")
+    }
 }
