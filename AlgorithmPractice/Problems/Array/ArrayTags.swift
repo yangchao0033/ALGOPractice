@@ -63,4 +63,32 @@ class ArrayTags: NSObject {
         return -1
     }
     
+    /**
+     *  118. 杨辉三角
+     *  https://leetcode-cn.com/problems/pascals-triangle/
+     */
+    func generate(_ numRows: Int) -> [[Int]] {
+        // 方法一：两层循环嵌套
+        var triangle = [[Int]]()
+        for rowIndex in 0..<numRows {
+            var row = [Int](repeating: 0, count: rowIndex + 1)
+            (row[0], row[row.count - 1]) = (1, 1)
+            for j in stride(from: 1, to: row.count - 1, by: 1) {
+                row[j] = triangle[rowIndex - 1][j - 1] + triangle[rowIndex - 1][j]
+            }
+            triangle.append(row)
+        }
+        return triangle
+        // 方法二：错位相加
+        guard numRows != 0 else {
+            return []
+        }
+        var res = [[1]]
+        while res.count < numRows {
+            let row = zip(res.last! + [0], [0] + res.last!).map { $0.0 + $0.1 }
+            res.append(row)
+        }
+        return res
+    }
+    
 }

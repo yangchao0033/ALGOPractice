@@ -27,6 +27,22 @@ class StackTags {
             }
         }
         return stack.isEmpty
+//        var stack: Stack<Character> = Stack()
+//        for char in s {
+//            switch char {
+//            case "(":
+//                stack.push(")")
+//            case "[":
+//                stack.push("]")
+//            case "{":
+//                stack.push("}")
+//            default:
+//                if char != stack.pop() {
+//                    return false
+//                }
+//            }
+//        }
+//        return stack.isEmpty
     }
     
     // swiftlint:disable identifier_name
