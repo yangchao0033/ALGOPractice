@@ -69,16 +69,16 @@ class ArrayTags: NSObject {
      */
     func generate(_ numRows: Int) -> [[Int]] {
         // 方法一：两层循环嵌套
-        var triangle = [[Int]]()
-        for rowIndex in 0..<numRows {
-            var row = [Int](repeating: 0, count: rowIndex + 1)
-            (row[0], row[row.count - 1]) = (1, 1)
-            for j in stride(from: 1, to: row.count - 1, by: 1) {
-                row[j] = triangle[rowIndex - 1][j - 1] + triangle[rowIndex - 1][j]
-            }
-            triangle.append(row)
-        }
-        return triangle
+//        var triangle = [[Int]]()
+//        for rowIndex in 0..<numRows {
+//            var row = [Int](repeating: 0, count: rowIndex + 1)
+//            (row[0], row[row.count - 1]) = (1, 1)
+//            for j in stride(from: 1, to: row.count - 1, by: 1) {
+//                row[j] = triangle[rowIndex - 1][j - 1] + triangle[rowIndex - 1][j]
+//            }
+//            triangle.append(row)
+//        }
+//        return triangle
         // 方法二：错位相加
         guard numRows != 0 else {
             return []

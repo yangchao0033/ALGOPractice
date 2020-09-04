@@ -12,42 +12,35 @@
 		<key>AlgorithmPracticeUnitTest.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>1</integer>
 		</dict>
 		<key>All in AlgorithmPracticeUnitTest.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>2</integer>
 		</dict>
-		<key>AlgorithmPracticeUnitTest.testValidateBinarySearchTree.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false />
-			<key>orderHint</key>
-			<integer>5</integer>
-		</dict>
-		<key>AlgorithmPracticeUnitTest.testConvertSortedArrayToBinarySearchTree.xcscheme</key>
+		<key>ArrayTagsUnitTest.testGenerate.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
-		<key>AlgorithmPracticeUnitTest.testSubtreeOfAnotherTree.xcscheme</key>
+		<key>ArrayTagsUnitTest.testMajorityElement.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
-		<key>AlgorithmPracticeUnitTest.testSameTree.xcscheme</key>
+		<key>TestDSString.testBruteForceStringSearch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
-		<key>AlgorithmPracticeUnitTest.testSqrtx.xcscheme</key>
+		<key>TestDSString.testRabinKarp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />

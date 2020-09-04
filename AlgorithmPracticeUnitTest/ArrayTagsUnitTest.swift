@@ -39,12 +39,7 @@ class ArrayTagsUnitTest: XCTestCase {
          [1, 4, 6, 4, 1]
         ]
         XCTAssertEqual(res, ans)
-        
-        let a = [1, 2]
-        let b = [2, 3]
-        let c = zip(a, b).flatMap { [$0.0 + $0.1] }
-        let d = zip(a, b).map { $0.0 + $0.1 }
-        print(c)
+
     }
 
 }
