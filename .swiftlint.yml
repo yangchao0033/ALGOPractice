@@ -1,3 +1,5 @@
+disabled_rules:
+  - for_where
 identifier_name:
   min_length:
     warning: 0

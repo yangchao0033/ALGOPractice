@@ -8,15 +8,6 @@
 
 import Cocoa
 
-class NTreeNode {
-    var val: Int
-    var children: [NTreeNode]
-    init(_ val: Int) {
-        self.val = val
-        children = []
-    }
-}
-
 class PostorderNTree {
     func postorderNTree(_ root: NTreeNode?) -> [Int] {
             // 递归
