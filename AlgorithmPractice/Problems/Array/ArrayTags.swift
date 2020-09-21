@@ -90,5 +90,127 @@ class ArrayTags: NSObject {
         }
         return res
     }
+    // 合并有序数组
+    func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
+        // 双指针
+        var l1 = m - 1
+        var l2 = n - 1
+        var l = m + n - 1
+        
+        while l1 >= 0 && l2 >= 0 {
+            if nums1[l1] > nums2[l2] {
+                nums1[l] = nums1[l1]
+                l1 -= 1
+            } else {
+                nums1[l] = nums2[l2]
+                l2 -= 1
+            }
+            l -= 1
+        }
+        if l2 >= 0 {
+            nums1.replaceSubrange(0..<l2 + 1, with: nums2[0..<l2 + 1])
+            /*
+            // 这里可以替换为 while 循环
+            while l2 >= 0 {
+                nums1[l2] = nums2[l2]
+                l2 -= 1
+            }
+             */
+        }
+    }
     
+    /*
+     二分查找数组中与目标元素相等的数
+     */
+    func search(_ nums: [Int], _ target: Int) -> Int {
+        var left = 0
+        var right = nums.count - 1
+        while left <= right {
+            let mid = left + (right - left) / 2
+            let p = nums[mid]
+            if p == target {
+                return mid
+            } else if p > target {
+                right = mid - 1
+            } else if p < target {
+                left = mid + 1
+            }
+        }
+        return -1
+    }
+    
+    // 找到两个排序数组的中位数
+    func findMedianSortedArrays(_ nums1: [Int], _ nums2: [Int]) -> Double {
+//        var nums1 = nums1
+//        func helper() {
+//            // 合并两个有序数组
+//            var l1 = nums1.count - 1
+//            var l2 = nums2.count - 1
+//            var l = nums1.count + nums2.count - 1
+//            nums1.append(contentsOf: [Int](repeating: 0, count: nums2.count))
+//            while l1 >= 0 && l2 >= 0 {
+//                if nums1[l1] > nums2[l2] {
+//                    nums1[l] = nums1[l1]
+//                    l1 -= 1
+//                } else {
+//                    nums1[l] = nums2[l2]
+//                    l2 -= 1
+//                }
+//                l -= 1
+//            }
+//            if l2 >= 0 {
+//                while l2 >= 0 {
+//                    nums1[l2] = nums2[l2]
+//                    l2 -= 1
+//                }
+//            }
+//        }
+//        helper()
+//        if nums1.isEmpty {
+//            return -1
+//        }
+//        if nums1.count % 2 == 1 {
+//            return Double(nums1[nums1.count / 2])
+//        } else {
+//            return Double(nums1[nums1.count / 2 - 1] + nums1[nums1.count / 2]) / 2
+//        }
+        let count1 = nums1.count, count2 = nums2.count
+        let totalCount = count1 + count2
+        if totalCount % 2 == 1 {
+            let mid = totalCount / 2
+            return Double(getKthElement(nums1, nums2, mid + 1))
+        } else {
+            let mid1 = totalCount / 2 - 1, mid2 = totalCount / 2
+            return Double(getKthElement(nums1, nums2, mid1 + 1) + getKthElement(nums1, nums2, mid2 + 1)) / 2
+        }
+    }
+    // 获取两个数组中第 K 小的数
+    func getKthElement(_ nums1: [Int], _ nums2: [Int], _ k: Int) -> Int {
+        var k = k
+        let count1 = nums1.count, count2 = nums2.count
+        var index1 = 0, index2 = 0
+        
+        while true {
+            if index1 == count1 {
+                return nums2[index2 + k - 1]
+            }
+            if index2 == count2 {
+                return nums1[index1 + k - 1]
+            }
+            if k == 1 {
+                return min(nums1[index1], nums2[index2])
+            }
+            let half = k / 2
+            let newIndex1 = min(index1 + half, count1) - 1
+            let newIndex2 = min(index2 + half, count2) - 1
+            let pivot1 = nums1[newIndex1], pivot2 = nums2[newIndex2]
+            if pivot1 <= pivot2 {
+                k -= newIndex1 - index1 + 1
+                index1 = newIndex1 + 1
+            } else {
+                k -= newIndex2 - index2 + 1
+                index2 = newIndex2 + 1
+            }
+        }
+    }
 }

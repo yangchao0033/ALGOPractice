@@ -41,5 +41,17 @@ class ArrayTagsUnitTest: XCTestCase {
         XCTAssertEqual(res, ans)
 
     }
+    
+    func testFindMedianSortedArrays() {
+        let res = arrayTags.findMedianSortedArrays([1, 3], [2])
+        XCTAssertEqual(res, 2)
+        
+        let res1 = arrayTags.findMedianSortedArrays([1, 2], [3, 4])
+        XCTAssertEqual(res1, 2.5)
+        
+        let res2 = arrayTags.findMedianSortedArrays([], [1])
+        XCTAssertEqual(res2, 1)
+
+    }
 
 }
