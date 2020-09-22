@@ -14,6 +14,7 @@
 		1724AA2B2518C277007B2C22 /* DynamicProgrammingTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724AA292518C277007B2C22 /* DynamicProgrammingTags.swift */; };
 		1724AA2E2518E63F007B2C22 /* MathTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724AA2D2518E63F007B2C22 /* MathTags.swift */; };
 		1724AA2F2518E63F007B2C22 /* MathTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724AA2D2518E63F007B2C22 /* MathTags.swift */; };
+		1724AA312518FBCF007B2C22 /* MathTagsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724AA302518FBCF007B2C22 /* MathTagsTest.swift */; };
 		174FF74424D1217100DD1ACB /* ArrayTagsUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174FF74324D1217100DD1ACB /* ArrayTagsUnitTest.swift */; };
 		174FF74624D12D6F00DD1ACB /* ArrayTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174FF74524D12D6F00DD1ACB /* ArrayTags.swift */; };
 		174FF74724D12E6200DD1ACB /* ArrayTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174FF74524D12D6F00DD1ACB /* ArrayTags.swift */; };
@@ -215,6 +216,7 @@
 		1724AA26251848F2007B2C22 /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
 		1724AA292518C277007B2C22 /* DynamicProgrammingTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicProgrammingTags.swift; sourceTree = "<group>"; };
 		1724AA2D2518E63F007B2C22 /* MathTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathTags.swift; sourceTree = "<group>"; };
+		1724AA302518FBCF007B2C22 /* MathTagsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathTagsTest.swift; sourceTree = "<group>"; };
 		172F93EE243C524000032DFE /* AlgorithmPractice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlgorithmPractice-Bridging-Header.h"; sourceTree = "<group>"; };
 		174FF74324D1217100DD1ACB /* ArrayTagsUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTagsUnitTest.swift; sourceTree = "<group>"; };
 		174FF74524D12D6F00DD1ACB /* ArrayTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTags.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				55772248F0DB694443F1706D /* DataStruct */,
 				17C097CD2503D48900D527A3 /* TreeTagTest.swift */,
 				17B1AE9D250CCF86000E2EAC /* GraphTagUnitTest.swift */,
+				1724AA302518FBCF007B2C22 /* MathTagsTest.swift */,
 			);
 			path = AlgorithmPracticeUnitTest;
 			sourceTree = "<group>";
@@ -1004,6 +1007,7 @@
 				17C097CB2503C1A000D527A3 /* NTreeNode.swift in Sources */,
 				17B77CE0250F7285009985F4 /* ALGOSort.swift in Sources */,
 				55772EA8C8D937C192DB3141 /* LengthOfLargestSubstring.swift in Sources */,
+				1724AA312518FBCF007B2C22 /* MathTagsTest.swift in Sources */,
 				5577269E8BC32DF84615C716 /* Sqrtx.swift in Sources */,
 				55772A462CAD8BC74176D3CB /* BracketsIsValid.swift in Sources */,
 				55772FBAFCD303B966B0AB30 /* CanJump.swift in Sources */,

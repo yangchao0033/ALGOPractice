@@ -32,4 +32,17 @@ class MaxWaterArea: NSObject {
         }
         return result
     }
+    func maxArea2(_ height: [Int]) -> Int {
+        var result = 0, leftBar = 0, rightBar = height.count - 1
+        while leftBar < rightBar {
+            let area = (rightBar - leftBar) * min(height[leftBar], height[rightBar])
+            result = max(result, area)
+            if height[leftBar] < height[rightBar] {
+                leftBar += 1
+            } else {
+                rightBar -= 1
+            }
+        }
+        return result
+    }
 }
