@@ -48,11 +48,11 @@ class DynamicProgrammingTags {
 //                    dp[i][j] = false
 //                } else {
 //                    dp[i][j] = j - i < 3 || dp[i + 1][j - 1] // 简化为 1 行，等同于下面 5 行
-////                    if j - 1 - (i + 1) + 1 < 2 { // 表示 j - 1 到 i + 1 之间没有字符或只有一个字符，则肯定是回文串
-////                        dp[i][j] = true
-////                    } else {
-////                        dp[i][j] = dp[i + 1][j - 1] // 状态转移，更里面的子串会优先计算出回文性质
-////                    }
+//                   if j - 1 - (i + 1) + 1 < 2 { // 表示 j - 1 到 i + 1 之间没有字符或只有一个字符，则肯定是回文串
+//                        dp[i][j] = true
+//                    } else {
+//                        dp[i][j] = dp[i + 1][j - 1] // 状态转移，更里面的子串会优先计算出回文性质
+//                    }
 //                }
 //                if dp[i][j] && j - i + 1 > maxLength { // 如果状态正确且长度大于原先的最大长度，则对 begin 和 maxLength 进行更新
 //                    maxLength = j - i + 1

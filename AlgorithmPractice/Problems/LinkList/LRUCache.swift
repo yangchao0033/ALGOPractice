@@ -9,60 +9,14 @@
 import Foundation
 
 class LRUCache {
-    // swiftlint:disable nesting
-    private class LRULinkedList {
-        class LRUListNode {
-            var key: Int = 0
-            var value: Int = 0
-            var next: LRUListNode?
-            weak var previous: LRUListNode?
-            
-            init(_ key: Int, _ value: Int) {
-                self.key = key
-                self.value = value
-            }
-            init() {}
-        }
-        let head = LRUListNode()
-        let tail = LRUListNode()
-        
-        init() {
-            self.head.next = self.tail
-            self.tail.previous = self.head
-        }
-        
-        func addNodeToHead(_ node: LRUListNode) {
-            node.next = head.next
-            node.previous = head
-            head.next?.previous = node
-            head.next = node
-        }
-        
-        private func removeNode(_ node: LRUListNode) {
-            node.next?.previous = node.previous
-            node.previous?.next = node.next
-        }
-        
-        func moveNodeToHead(_ node: LRUListNode) {
-            removeNode(node)
-            addNodeToHead(node)
-        }
-        
-        func removeTailNode() -> LRUListNode? {
-            let node = tail.previous!
-            guard node !== head else { return nil }
-            removeNode(node)
-            return node
-        }
-    }
-    
     private let capacity: Int
     private var size: Int = 0
-    private var cache: [Int: LRULinkedList.LRUListNode] = [:]
+    private var cache: [Int: LRUListNode]
     private var priority: LRULinkedList = LRULinkedList()
     
     init(_ capacity: Int) {
         self.capacity = capacity
+        self.cache = Dictionary(minimumCapacity: capacity)
     }
     
     func get(_ key: Int) -> Int {
@@ -75,17 +29,62 @@ class LRUCache {
         if let node = cache[key] {
             node.value = value
             priority.moveNodeToHead(node)
-        } else {
-            let newNode = LRULinkedList.LRUListNode(key, value)
-            cache[key] = newNode
-            size += 1
-            priority.addNodeToHead(newNode)
-            if size > capacity {
-                guard let tailNode = priority.removeTailNode() else { return }
-                size -= 1
-                cache.removeValue(forKey: tailNode.key)
-            }
+            return
         }
+        if cache.count == capacity {
+            guard let tailNode = priority.removeTailNode() else { return }
+            cache.removeValue(forKey: tailNode.key)
+        }
+        let newNode = LRUListNode(key, value)
+        cache[key] = newNode
+        priority.addNodeToHead(newNode)
+    }
+}
+
+private class LRULinkedList {
+    
+    private let head = LRUListNode()
+    private let tail = LRUListNode()
+    
+    init() {
+        self.head.next = self.tail
+        self.tail.previous = self.head
     }
     
+    func addNodeToHead(_ node: LRUListNode) {
+        node.next = head.next
+        node.previous = head
+        head.next?.previous = node
+        head.next = node
+    }
+    
+    func moveNodeToHead(_ node: LRUListNode) {
+        removeNode(node)
+        addNodeToHead(node)
+    }
+    
+    func removeTailNode() -> LRUListNode? {
+        guard let node = tail.previous else { return nil }
+        removeNode(node)
+        return node
+    }
+    
+    private func removeNode(_ node: LRUListNode) {
+        guard head.next !== tail else { return } // 判空
+        node.next?.previous = node.previous
+        node.previous?.next = node.next
+    }
+}
+
+class LRUListNode {
+    var key: Int = 0
+    var value: Int = 0
+    var next: LRUListNode?
+    weak var previous: LRUListNode?
+    
+    init(_ key: Int, _ value: Int) {
+        self.key = key
+        self.value = value
+    }
+    init() {}
 }

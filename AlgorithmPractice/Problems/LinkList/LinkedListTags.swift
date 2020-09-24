@@ -894,26 +894,20 @@ class LinkedListTags {
      *  https://leetcode-cn.com/problems/merge-two-sorted-lists/
      */
     func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
-        var l1 = l1
-        var l2 = l2
+        var l1 = l1, l2 = l2
         let dummy = ListNode(-1)
-        var tail: ListNode? = dummy
-        while tail != nil {
-            var minNode: ListNode? = l1
-            if let n1 = minNode, let n2 = l2, n2.val < n1.val {
-                minNode = l2
-            }
-            if minNode == nil {
-                minNode = l1 != nil ? l1 : l2
-            }
-            tail?.next = minNode
-            tail = tail?.next
-            if minNode === l1 {
+        var pre: ListNode? = dummy
+        while l1 != nil && l2 != nil {
+            if l1!.val < l2!.val {
+                pre?.next = l1
                 l1 = l1?.next
             } else {
+                pre?.next = l2
                 l2 = l2?.next
             }
+            pre = pre?.next
         }
+        pre?.next = l1 != nil ? l1 : l2
         return dummy.next
     }
     
