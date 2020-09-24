@@ -10,18 +10,14 @@ import Cocoa
 
 class RemoveDuplicates {
     func removeDuplicates(_ nums: inout [Int]) -> Int {
-        guard !nums.isEmpty else {
-            return 0
-        }
-        var p = 0
-        var q = 1
-        while q < nums.count {
-            if nums[p] != nums[q] {
-                    nums[p + 1] = nums[q]
-                    p += 1
+        guard nums.count > 1 else { return nums.count }
+        var slow = 0
+        for i in 0..<nums.count {
+            if nums[i] != nums[slow] {
+                slow += 1
+                nums[slow] = nums[i]
             }
-            q += 1
         }
-        return p + 1
+        return slow + 1
     }
 }

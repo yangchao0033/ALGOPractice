@@ -421,29 +421,17 @@ class LinkedListTags {
      */
     func removeDuplicateNodes(_ head: ListNode?) -> ListNode? {
         // 使用集合
-        var set: Set<Int> = []
+        var set = Set<Int>()
         var cur = head
-        while let curNode = cur, let next = curNode.next {
-            set.insert(curNode.val)
+        while let node = cur, let next = cur?.next {
+            set.insert(node.val)
             if set.contains(next.val) {
-                cur?.next = cur?.next?.next
+                node.next = next.next
             } else {
-                cur = cur?.next
+                cur = next
             }
         }
         return head
-        //        // 位运算
-        //        var bits = [Int](repeating: 0, count: 20000 / 32 + 1)
-        //        var cur = head
-        //        while let node = cur, let next = node.next {
-        //            bits[node.val / 32] |= 1 << (node.val % 32)
-        //            if (bits[next.val / 32] & (1 << (next.val % 32))) != 0 {
-        //                node.next = next.next
-        //            } else {
-        //                cur = next
-        //            }
-        //        }
-        //        return head
     }
     /**
      * https://leetcode-cn.com/problems/partition-list-lcci/
@@ -911,39 +899,73 @@ class LinkedListTags {
         return dummy.next
     }
     
+    func mergeTwoLists1(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        guard let l1 = l1 else { return l2 }
+        guard let l2 = l2 else { return l1 }
+        if l1.val < l2.val {
+            l1.next = mergeTwoLists1(l1.next, l2)
+            return l1
+        } else {
+            l2.next = mergeTwoLists1(l1, l2.next)
+            return l2
+        }
+    }
+    
     /**
      *  23. 合并 K 个排序链表
      *  https://leetcode-cn.com/problems/merge-k-sorted-lists/
      */
     func mergeKLists(_ lists: [ListNode?]) -> ListNode? {
-        let k = lists.count
         var lists = lists
         let dummy = ListNode(-1)
-        var trail: ListNode? = dummy
+        var cur: ListNode? = dummy
         while true {
             var minNode: ListNode?
-            var minPoint: Int?
-            for i in 0..<k {
-                guard let listHead = lists[i] else { continue }
-                if let minN = minNode {
-                    if listHead.val < minN.val {
-                        minNode = listHead
-                        minPoint = i
-                    }
-                } else {
-                    minNode = listHead
+            var minPoint = -1
+            for i in 0..<lists.count {
+                if lists[i] == nil {
+                    continue
+                }
+                if minNode == nil || lists[i]!.val < minNode!.val {
+                    minNode = lists[i]
                     minPoint = i
                 }
             }
-            guard let index = minPoint else {
+            if minPoint == -1 {
                 break
             }
-            trail?.next = minNode
-            trail = trail?.next
-            lists[index] = lists[index]?.next
+            cur?.next = minNode
+            cur = cur?.next
+            lists[minPoint] = lists[minPoint]?.next
         }
-        
         return dummy.next
+    }
+    
+    func mergeKLists1(_ lists: [ListNode?]) -> ListNode? {
+        func merge2List(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+            guard let l1 = l1 else { return l2 }
+            guard let l2 = l2 else { return l1 }
+            if l1.val < l2.val {
+                l1.next = merge2List(l1.next, l2)
+                return l1
+            } else {
+                l2.next = merge2List(l1, l2.next)
+                return l2
+            }
+        }
+        func mergeHelper(_ lists: [ListNode?], _ l: Int, _ r: Int) -> ListNode? {
+            if l == r {
+                return lists[l]
+            }
+            if l > r {
+                return nil
+            }
+            let mid = (l + r) >> 1
+            let l1 = mergeHelper(lists, l, mid)
+            let l2 = mergeHelper(lists, mid + 1, r)
+            return merge2List(l1, l2)
+        }
+        return mergeHelper(lists, 0, lists.count - 1)
     }
     
 }

@@ -213,4 +213,95 @@ class ArrayTags: NSObject {
             }
         }
     }
+    
+    func search1(_ nums: [Int], _ target: Int) -> Int {
+        guard nums.count > 0 else { return -1 }
+        var lb = 0, rb = nums.count - 1
+        while lb <= rb {
+            let mid = lb + (rb - lb) >> 1
+            if nums[mid] == target {
+                return mid
+            }
+            if nums[mid] >= nums[lb] {
+                // mid 在左边
+                if target >= nums[lb] && target < nums[mid] { // 在有序区间
+                    rb = mid - 1
+                } else {
+                    lb = mid + 1
+                }
+            } else {
+                // mid 在右边
+                if target > nums[mid] && target <= nums[rb] { // 在有序区间
+                    lb = mid + 1
+                } else {
+                    rb = mid - 1
+                }
+            }
+        }
+        return -1
+    }
+    
+    // 字符串相乘 https://leetcode-cn.com/problems/multiply-strings/
+    func multiply(_ num1: String, _ num2: String) -> String {
+        guard num1 != "0" && num2 != "0" else { return "0" }
+        let m = num1.count, n = num2.count
+        var res = [Int](repeating: 0, count: m + n)
+        let zeroAsc = ("0" as Character).asciiValue!
+        for (i, c1) in num1.enumerated().reversed() {
+            let n1 = Int(c1.asciiValue! - zeroAsc)
+            for (j, c2) in num2.enumerated().reversed() {
+                let n2 = Int(c2.asciiValue! - zeroAsc)
+                let sum = res[i + j + 1] + n1 * n2
+                res[i + j + 1] = sum % 10
+                res[i + j] += sum / 10
+            }
+        }
+        var s = ""
+        for i in 0..<res.count {
+            if i == 0 && res[i] == 0 {
+                continue
+            }
+            s.append(String(res[i]))
+        }
+        return s
+    }
+    // 字符串相加 https://leetcode-cn.com/problems/add-strings/
+    func addStrings(_ num1: String, _ num2: String) -> String {
+        let chars1 = [Character](num1), chars2 = [Character](num2)
+        var i = chars1.count - 1, j = chars2.count - 1, carry = 0
+        let zeroAsc = ("0" as Character).asciiValue!
+        var res = ""
+        while i >= 0 || j >= 0 || carry > 0 {
+            let n1 = i >= 0 ? Int(chars1[i].asciiValue! - zeroAsc) : 0
+            let n2 = j >= 0 ? Int(chars2[j].asciiValue! - zeroAsc) : 0
+            let sum = n1 + n2 + carry
+            res.append(String(sum % 10))
+            carry = sum / 10
+            i -= 1
+            j -= 1
+        }
+        return String(res.reversed())
+    }
+    
+    // 反转单词
+    func reverseWords(_ s: String) -> String {
+        var chars = [Character](s)
+        var i = 0
+        while i < chars.count {
+            let start = i
+            while i < chars.count && chars[i] != " " {
+                i += 1
+            }
+            var left = start, right = i - 1
+            while left < right {
+                chars.swapAt(left, right)
+                left += 1
+                right -= 1
+            }
+            while i < chars.count && chars[i] == " " {
+                i += 1
+            }
+        }
+        return String(chars)
+    }
 }

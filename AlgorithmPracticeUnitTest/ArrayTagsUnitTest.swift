@@ -53,5 +53,10 @@ class ArrayTagsUnitTest: XCTestCase {
         XCTAssertEqual(res2, 1)
 
     }
+    
+    func testMultiply() {
+        let s = arrayTags.multiply("123", "456")
+        XCTAssertEqual(s, "56088")
+    }
 
 }
