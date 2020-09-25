@@ -304,4 +304,33 @@ class ArrayTags: NSObject {
         }
         return String(chars)
     }
+    
+    // 最大子序和
+    func maxSubArray(_ nums: [Int]) -> Int {
+        // 动态规划.
+        // 计算前面的和与当前的位置的和，如果前面的和大于0则相加，否则，直接覆盖，并一边计算最大结果
+        guard nums.count > 0 else { return 0 }
+        var sum = 0, maxAns = nums[0]
+        for n in nums {
+            if sum > 0 {
+                sum += n
+            } else {
+                sum = n
+            }
+            maxAns = max(maxAns, sum)
+        }
+        return maxAns
+    }
+    
+    // 爬楼梯
+    func climbStairs(_ n: Int) -> Int {
+        guard n > 2 else { return n }
+        var first = 1
+        var second = 2
+        for _ in 3...n {
+            (first, second) = (second, first + second)
+        }
+        return second
+    }
+    
 }
