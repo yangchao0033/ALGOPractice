@@ -109,7 +109,6 @@ class ALGOSort {
      快速排序
      */
     func quickSort<T: Comparable>(_ a: inout [T], low: Int, high: Int) {
-        guard a.count > 1 else { return }
         guard low < high else { return }
         let p = partitionHelper(&a, low: low, high: high)
         quickSort(&a, low: low, high: p - 1)
@@ -117,6 +116,8 @@ class ALGOSort {
     }
     
     private func partitionHelper<T: Comparable>(_ a: inout [T], low: Int, high: Int) -> Int {
+        let x = Int.random(in: low...high)
+        a.swapAt(x, high)
         let pivot = a[high]
         
         var i = low
@@ -129,4 +130,70 @@ class ALGOSort {
         a.swapAt(i, high)
         return i
     }
+     
+    func findKthLargest(_ nums: [Int], _ k: Int) -> Int {
+        var nums = nums
+        var low = 0, high = nums.count - 1
+        let target = nums.count - k
+        while low < high {
+            let index = partitionHelper(&nums, low, high)
+            if index == target {
+                return nums[index]
+            } else if index < target {
+                low = index + 1
+            } else {
+                high = index - 1
+            }
+        }
+        return -1
+    }
+    
+    private func partitionHelper(_ a: inout [Int], _ low: Int, _ high: Int) -> Int {
+        let x = Int.random(in: low...high)
+        a.swapAt(x, high)
+        let pivot = a[high]
+        var i = low
+        for j in low..<high {
+            if a[j] < pivot {
+                a.swapAt(i, j)
+                i += 1
+            }
+        }
+        a.swapAt(i, high)
+        return i
+    }
+    
+    func getLeastNumbers(_ arr: [Int], _ k: Int) -> [Int] {
+        if k == 0 || arr.count == 0 {
+            return []
+        }
+        var arr = arr
+        return quickSearch(&arr, 0, arr.count - 1, k - 1)
+    }
+    
+    private func quickSearch(_ arr: inout [Int], _ low: Int, _ high: Int, _ target: Int) -> [Int] {
+        let p = getPartition(&arr, low, high)
+        if p == target {
+            return [Int](arr[...p])
+        }
+        return p > target ?
+        quickSearch(&arr, low, p - 1, target) :
+        quickSearch(&arr, p + 1, high, target)
+    }
+    
+    private func getPartition(_ arr: inout [Int], _ low: Int, _ high: Int) -> Int {
+        let x = Int.random(in: low...high)
+        arr.swapAt(x, high)
+        let pivot = arr[high]
+        var i = low
+        for j in low..<high {
+            if arr[j] < pivot {
+                arr.swapAt(i, j)
+                i += 1
+            }
+        }
+        arr.swapAt(i, high)
+        return i
+    }
+    
 }

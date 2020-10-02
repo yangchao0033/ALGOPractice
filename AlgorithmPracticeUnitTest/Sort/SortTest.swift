@@ -11,6 +11,14 @@ import XCTest
 class SortTest: XCTestCase {
 
     let testObj = ALGOSort()
+    var a1 = [Int]()
+    
+    override func setUpWithError() throws {
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+        for i in 0...10000 { // 大数测试专用
+            a1.append(i)
+        }
+    }
     
     func testBubbleSort() {
         let a1 = [1, 3, 5, 2, 4]
@@ -47,5 +55,15 @@ class SortTest: XCTestCase {
         testObj.quickSort(&a1, low: 0, high: a1.count - 1)
         XCTAssertEqual(a1, o1)
     }
-
+    
+    func testFindKthLargest() {
+        let r = testObj.findKthLargest(a1, 99)
+        XCTAssertEqual(r, 9902)
+    }
+    
+    func testGetLeastNumbers() {
+        let a = [3, 2, 1]
+        let r = testObj.getLeastNumbers(a, 2)
+        XCTAssert(r == [1, 2] || r == [2, 1])
+    }
 }

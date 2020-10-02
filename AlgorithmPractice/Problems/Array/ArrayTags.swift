@@ -333,4 +333,28 @@ class ArrayTags: NSObject {
         return second
     }
     
+    // 股票最大利益
+    func maxProfit(_ prices: [Int]) -> Int {
+        var minProfit = Int.max
+        var maxProfit = 0
+        for p in prices {
+            if p < minProfit {
+                minProfit = p
+            } else {
+                maxProfit = max(maxProfit, p - minProfit)
+            }
+        }
+        return maxProfit
+    }
+    
+    func maxProfit2(_ prices: [Int]) -> Int {
+        var maxProfit = 0
+        for i in 1..<prices.count {
+            if prices[i] > prices[i - 1] {
+                maxProfit += prices[i] - prices[i - 1]
+            }
+        }
+        return maxProfit
+    }
+    
 }
