@@ -75,4 +75,10 @@ class ArrayTagsUnitTest: XCTestCase {
         let res = arrayTags.merge(a1)
         print(res)
     }
+    
+    func testPermuteUnique() {
+        let a1 = [1, 2, 1]
+        let res = arrayTags.permuteUnique(a1)
+        print(res)
+    }
 }

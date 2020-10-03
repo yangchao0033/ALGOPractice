@@ -426,6 +426,45 @@ class ArrayTags: NSObject {
         return res
     }
     
+    func permuteUnique(_ nums: [Int]) -> [[Int]] {
+        var res = [[Int]]()
+        let nums = nums.sorted()
+        var visited = [Bool](repeating: false, count: nums.count)
+        func dfs(_ row: [Int]) {
+            if row.count == nums.count {
+                res.append(row)
+                return
+            }
+            for i in 0..<nums.count {
+                guard !visited[i] else { continue }
+                if i > 0 && nums[i - 1] == nums[i] && !visited[i - 1] {
+                    // 剪枝
+                    continue
+                }
+                visited[i] = true
+                dfs(row + [nums[i]])
+                visited[i] = false
+            }
+        }
+        dfs([Int]())
+        return res
+    }
+    
+    func findPeakElement(_ nums: [Int]) -> Int {
+        guard !nums.isEmpty else { return -1 }
+        var left = 0
+        var right = nums.count - 1
+        while left <= right {
+            let mid = left + (right - left) >> 1
+            if nums[mid] < nums[mid + 1] {
+                left = mid + 1
+            } else {
+                right = mid
+            }
+        }
+        return left
+    }
+    
 }
 
 class Interval {

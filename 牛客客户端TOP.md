@@ -1196,27 +1196,192 @@ func multiply(_ num1: String, _ num2: String) -> String {
     }
 ```
 
+#### [【牛客】有重复项数字的所有排列](https://www.nowcoder.com/practice/a43a2b986ef34843ac4fdd9159b69863?tpId=194&&tqId=35782&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
 
+```swift
+func permuteUnique(_ nums: [Int]) -> [[Int]] {
+        var res = [[Int]]()
+        let nums = nums.sorted()
+        var visited = [Bool](repeating: false, count: nums.count)
+        func dfs(_ row: [Int]) {
+            if row.count == nums.count {
+                res.append(row)
+                return
+            }
+            for i in 0..<nums.count {
+                guard !visited[i] else { continue }
+                if i > 0 && nums[i - 1] == nums[i] && !visited[i - 1] {
+                    // 剪枝
+                    continue
+                }
+                visited[i] = true
+                dfs(row + [nums[i]])
+                visited[i] = false
+            }
+        }
+        dfs([Int]())
+        return res
+    }
+```
 
-#### 有重复项数字的所有排列
+#### [剑指 Offer 15. 二进制中1的个数](https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/)
 
-##### 二进制中1的个数
+##### 解法一：常规移位 O(logn)
 
-##### 旋转数组
+```swift
+func hammingWeight(_ n: Int) -> Int {
+        var res = 0
+        var n = n
+        while n != 0 {
+            res += n & 1
+            n >>= 1
+        }
+        return res
+    }
+```
 
-##### 寻找峰值
+##### 解法二：技巧性 O(M) 
 
-有关阶乘的两个问题1
+> M 为 1 的个数
 
-正则表达式匹配
+```swift
+func hammingWeight(_ n: Int) -> Int {
+        var n = n
+        var res = 0
+        while n != 0 {
+            n &= n - 1
+            res += 1
+        }
+        return res
+    }
+```
 
-移动0
+#### [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/)
+
+```swift
+func rotate(_ nums: inout [Int], _ k: Int) {
+        guard k != 0 else { return }
+        let n = nums.count
+        let k = k % n
+        reverse(&nums, 0, n - 1)
+        reverse(&nums, 0, k - 1)
+        reverse(&nums, k, n - 1)
+    }
+
+    func reverse(_ a: inout [Int], _ left: Int, _ right: Int) {
+        var left = left
+        var right = right
+        while left < right {
+            a.swapAt(left, right)
+            left += 1
+            right -= 1
+        }
+    }
+```
+
+#### [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/)
+
+```swift
+func findPeakElement(_ nums: [Int]) -> Int {
+        guard !nums.isEmpty else { return -1 }
+        var left = 0
+        var right = nums.count - 1
+        while left < right {
+            let mid = left + (right - left) >> 1
+            if nums[mid] < nums[mid + 1] {
+                left = mid + 1
+            } else {
+                right = mid
+            }
+        }
+        return left
+    }
+```
+
+#### [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/)
+
+```swift
+func moveZeroes(_ nums: inout [Int]) {
+        var lastNonZero = 0
+        for index in 0..<nums.count {
+            if nums[index] != 0 {
+                if index != lastNonZero {
+                    nums.swapAt(lastNonZero, index)
+                }
+                lastNonZero += 1
+            }
+        }
+    }
+```
+
+#### [172. 阶乘后的零](https://leetcode-cn.com/problems/factorial-trailing-zeroes/)
+
+```swift
+func trailingZeroes(_ n: Int) -> Int {
+        var n = n
+        var res = 0
+        while n != 0 {
+            res += n / 5
+            n /= 5
+        }
+        return res
+    }
+```
 
 #### [容器盛水](https://www.nowcoder.com/practice/31c1aed01b394f0b8b7734de0324e00f?tpId=194&&tqId=35800&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
 
+##### 方法一：单调栈 O(n) : O(n)
+
+```swift
+func trap(_ heights: [Int]) -> Int {
+        var stack = [Int]()
+        var sumArea = 0
+        for i in 0..<heights.count {
+            // 单调递减栈
+            while let top = stack.last, heights[top] < heights[i] {
+                _ = stack.popLast()!
+                guard let leftBar = stack.last else { break }
+                let h = min(heights[leftBar], heights[i]) - heights[top]
+                let area =  h * (i - leftBar - 1)
+                sumArea += area
+            }
+            stack.append(i)
+        }
+        return sumArea
+    }
+```
+
+##### 方法二：双指针 O(n) : O(1)
+
+```swift
+func trap(_ heights: [Int]) -> Int {
+        var left = 0, right = heights.count - 1
+        var maxLeft = 0, maxRight = 0
+        var ans = 0
+        while left < right {
+            if heights[left] < heights[right] {
+                if heights[left] >= maxLeft {
+                    maxLeft = heights[left]
+                } else {
+                    ans += (maxLeft - heights[left])
+                }
+                left += 1
+            } else {
+                if heights[right] >= maxRight {
+                    maxRight = heights[right]
+                } else {
+                    ans += (maxRight - heights[right])
+                }
+                right -= 1
+            }
+        }       
+        return ans
+    }
+```
+
 #### [最长递增子序列](https://www.nowcoder.com/practice/9cf027bf54714ad889d4f30ff0ae5481?tpId=194&rp=1&ru=%2Fta%2Fjob-code-high-client&qru=%2Fta%2Fjob-code-high-client%2Fquestion-ranking)
 
-
+正则表达式匹配
 
 
 
