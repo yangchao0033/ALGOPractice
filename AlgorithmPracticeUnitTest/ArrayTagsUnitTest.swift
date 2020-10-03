@@ -58,5 +58,21 @@ class ArrayTagsUnitTest: XCTestCase {
         let s = arrayTags.multiply("123", "456")
         XCTAssertEqual(s, "56088")
     }
-
+    
+    func testMinNumberDisappeared() {
+        let res = arrayTags.minNumberDisappeared([-1, 2, 3, 4])
+        XCTAssertEqual(1, res)
+        
+        let res1 = arrayTags.minNumberDisappeared([1, 2, 3, 4])
+        XCTAssertEqual(5, res1)
+    }
+    
+    func testMerge() {
+        let a1 = [Interval(10, 30),
+                  Interval(20, 60),
+                  Interval(80, 100),
+                  Interval(150, 180)]
+        let res = arrayTags.merge(a1)
+        print(res)
+    }
 }

@@ -7,11 +7,7 @@
 //
 
 class Solution {
-    func isValid(_ s: String) -> Bool {
-        let map = ["{": "}", "[": "]", "(": ")"]
-        let chars = Array()
-    }
+    
 }
-
 
 print("All is well")

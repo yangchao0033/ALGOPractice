@@ -568,4 +568,37 @@ class TreeTags {
         }
         return max(minDepth(root.left), minDepth(root.right)) + 1
     }
+    
+    func sumNumbers(_ root: TreeNode?) -> Int {
+        var res = 0
+        func helper(_ r: TreeNode?, _ sum: Int) {
+            guard let r = r else { return }
+            if r.left == nil && r.right == nil {
+                res += (sum * 10 + r.val)
+            }
+            helper(r.left, sum * 10 + r.val)
+            helper(r.right, sum * 10 + r.val)
+        }
+        helper(root, 0)
+        return res
+    }
+    
+    var dic = [Int: Int]()
+    var po: [Int] = []
+    func buildTree(_ preorder: [Int], _ inorder: [Int]) -> TreeNode? {
+        po = preorder
+        for i in 0..<inorder.count {
+            dic[inorder[i]] = i
+        }
+        return recurHelper(0, 0, inorder.count - 1)
+    }
+    
+    func recurHelper(_ preRoot: Int, _ inLeft: Int, _ inRight: Int) -> TreeNode? {
+        if inLeft > inRight { return nil }
+        let root = TreeNode(po[preRoot])
+        let inRoot = dic[po[preRoot]]!
+        root.left = recurHelper(preRoot + 1, inLeft, inRoot - 1)
+        root.right = recurHelper(preRoot + 1 + inRoot - inLeft, inRoot + 1, inRight)
+        return root
+    }
 }

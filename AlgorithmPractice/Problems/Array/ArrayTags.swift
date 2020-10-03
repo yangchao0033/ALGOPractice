@@ -246,11 +246,10 @@ class ArrayTags: NSObject {
         guard num1 != "0" && num2 != "0" else { return "0" }
         let m = num1.count, n = num2.count
         var res = [Int](repeating: 0, count: m + n)
-        let zeroAsc = ("0" as Character).asciiValue!
         for (i, c1) in num1.enumerated().reversed() {
-            let n1 = Int(c1.asciiValue! - zeroAsc)
+            let n1 = c1.wholeNumberValue!
             for (j, c2) in num2.enumerated().reversed() {
-                let n2 = Int(c2.asciiValue! - zeroAsc)
+                let n2 = c2.wholeNumberValue!
                 let sum = res[i + j + 1] + n1 * n2
                 res[i + j + 1] = sum % 10
                 res[i + j] += sum / 10
@@ -357,4 +356,88 @@ class ArrayTags: NSObject {
         return maxProfit
     }
     
+    func spiralOrder(_ matrix: [[Int]]) -> [Int] {
+        var res = [Int]()
+        guard !matrix.isEmpty && !matrix[0].isEmpty else { return res }
+        let rows = matrix.count
+        let cols = matrix[0].count
+        var left = 0, right = cols - 1, top = 0, bottom = rows - 1
+        while left <= right && top <= bottom {
+            var col = left
+            while col <= right {
+                res.append(matrix[top][col])
+                col += 1
+            }
+            var row = top + 1
+            while row <= bottom {
+                res.append(matrix[row][right])
+                row += 1
+            }
+            if left < right && top < bottom {
+                col = right - 1
+                while col > left {
+                    res.append(matrix[bottom][col])
+                    col -= 1
+                }
+                row = bottom
+                while row > top {
+                    res.append(matrix[row][left])
+                    row -= 1
+                }
+            }
+            top += 1
+            bottom -= 1
+            left += 1
+            right -= 1
+        }
+        return res
+    }
+    
+    func minNumberDisappeared(_ arr: [Int]) -> Int {
+        var arr = arr
+        for i in 0..<arr.count {
+            let temp = arr[i]
+            if arr[i] > 0 && temp <= arr.count {
+                arr[i] = arr[temp - 1]
+                arr[temp - 1] = temp
+            }
+        }
+        for i in 0..<arr.count {
+            if arr[i] != i + 1 {
+                return i + 1
+            }
+        }
+        return arr.count + 1
+    }
+    
+    func merge(_ intervals: [Interval]) -> [Interval] {
+        var intervals = intervals
+        var res = [Interval]()
+        guard !intervals.isEmpty else { return res }
+        intervals.sort { $0.start < $1.start }
+        res.append(intervals[0])
+        for i in 0..<intervals.count {
+            if intervals[i].start <= res.last!.end {
+                res.last!.end = max(intervals[i].end, res.last!.end)
+            } else {
+                res.append(intervals[i])
+            }
+        }
+        return res
+    }
+    
 }
+
+class Interval {
+       var start: Int
+       var end: Int
+       init() {
+           start = 0
+           end = 0
+       }
+       init(_ s: Int, _ e: Int) {
+           start = s
+           end = e
+       }
+       
+   }

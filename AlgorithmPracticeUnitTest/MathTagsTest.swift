@@ -13,7 +13,7 @@ class MathTagsTest: XCTestCase {
     let testObj = MathTags()
     
     func testLongestCommonPrefix() {
-        let res = testObj.longestCommonPrefix(["dog"])
+        let res = testObj.longestCommonPrefix(["fldog", "flag", "fly"])
         XCTAssertEqual(res, "fl")
     }
     
