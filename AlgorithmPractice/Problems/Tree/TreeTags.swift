@@ -575,6 +575,7 @@ class TreeTags {
             guard let r = r else { return }
             if r.left == nil && r.right == nil {
                 res += (sum * 10 + r.val)
+                return
             }
             helper(r.left, sum * 10 + r.val)
             helper(r.right, sum * 10 + r.val)

@@ -252,7 +252,9 @@ func hasCycle(_ head: ListNode?) -> Bool {
     }
 ```
 
-#### [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
+#### [215. 数组中的第K个最大元素+1](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
+
+寻找第K大
 
 ```swift
 	func findKthLargest(_ nums: [Int], _ k: Int) -> Int {
@@ -290,7 +292,7 @@ func hasCycle(_ head: ListNode?) -> Bool {
     }
 ```
 
-#### [剑指 Offer 40. 最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/)
+#### [剑指 Offer 40. 最小的k个数+1](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/)
 
 ```swift
 	func getLeastNumbers(_ arr: [Int], _ k: Int) -> [Int] {
@@ -577,7 +579,7 @@ func lengthOfLongestSubstring(_ s: String) -> Int {
     }
 ```
 
-##### 方法二：使用 hash
+##### 方法二：使用 hash + 1
 
 ```swift
 func lengthOfLongestSubstring(_ s: String) -> Int {
@@ -686,7 +688,7 @@ func isValid(_ s: String) -> Bool {
     }
 ```
 
-#### [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+#### [23. 合并K个升序链表+1](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
 
 ##### 解法一：暴力法 O(NK)
 
@@ -722,6 +724,7 @@ func isValid(_ s: String) -> Bool {
     }
 
     func mergeHelper(_ lists: [ListNode?], _ low: Int, _ high: Int) -> ListNode? {
+	      // 一定记得边界返回条件
         guard low <= high else { return nil }
         if low == high {
             return lists[low]
@@ -907,16 +910,16 @@ func isPalindrome(_ head: ListNode?) -> Bool {
 
 
 
-#### [【牛客】数组中未出现最小正整数](https://www.nowcoder.com/practice/8cc4f31432724b1f88201f7b721aa391?tpId=194&&tqId=35799&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
+#### [【牛客】数组中未出现最小正整数+1](https://www.nowcoder.com/practice/8cc4f31432724b1f88201f7b721aa391?tpId=194&&tqId=35799&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
+
+> 通过移位，使正整数 x 都处在 x - 1下标的位置，方便统计谁没到
 
 ```swift
 	func minNumberDisappeared(_ arr: [Int]) -> Int {
         var arr = arr
         for i in 0..<arr.count {
-            let temp = arr[i]
-            if arr[i] > 0 && temp <= arr.count {
-                arr[i] = arr[temp - 1]
-                arr[temp - 1] = temp
+            if arr[i] > 0 && arr[i] <= arr.count {
+                arr.swapAt(arr[i] - 1, i)
             }
         }
         for i in 0..<arr.count {
@@ -983,7 +986,7 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
     }
 ```
 
-#### [剑指 Offer 50. 第一个只出现一次的字符](https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/)
+#### [剑指 Offer 50. 第一个只出现一次的字符+1](https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/)
 
 ```swift
 func firstUniqChar(_ s: String) -> Character {
@@ -1056,7 +1059,7 @@ func isBalanced(_ root: TreeNode?) -> Bool {
     }
 ```
 
-#### [113. 路径总和 II](https://leetcode-cn.com/problems/path-sum-ii/)
+#### [113. 路径总和 II+1](https://leetcode-cn.com/problems/path-sum-ii/)
 
 > 注意：此题目和牛客的条件不太一样
 
@@ -1077,7 +1080,7 @@ func pathSum(_ root: TreeNode?, _ sum: Int) -> [[Int]] {
     }
 ```
 
-#### [【牛客】二叉树根节点到所有叶子节点的所有路径和](https://www.nowcoder.com/practice/185a87cd29eb42049132aed873273e83?tpId=194&&tqId=35773&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
+#### [【牛客】二叉树根节点到所有叶子节点的所有路径和+1](https://www.nowcoder.com/practice/185a87cd29eb42049132aed873273e83?tpId=194&&tqId=35773&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
 
 ```swift
 	func sumNumbers(_ root: TreeNode?) -> Int {
@@ -1086,6 +1089,7 @@ func pathSum(_ root: TreeNode?, _ sum: Int) -> [[Int]] {
             guard let r = r else { return }
             if r.left == nil && r.right == nil {
                 res += (sum * 10 + r.val)
+	              return
             }
             helper(r.left, sum * 10 + r.val)
             helper(r.right, sum * 10 + r.val)
@@ -1099,15 +1103,22 @@ func pathSum(_ root: TreeNode?, _ sum: Int) -> [[Int]] {
 
 ```swift
 	func hasPathSum(_ root: TreeNode?, _ sum: Int) -> Bool {
-        guard let root = root else { return false }
-        if root.left == nil && root.right == nil {
-            return root.val == sum
+        var has = false
+        func dfs(_ r: TreeNode?,_ s: Int) {
+            guard let r = r, !has else { return }
+            if r.left == nil && r.right == nil && s == r.val {
+                has = true
+                return
+            }
+            dfs(r.left, s - r.val)
+            dfs(r.right, s - r.val)
         }
-        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val)
+        dfs(root, sum)
+        return has
     }
 ```
 
-#### [剑指 Offer 07. 重建二叉树](https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/)
+#### [剑指 Offer 07. 重建二叉树 + 1](https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/)
 
 ```swift
 func buildTree(_ preorder: [Int], _ inorder: [Int]) -> TreeNode? {
@@ -1121,7 +1132,7 @@ func buildTree(_ preorder: [Int], _ inorder: [Int]) -> TreeNode? {
             let root = TreeNode(preorder[preRoot])
             let mid = dict[preorder[preRoot]]!
             root.left = helper(preRoot + 1, inLeft, mid - 1)
-            root.right = helper(preRoot + 1 + mid - inLeft, mid + 1, inRight)
+            root.right = helper(preRoot + （mid - inLeft + 1）, mid + 1, inRight)
             return root
         }
         return helper(0, 0, inorder.count - 1)
@@ -1328,7 +1339,7 @@ func trailingZeroes(_ n: Int) -> Int {
     }
 ```
 
-#### [容器盛水](https://www.nowcoder.com/practice/31c1aed01b394f0b8b7734de0324e00f?tpId=194&&tqId=35800&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
+#### [容器盛水（接雨水）](https://www.nowcoder.com/practice/31c1aed01b394f0b8b7734de0324e00f?tpId=194&&tqId=35800&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
 
 ##### 方法一：单调栈 O(n) : O(n)
 
