@@ -62,8 +62,19 @@ class SortTest: XCTestCase {
     }
     
     func testGetLeastNumbers() {
-        let a = [3, 2, 1]
-        let r = testObj.getLeastNumbers(a, 2)
-        XCTAssert(r == [1, 2] || r == [2, 1])
+        let a = [0, 1, 2, 1]
+        let r = testObj.getLeastNumbers(a, 1)
+        XCTAssert(r == [0])
     }
+    
+    func testGetBiggestNumbers() {
+        var a = [Int]()
+        for i in 0..<100000000 {
+            a.append(i)
+        }
+        a.shuffle()
+        let r = testObj.getBiggestNumbers(a, 100)
+//        XCTAssertEqual(r, [99997, 99998, 99999])
+    }
+    
 }

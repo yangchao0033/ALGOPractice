@@ -31,9 +31,7 @@ class ALGOSort {
      插入排序
      */
     func insertSort<T: Comparable>(_ elements: [T]) -> [T] {
-        guard elements.count > 1 else {
-            return elements
-        }
+        guard elements.count > 1 else { return elements }
         var array = elements
         for i in 1..<array.count {
             var j = i
@@ -196,4 +194,34 @@ class ALGOSort {
         return i
     }
     
+    func getBiggestNumbers(_ arr: [Int], _ k: Int) -> [Int] {
+        guard !arr.isEmpty && k != 0 else { return [] }
+        var arr = arr
+        return quickSearch2(&arr, 0, arr.count - 1, arr.count - k)
+    }
+    
+    private func quickSearch2(_ nums: inout [Int], _ low: Int, _ high: Int, _ target: Int) -> [Int] {
+        let p = parHelper(&nums, low, high)
+        if p == target {
+            return Array(nums[p...])
+        }
+        return p < target ? quickSearch2(&nums, p + 1, high, target) : quickSearch2(&nums, low, p - 1, target)
+    }
+    
+    private func parHelper(_ nums: inout [Int], _ low: Int, _ high: Int) -> Int {
+        let temp = Int.random(in: low...high)
+        nums.swapAt(temp, low)
+        let pivot = nums[low]
+        var i = high
+        var j = high
+        while j > low {
+            if nums[j] > pivot {
+                nums.swapAt(j, i)
+                i -= 1
+            }
+            j -= 1
+        }
+        nums.swapAt(i, low)
+        return i
+    }
 }

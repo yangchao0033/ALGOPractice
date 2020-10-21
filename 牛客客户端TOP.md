@@ -950,7 +950,7 @@ func reverse(_ x: Int) -> Int {
   }
 ```
 
-#### [【牛客】二分查找](https://www.nowcoder.com/practice/7bc4a1c7c371425d9faa9d1b511fe193?tpId=194&&tqId=35807&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
+#### [【牛客】二分查找+1](https://www.nowcoder.com/practice/7bc4a1c7c371425d9faa9d1b511fe193?tpId=194&&tqId=35807&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
 
 > 此处需要注意和力扣二分查找的条件不同
 
@@ -1180,7 +1180,7 @@ func buildTree(_ preorder: [Int], _ inorder: [Int]) -> TreeNode? {
     }
 ```
 
-#### [43. 字符串相乘](https://leetcode-cn.com/problems/multiply-strings/)
+#### [43. 字符串相乘+1](https://leetcode-cn.com/problems/multiply-strings/)
 
 ```swift
 func multiply(_ num1: String, _ num2: String) -> String {
@@ -1290,7 +1290,7 @@ func rotate(_ nums: inout [Int], _ k: Int) {
     }
 ```
 
-#### [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/)
+#### [162. 寻找峰值+1](https://leetcode-cn.com/problems/find-peak-element/)
 
 ```swift
 func findPeakElement(_ nums: [Int]) -> Int {
@@ -1339,7 +1339,7 @@ func trailingZeroes(_ n: Int) -> Int {
     }
 ```
 
-#### [容器盛水（接雨水）](https://www.nowcoder.com/practice/31c1aed01b394f0b8b7734de0324e00f?tpId=194&&tqId=35800&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
+#### [容器盛水（接雨水）+1](https://www.nowcoder.com/practice/31c1aed01b394f0b8b7734de0324e00f?tpId=194&&tqId=35800&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
 
 ##### 方法一：单调栈 O(n) : O(n)
 
