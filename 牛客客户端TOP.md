@@ -1145,11 +1145,10 @@ func buildTree(_ preorder: [Int], _ inorder: [Int]) -> TreeNode? {
 	func merge(_ intervals: [[Int]]) -> [[Int]] {
         var res = [[Int]]()
         guard !intervals.isEmpty else { return res }
-        var intervals = intervals
-        intervals.sort { $0[0] < $1[0] }
+        let intervals = intervals.sorted() { $0[0] < $1[0] }
         res.append(intervals[0])
-        for i in 0..<intervals.count {
-            var lastIndex = res.count - 1
+        for i in 1..<intervals.count {
+            let lastIndex = res.count - 1
             if res[lastIndex][1] < intervals[i][0] {
                 res.append(intervals[i])
             } else {
@@ -1185,23 +1184,23 @@ func buildTree(_ preorder: [Int], _ inorder: [Int]) -> TreeNode? {
 ```swift
 func multiply(_ num1: String, _ num2: String) -> String {
         guard num1 != "0" && num2 != "0" else { return "0" }
-        let m = num1.count, n = num2.count
-        var res = [Int](repeating: 0, count: m + n)
-        for (i, c1) in num1.enumerated().reversed() {
-            let n1 = c1.wholeNumberValue!
-            for (j, c2) in num2.enumerated().reversed() {
-                let n2 = c2.wholeNumberValue!
+        var res = [Int](repeating: 0, count: num1.count + num2.count)
+        let chars1 = Array(num1)
+        let chars2 = Array(num2)
+        for i in (0..<chars1.count).reversed() {
+            for j in (0..<chars2.count).reversed() {
+                let n1 = chars1[i].wholeNumberValue!
+                let n2 = chars2[j].wholeNumberValue!
                 let sum = res[i + j + 1] + n1 * n2
                 res[i + j + 1] = sum % 10
                 res[i + j] += sum / 10
             }
         }
+
         var s = ""
         for i in 0..<res.count {
-            if i == 0 && res[i] == 0 {
-                continue
-            }
-            s.append(String(res[i]))
+            if i == 0 && res[i] == 0 { continue }
+            s += String(res[i])
         }
         return s
     }
