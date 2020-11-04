@@ -10,6 +10,7 @@ import Foundation
 
 class ALGOSort {
     /* 冒泡排序 */
+    /*
     public func bubbleSort<T: Comparable>(_ elements: [T]) -> [T] {
         guard elements.count > 1 else { return elements }
         var array = elements
@@ -27,9 +28,27 @@ class ALGOSort {
         }
         return array
     }
+ */
+    func bubbleSort(_ elements: [Int]) -> [Int] {
+        guard elements.count > 1 else { return elements }
+        var elements = elements
+        for i in 0..<elements.count {
+            var switchCheck = false
+            for j in 0..<elements.count - i - 1 {
+                if elements[j] > elements[j + 1] {
+                    switchCheck = true
+                    elements.swapAt(j, j + 1)
+                }
+                guard switchCheck else { break }
+            }
+        }
+        return elements
+    }
     /*
      插入排序
      */
+    
+    /*
     func insertSort<T: Comparable>(_ elements: [T]) -> [T] {
         guard elements.count > 1 else { return elements }
         var array = elements
@@ -44,9 +63,28 @@ class ALGOSort {
         }
         return array
     }
+ */
+
+    func insertSort(_ elements: [Int]) -> [Int] {
+        guard elements.count > 1 else { return elements }
+        var elements = elements
+        for i in 1..<elements.count {
+            var j = i
+            let temp = elements[j]
+            while j > 0 && temp < elements[j - 1] {
+                elements[j] = elements[j - 1]
+                j -= 1
+            }
+            elements[j] = temp
+        }
+        return elements
+    }
+    
     /*
      选择排序
      */
+    
+    /*
     func selectionSort<T: Comparable>(_ elements: [T]) -> [T] {
         guard elements.count > 1 else { return elements }
         var a = elements
@@ -59,6 +97,23 @@ class ALGOSort {
             }
             if x != lowest {
                 a.swapAt(x, lowest)
+            }
+        }
+        return a
+    }*/
+    
+    func selectionSort(_ elements: [Int]) -> [Int] {
+        guard elements.count > 1 else { return elements }
+        var a = elements
+        for i in 0..<a.count {
+            var lowest = i
+            for j in i + 1..<a.count {
+                if a[j] < a[lowest] {
+                    lowest = j
+                }
+            }
+            if i != lowest {
+                a.swapAt(i, lowest)
             }
         }
         return a

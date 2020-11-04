@@ -688,7 +688,7 @@ func isValid(_ s: String) -> Bool {
     }
 ```
 
-#### [23. 合并K个升序链表+1](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+#### [23. 合并K个升序链表+2](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
 
 ##### 解法一：暴力法 O(NK)
 
@@ -726,7 +726,7 @@ func isValid(_ s: String) -> Bool {
     func mergeHelper(_ lists: [ListNode?], _ low: Int, _ high: Int) -> ListNode? {
 	      // 一定记得边界返回条件
         guard low <= high else { return nil }
-        if low == high {
+        if low == high {// 记得返回头结点边界条件
             return lists[low]
         }
         let mid = low + (high - low) >> 1
@@ -950,7 +950,7 @@ func reverse(_ x: Int) -> Int {
   }
 ```
 
-#### [【牛客】二分查找+1](https://www.nowcoder.com/practice/7bc4a1c7c371425d9faa9d1b511fe193?tpId=194&&tqId=35807&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
+#### [【牛客】二分查找+2](https://www.nowcoder.com/practice/7bc4a1c7c371425d9faa9d1b511fe193?tpId=194&&tqId=35807&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
 
 > 此处需要注意和力扣二分查找的条件不同
 
@@ -1118,7 +1118,7 @@ func pathSum(_ root: TreeNode?, _ sum: Int) -> [[Int]] {
     }
 ```
 
-#### [剑指 Offer 07. 重建二叉树 + 1](https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/)
+#### [剑指 Offer 07. 重建二叉树 + 2](https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/)
 
 ```swift
 func buildTree(_ preorder: [Int], _ inorder: [Int]) -> TreeNode? {
@@ -1179,7 +1179,7 @@ func buildTree(_ preorder: [Int], _ inorder: [Int]) -> TreeNode? {
     }
 ```
 
-#### [43. 字符串相乘+1](https://leetcode-cn.com/problems/multiply-strings/)
+#### [43. 字符串相乘+2](https://leetcode-cn.com/problems/multiply-strings/)
 
 ```swift
 func multiply(_ num1: String, _ num2: String) -> String {
@@ -1206,7 +1206,7 @@ func multiply(_ num1: String, _ num2: String) -> String {
     }
 ```
 
-#### [【牛客】有重复项数字的所有排列](https://www.nowcoder.com/practice/a43a2b986ef34843ac4fdd9159b69863?tpId=194&&tqId=35782&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
+#### [【牛客】有重复项数字的所有排列+3](https://www.nowcoder.com/practice/a43a2b986ef34843ac4fdd9159b69863?tpId=194&&tqId=35782&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
 
 ```swift
 func permuteUnique(_ nums: [Int]) -> [[Int]] {
@@ -1338,7 +1338,7 @@ func trailingZeroes(_ n: Int) -> Int {
     }
 ```
 
-#### [容器盛水（接雨水）+1](https://www.nowcoder.com/practice/31c1aed01b394f0b8b7734de0324e00f?tpId=194&&tqId=35800&rp=1&ru=/ta/job-code-high-client&qru=/ta/job-code-high-client/question-ranking)
+#### [容器盛水（接雨水）+2](https://leetcode-cn.com/problems/trapping-rain-water/)
 
 ##### 方法一：单调栈 O(n) : O(n)
 
